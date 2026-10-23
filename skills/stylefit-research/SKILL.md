@@ -1,12 +1,12 @@
 ---
-name: ownvoice-research
+name: stylefit-research
 description: Draft or revise Chinese or English research prose from supplied sources, matching optional style samples while retaining evidence, units and uncertainty.
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.2.1"
 ---
 
-# OwnVoice Research
+# StyleFit-research
 
 Use the writing goal, supplied sources, optional draft and confirmed style samples/profile. Without a profile, use clear task-appropriate prose directly; do not load profile creation or invent personal habits.
 

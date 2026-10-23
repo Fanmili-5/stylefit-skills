@@ -23,10 +23,10 @@ class DistributionTests(unittest.TestCase):
     def test_collision_does_not_partially_install(self):
         module=self.installer()
         with tempfile.TemporaryDirectory() as folder:
-            conflict=Path(folder)/'ownvoice-research';conflict.mkdir()
+            conflict=Path(folder)/'stylefit-research';conflict.mkdir()
             (conflict/'SKILL.md').write_text('user content')
             with self.assertRaises(ValueError): module.install(folder)
-            self.assertEqual([p.name for p in Path(folder).iterdir()],['ownvoice-research'])
+            self.assertEqual([p.name for p in Path(folder).iterdir()],['stylefit-research'])
             self.assertEqual((conflict/'SKILL.md').read_text(),'user content')
 
 

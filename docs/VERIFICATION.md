@@ -3,13 +3,13 @@
 The helper runs locally without model calls. The recommended suite installer provides an isolated Python environment with `jsonschema==4.25.1` and its pinned dependencies. It does not change global Python or Codex settings.
 
 ```sh
-ownvoice verify --artifact draft.json --schema schema.json --constraints constraints.json --report checks.json
+stylefit verify --artifact draft.json --schema schema.json --constraints constraints.json --report checks.json
 ```
 
 Inside a copied/installed skill, use its launcher instead of requiring a global command:
 
 ```sh
-python3 path/to/ownvoice-email/scripts/verify.py --artifact draft.json --schema schema.json --constraints constraints.json --report checks.json
+python3 path/to/stylefit-email/scripts/verify.py --artifact draft.json --schema schema.json --constraints constraints.json --report checks.json
 ```
 
 The launcher accepts both the shorthand above and an explicit `verify` subcommand. If the managed helper is unavailable it exits 2 with `not_run`; it never silently marks the artifact verified. The helper never rewrites input, removes extra braces, renames keys or fills facts.

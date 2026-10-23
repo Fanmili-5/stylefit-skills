@@ -1,4 +1,0 @@
-interface:
-  display_name: "邮件表达与职责保留"
-  short_description: "按收件关系与提供的样例起草邮件，核对执行者、期限、背景信息与承诺"
-  default_prompt: "使用 $ownvoice-email 起草这封邮件，保留当前简报中的收件人、行动与期限；只生成草稿。"

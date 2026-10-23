@@ -47,7 +47,7 @@ def main():
     if args.rollback:result=rollback(destination,args.dry_run)
     elif args.uninstall:result=uninstall(destination,args.dry_run)
     else:
-        wheels=sorted((ROOT/'dist').glob('ownvoice_skills-'+__version__+'-*.whl'))
+        wheels=sorted((ROOT/'dist').glob('stylefit_skills-'+__version__+'-*.whl'))
         wheel=args.wheel or (wheels[0] if len(wheels)==1 else None)
         result=managed_install(ROOT,destination,__version__,wheel,args.with_tools,args.upgrade,args.dry_run,args.wheelhouse)
     import json

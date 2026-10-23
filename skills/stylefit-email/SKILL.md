@@ -1,12 +1,12 @@
 ---
-name: ownvoice-email
+name: stylefit-email
 description: Draft or revise Chinese or English email using the stated audience and optional style samples, preserving recipient-specific actions, dates and commitments. Produces drafts only.
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.2.1"
 ---
 
-# OwnVoice Email
+# StyleFit-email
 
 Use the communication goal, audience, current brief and optional draft/style samples/profile. Missing profiles do not require onboarding. If the relationship is unknown, use respectful neutral language without invented familiarity.
 

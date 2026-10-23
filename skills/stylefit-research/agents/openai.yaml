@@ -1,0 +1,4 @@
+interface:
+  display_name: "StyleFit-research"
+  short_description: "参考提供的样例整理科研文字，同时保留来源、单位、不确定性与证据范围"
+  default_prompt: "使用 $stylefit-research 整理这份科研文字，保留来源、数值与证据范围；仅参考我提供的风格材料。"

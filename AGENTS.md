@@ -1,4 +1,4 @@
-# OwnVoice development
+# StyleFit development
 Use Chinese with the project owner. Keep this project separate from coursework.
 Do not claim authorship detection, universal style matching, or behavioral equivalence from static checks.
 Profiles, raw runs, blind mappings and personal feedback stay under .local/ and are never published by default.

@@ -1,4 +1,0 @@
-interface:
-  display_name: "代码风格与行为检查"
-  short_description: "参考仓库或提供的样例整理代码，分别核对接口、执行结果与验证缺口"
-  default_prompt: "使用 $ownvoice-code 按当前任务和仓库约定整理代码，保留接口与行为；有样例时参考，无档案也可直接使用。"

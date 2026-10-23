@@ -11,7 +11,7 @@ from ownvoice.profile import load
 
 
 def main():
-    names = ['ownvoice-profile', 'ownvoice-code', 'ownvoice-research', 'ownvoice-email']
+    names = ['stylefit-profile', 'stylefit-code', 'stylefit-research', 'stylefit-email']
     for name in names:
         folder = ROOT / 'skills' / name
         text = (folder / 'SKILL.md').read_text()

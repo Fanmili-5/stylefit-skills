@@ -7,7 +7,7 @@ from .verification import ContractError, parse_json, verify
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(prog='ownvoice')
+    parser = argparse.ArgumentParser(prog='stylefit')
     commands = parser.add_subparsers(dest='command', required=True)
     check = commands.add_parser('verify')
     check.add_argument('--artifact', type=Path, required=True)

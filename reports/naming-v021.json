@@ -1,0 +1,205 @@
+{
+  "version": "0.2.1",
+  "scope": "Naming and managed-install migration; no new style-quality experiment.",
+  "release_gates_passed": true,
+  "product_hashes": {
+    "ownvoice/__init__.py": "3ee54d315c59c078c84232e4489815ec0bae5505f73dc032cf4161c0ebd7abf3",
+    "ownvoice/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "ownvoice/checks.py": "bcd9160922077eba7c5f26e5a50bbbd02210495cc9f842b9ae827bf0e1abc0bc",
+    "ownvoice/cli.py": "cb4a42873ab72b65850f5bac1e50b429056d2240272337f89efb73e81b1e041a",
+    "ownvoice/installation.py": "b211834aceaf200b0aa0d90b2fc37bb8e5ba42dfa1436c3ce9b2fdf21fac2153",
+    "ownvoice/profile.py": "c38dc781b3876f4895e04b5f85b0772a8bbad524afc0cef2c8f6cdffe6c45070",
+    "ownvoice/verification.py": "586d662d1bd59ccedab1d13496984f5c69baea8b86a8c8c8b512076badfcbdcd",
+    "pyproject.toml": "a909c9f7fca37168982e2fdd424736f5b5cda7e5c0386e0c6ebfbb05bafe2218",
+    "requirements-runtime.lock": "753d97623ce87348e30b5f8bd62e95a45cbe07b00f40716425f344a5cf65ef9d",
+    "scripts/install.py": "86e67b7e98a8806174440fbf27751011f194308bd191ee25f15688a6ce4c5706",
+    "skills/stylefit-code/SKILL.md": "5dc7f6b915a4ba91b60dc74820af4cca6f0543777b107bf76f74116f262eee2e",
+    "skills/stylefit-code/agents/openai.yaml": "e4946361cc3fada56d25534f8994aba697412858db725aada59916c34e14f6b4",
+    "skills/stylefit-code/references/contracts.md": "712bdd8be868df599ea7508670d2adfa352a5496cdb02fab421f283578208329",
+    "skills/stylefit-code/references/verification.md": "18a489d35bf2cb6367ec67c523019cd55ae97fb277d85dcdb16bb304b6085f59",
+    "skills/stylefit-code/scripts/check_python_pair.py": "2dec765334863ce6c06dd306bf841e0088297866ac3ede004ae654b517e4f954",
+    "skills/stylefit-code/scripts/verify.py": "4b3d275f5a5f827b804815b6ada6bb7d422c11c3efa1e53918d6eb8ad0e3698d",
+    "skills/stylefit-email/SKILL.md": "b9110921cd53e388d2b3edb23c75eab8650f413d0f3077708f2ea50110292dd8",
+    "skills/stylefit-email/agents/openai.yaml": "fdc366224a13b1e3bae2b6bc6241d66746c4ee91eeb2cca21ec51b03bdda57d3",
+    "skills/stylefit-email/references/verification.md": "18a489d35bf2cb6367ec67c523019cd55ae97fb277d85dcdb16bb304b6085f59",
+    "skills/stylefit-email/scripts/verify.py": "4b3d275f5a5f827b804815b6ada6bb7d422c11c3efa1e53918d6eb8ad0e3698d",
+    "skills/stylefit-profile/SKILL.md": "7359b773de1ec898c7533ec37bfd3342b9e4bd89c2b6d7946912e2ee0076e5db",
+    "skills/stylefit-profile/agents/openai.yaml": "49a41ae71e83dc0526041d7dc5126b732f524f71091fece8387867d210166774",
+    "skills/stylefit-profile/scripts/verify.py": "4b3d275f5a5f827b804815b6ada6bb7d422c11c3efa1e53918d6eb8ad0e3698d",
+    "skills/stylefit-research/SKILL.md": "c7b06f6a7451e17800b0597ce182d117fa1c0e1495f2880084e7cb77da6f5c1a",
+    "skills/stylefit-research/agents/openai.yaml": "bcb0ed44738082a2d2841a9428951ff6b8b28e90ea1d6a663491faa16aa7babf",
+    "skills/stylefit-research/references/claims.md": "2b65a5cf3f0cb07f8832042c0315b2a1dd997cca97b277aed0bade07d7759649",
+    "skills/stylefit-research/references/verification.md": "18a489d35bf2cb6367ec67c523019cd55ae97fb277d85dcdb16bb304b6085f59",
+    "skills/stylefit-research/scripts/verify.py": "4b3d275f5a5f827b804815b6ada6bb7d422c11c3efa1e53918d6eb8ad0e3698d",
+    "stylefit/__init__.py": "2fbaa370bc5960a8264e569f4b7239ad0a1974e54f072c25a1abf1a081b278ba",
+    "stylefit/__main__.py": "20ea849fafe17420b5ef4edc60ad259e8b9434750f3db8408551b9ea8aaa3a49"
+  },
+  "validation": {
+    "software_tests_passed": 58,
+    "static_skill_validations_passed": 4,
+    "distribution_checks_passed": 11,
+    "real_legacy_runtime_migration": {
+      "passed": true,
+      "from": "accepted 0.2.0 ZIP with real private runtime",
+      "to": "StyleFit 0.2.1",
+      "steps_passed": 12,
+      "old_to_new_aliases": true,
+      "rollback_restores_old_aliases_and_runtime": true,
+      "forward_restores_new_aliases_and_runtime": true,
+      "public_cli_stylefit_verified": true,
+      "public_python_module_stylefit_verified": true,
+      "uninstall_passed": true
+    },
+    "actual_user_install": {
+      "passed": true,
+      "config_unchanged": true,
+      "other_skills_unchanged": true,
+      "old_aliases_removed": true,
+      "new_aliases": [
+        "stylefit-code",
+        "stylefit-research",
+        "stylefit-email",
+        "stylefit-profile"
+      ],
+      "release": "0.2.1-9b3abd5f0d9e9b0f",
+      "previous_release": "0.2.0-03d2333b393925b8",
+      "public_cli_passed": true
+    },
+    "desktop_backend_discovery": {
+      "passed": true,
+      "skills": [
+        {
+          "name": "stylefit-code",
+          "display_name": "StyleFit-code",
+          "enabled": true
+        },
+        {
+          "name": "stylefit-email",
+          "display_name": "StyleFit-email",
+          "enabled": true
+        },
+        {
+          "name": "stylefit-profile",
+          "display_name": "StyleFit-profile",
+          "enabled": true
+        },
+        {
+          "name": "stylefit-research",
+          "display_name": "StyleFit-research",
+          "enabled": true
+        }
+      ]
+    },
+    "instruction_equivalence": {
+      "passed": true,
+      "baseline_version": "0.2.0",
+      "baseline_zip_sha256": "2c0abf855f50641d194df78e0b372bfd43ee6a2e5d93a81fc3472d89d180bac0",
+      "instruction_changes": "Only skill name, heading, metadata version, display name and default-prompt invocation identifier.",
+      "verification_core_unchanged": true,
+      "skill_files": [
+        {
+          "file": "skills/stylefit-code/SKILL.md",
+          "baseline_sha256": "ceb95bd306186e82104d746ad7acba680e3c639b9d2dfc1a99d4753c5e61aa5f",
+          "current_sha256": "5dc7f6b915a4ba91b60dc74820af4cca6f0543777b107bf76f74116f262eee2e"
+        },
+        {
+          "file": "skills/stylefit-code/agents/openai.yaml",
+          "baseline_sha256": "8f8ad1159960016244b734e07320153caab6699d9cb6f1e0105c31b564785e52",
+          "current_sha256": "e4946361cc3fada56d25534f8994aba697412858db725aada59916c34e14f6b4"
+        },
+        {
+          "file": "skills/stylefit-code/references/contracts.md",
+          "baseline_sha256": "712bdd8be868df599ea7508670d2adfa352a5496cdb02fab421f283578208329",
+          "current_sha256": "712bdd8be868df599ea7508670d2adfa352a5496cdb02fab421f283578208329"
+        },
+        {
+          "file": "skills/stylefit-code/references/verification.md",
+          "baseline_sha256": "18a489d35bf2cb6367ec67c523019cd55ae97fb277d85dcdb16bb304b6085f59",
+          "current_sha256": "18a489d35bf2cb6367ec67c523019cd55ae97fb277d85dcdb16bb304b6085f59"
+        },
+        {
+          "file": "skills/stylefit-code/scripts/check_python_pair.py",
+          "baseline_sha256": "2dec765334863ce6c06dd306bf841e0088297866ac3ede004ae654b517e4f954",
+          "current_sha256": "2dec765334863ce6c06dd306bf841e0088297866ac3ede004ae654b517e4f954"
+        },
+        {
+          "file": "skills/stylefit-code/scripts/verify.py",
+          "baseline_sha256": "4b3d275f5a5f827b804815b6ada6bb7d422c11c3efa1e53918d6eb8ad0e3698d",
+          "current_sha256": "4b3d275f5a5f827b804815b6ada6bb7d422c11c3efa1e53918d6eb8ad0e3698d"
+        },
+        {
+          "file": "skills/stylefit-email/SKILL.md",
+          "baseline_sha256": "7afcf61cd695830a555fffdf7039a7aab478300eb10c9bc69d447d98dade41b1",
+          "current_sha256": "b9110921cd53e388d2b3edb23c75eab8650f413d0f3077708f2ea50110292dd8"
+        },
+        {
+          "file": "skills/stylefit-email/agents/openai.yaml",
+          "baseline_sha256": "645352d41002ffcd3e80af272ab55b2911d8126d6fbfee2a72486162edd59bf2",
+          "current_sha256": "fdc366224a13b1e3bae2b6bc6241d66746c4ee91eeb2cca21ec51b03bdda57d3"
+        },
+        {
+          "file": "skills/stylefit-email/references/verification.md",
+          "baseline_sha256": "18a489d35bf2cb6367ec67c523019cd55ae97fb277d85dcdb16bb304b6085f59",
+          "current_sha256": "18a489d35bf2cb6367ec67c523019cd55ae97fb277d85dcdb16bb304b6085f59"
+        },
+        {
+          "file": "skills/stylefit-email/scripts/verify.py",
+          "baseline_sha256": "4b3d275f5a5f827b804815b6ada6bb7d422c11c3efa1e53918d6eb8ad0e3698d",
+          "current_sha256": "4b3d275f5a5f827b804815b6ada6bb7d422c11c3efa1e53918d6eb8ad0e3698d"
+        },
+        {
+          "file": "skills/stylefit-profile/SKILL.md",
+          "baseline_sha256": "f6aaafb637ddcfd7e3733de4a9959d58dfa30066019fe6fe8bd18b8eb203a4b6",
+          "current_sha256": "7359b773de1ec898c7533ec37bfd3342b9e4bd89c2b6d7946912e2ee0076e5db"
+        },
+        {
+          "file": "skills/stylefit-profile/agents/openai.yaml",
+          "baseline_sha256": "51cbb996c8b62bc121797dc9f2849e8ad0944c5afec95a795e95b8a9d81aff8d",
+          "current_sha256": "49a41ae71e83dc0526041d7dc5126b732f524f71091fece8387867d210166774"
+        },
+        {
+          "file": "skills/stylefit-profile/scripts/verify.py",
+          "baseline_sha256": "4b3d275f5a5f827b804815b6ada6bb7d422c11c3efa1e53918d6eb8ad0e3698d",
+          "current_sha256": "4b3d275f5a5f827b804815b6ada6bb7d422c11c3efa1e53918d6eb8ad0e3698d"
+        },
+        {
+          "file": "skills/stylefit-research/SKILL.md",
+          "baseline_sha256": "ce0fb644b320e53f16c11895374945731952e9ee0e47ba4c9adc4b5b26c97605",
+          "current_sha256": "c7b06f6a7451e17800b0597ce182d117fa1c0e1495f2880084e7cb77da6f5c1a"
+        },
+        {
+          "file": "skills/stylefit-research/agents/openai.yaml",
+          "baseline_sha256": "8a06df11f8b997684933de588ab18caa4799394796d56bc3131be3225bfabaa3",
+          "current_sha256": "bcb0ed44738082a2d2841a9428951ff6b8b28e90ea1d6a663491faa16aa7babf"
+        },
+        {
+          "file": "skills/stylefit-research/references/claims.md",
+          "baseline_sha256": "2b65a5cf3f0cb07f8832042c0315b2a1dd997cca97b277aed0bade07d7759649",
+          "current_sha256": "2b65a5cf3f0cb07f8832042c0315b2a1dd997cca97b277aed0bade07d7759649"
+        },
+        {
+          "file": "skills/stylefit-research/references/verification.md",
+          "baseline_sha256": "18a489d35bf2cb6367ec67c523019cd55ae97fb277d85dcdb16bb304b6085f59",
+          "current_sha256": "18a489d35bf2cb6367ec67c523019cd55ae97fb277d85dcdb16bb304b6085f59"
+        },
+        {
+          "file": "skills/stylefit-research/scripts/verify.py",
+          "baseline_sha256": "4b3d275f5a5f827b804815b6ada6bb7d422c11c3efa1e53918d6eb8ad0e3698d",
+          "current_sha256": "4b3d275f5a5f827b804815b6ada6bb7d422c11c3efa1e53918d6eb8ad0e3698d"
+        }
+      ],
+      "model_evaluation_rerun": false
+    }
+  },
+  "experiment_accounting": {
+    "additional_model_calls": 0,
+    "v02_cli_tasks_used": 117,
+    "v02_cli_task_cap": 120
+  },
+  "historical_evidence": "0.2.0 evaluation remains unchanged in reports/release-v02.json; its 12/12 contracts and 5/6 style pairs are not newly measured for 0.2.1.",
+  "limits": [
+    "Discovery was observed via the desktop-bundled backend, not a UI picker click.",
+    "No new model invocation, independent user preference study, or Claude invocation was performed.",
+    "Internal ownvoice Python modules and the .ownvoice store remain for implementation and rollback compatibility."
+  ]
+}

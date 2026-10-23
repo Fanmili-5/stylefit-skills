@@ -1,12 +1,12 @@
 ---
-name: ownvoice-code
+name: stylefit-code
 description: Generate or revise Python code using repository conventions or supplied style samples, preserving public interfaces and checking behavior. Use for coding-style adaptation and boilerplate cleanup.
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.2.1"
 ---
 
-# OwnVoice Code
+# StyleFit-code
 
 Use the task, repository conventions, optional draft and confirmed samples/profile. A missing profile is normal: work directly without a questionnaire, invented habits or loading the profile-building skill.
 

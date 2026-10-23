@@ -1,12 +1,12 @@
 ---
-name: ownvoice-profile
+name: stylefit-profile
 description: Create or update an optional reusable style profile when the user explicitly asks to build or save one. Separate code, research and email preferences by language.
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.2.1"
 ---
 
-# OwnVoice Profile
+# StyleFit-profile
 
 Use only when asked to create/update a reusable style profile. Ordinary code, research and email tasks work without it. Draft an editable profile first; save only on explicit request, to a user-chosen or local ignored path. Do not publish samples, profiles or private facts.
 

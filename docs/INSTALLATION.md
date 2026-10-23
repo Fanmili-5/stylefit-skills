@@ -37,3 +37,9 @@ Uninstall removes only the managed skill aliases. Cached releases remain for rec
 Each skill directory can also be copied to a compatible host and contains its own instructions, references and launcher. Install the Python wheel in that host's chosen Python environment if executable verification is wanted, or report checks as unavailable. Do not advertise full verification when only Markdown was copied.
 
 Claude receives the same portable directories, but actual Claude discovery and invocation are not part of the 0.2 Codex-first acceptance. No Claude model runs are used. macOS native Codex acceptance and Linux/macOS Python CI are different evidence layers; a configured CI matrix is not an executed remote CI result.
+
+## Naming migration in 0.2.1
+
+Use `$stylefit-code`, `$stylefit-research`, `$stylefit-email` and `$stylefit-profile`. Display names are `StyleFit-code`, `StyleFit-research`, `StyleFit-email` and `StyleFit-profile`. The distribution is `stylefit-skills` and the helper is `stylefit verify` / `python -m stylefit verify`.
+
+Run the **new bundle’s** installer with `--upgrade` to migrate a managed 0.2.0 installation. It replaces the four old `ownvoice-*` aliases only after the new runtime is ready. Run the new installer with `--rollback` to restore the previous runtime and its corresponding names. The internal `.ownvoice` release store and ownership marker are retained so existing absolute runtime paths and rollback remain valid. They are implementation details, not skill names. Unrelated directories and edited installed skills are refused and preserved.
