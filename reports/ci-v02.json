@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-23",
+  "repository": "https://github.com/Fanmili-5/ownvoice-skills",
+  "repository_visibility_at_validation": "private",
+  "run_id": 39924987495,
+  "run_url": "https://github.com/Fanmili-5/ownvoice-skills/actions/runs/39924987495",
+  "head_sha": "97aebf80990eb40404c084e60e823956a3c64d3a",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "validate (3.12, ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Fanmili-5/ownvoice-skills/actions/runs/39924987495/job/120319058151",
+      "started_at": "2026-10-23T08:29:25Z",
+      "completed_at": "2026-10-23T08:29:49Z"
+    },
+    {
+      "name": "validate (3.9, ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Fanmili-5/ownvoice-skills/actions/runs/39924987495/job/120319058357",
+      "started_at": "2026-10-23T08:29:25Z",
+      "completed_at": "2026-10-23T08:30:01Z"
+    },
+    {
+      "name": "validate (3.12, macos-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Fanmili-5/ownvoice-skills/actions/runs/39924987495/job/120319058418",
+      "started_at": "2026-10-23T08:29:25Z",
+      "completed_at": "2026-10-23T08:29:42Z"
+    },
+    {
+      "name": "validate (3.9, macos-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Fanmili-5/ownvoice-skills/actions/runs/39924987495/job/120319058488",
+      "started_at": "2026-10-23T08:29:25Z",
+      "completed_at": "2026-10-23T08:30:03Z"
+    }
+  ],
+  "software_tests_per_job": 54,
+  "distribution_install_checks_per_job": 11,
+  "manifest_files_at_this_commit": 128,
+  "model_calls": 0,
+  "source_manifest_sha256": "f8ae9a7508ada3bb46951f8bfaf4a7c1f052fb49b6ea4b0b2a107f63c2ae8d4b",
+  "scope": "First frozen software candidate. Later receipt/documentation-only changes are rerun on the final branch; final release notes link that exact final commit and run. This CI validates software and distribution, not generated-output quality or Claude."
+}

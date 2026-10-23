@@ -57,6 +57,8 @@
     "pyproject.toml",
     "release-files.json",
     "reports/README.md",
+    "reports/ci-v02.json",
+    "reports/ci-v02.md",
     "reports/email-v011.json",
     "reports/general-v1.json",
     "reports/general-v1.md",

@@ -12,7 +12,6 @@
     "passed": true
   },
   "existing_user_skills_unchanged": 32,
-  "codex_config_unchanged": true,
   "initial_integration_cases": {
     "total": 6,
     "mechanical_passes": 6,
@@ -46,12 +45,28 @@
     "all normal user skills discoverable"
   ],
   "not_verified": [
-    "Desktop UI picker clicks",
+    "Desktop UI picker clicks: Computer Use disallows access to Codex itself",
     "Claude model discovery/invocation",
     "Independent human preferences"
   ],
   "remote_ci": {
-    "status": "not_run"
+    "status": "passed",
+    "jobs": 4,
+    "run_url": "https://github.com/Fanmili-5/ownvoice-skills/actions/runs/39924987495",
+    "head_sha": "97aebf80990eb40404c084e60e823956a3c64d3a"
   },
-  "scope": "User-installed skills, desktop-bundled backend and observed tools/artifacts. No new held-out quality study; original held-out answers/scores unchanged."
+  "scope": "User-installed skills, desktop-bundled backend and observed tools/artifacts. No new held-out quality study; original held-out answers/scores unchanged.",
+  "codex_config_unchanged_at_install": true,
+  "codex_config_unchanged_by_idempotent_reinstall": true,
+  "host_config_change_between_checks": {
+    "detected": true,
+    "difference": "One test-workspace trust_level=trusted block only",
+    "only_test_entry_removed": true,
+    "original_configuration_byte_exact_restored": true,
+    "model_and_connection_settings_unchanged": true
+  },
+  "legacy_skill_scan_warning": {
+    "present_in_cli_stderr": true,
+    "scope": "Legacy .codex/skills traversal limit; all four OwnVoice skills were discovered and called; legacy skill contents unchanged."
+  }
 }

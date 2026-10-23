@@ -12,7 +12,7 @@ The suite includes an offline `ownvoice verify` helper and a managed installer w
 - Actual user installation: all four skills discovered by the desktop-bundled backend, six integration cases pass mechanical checks, and one ambiguous email deadline is corrected in one feedback revision.
 - Original scores, negative results and post-hoc flag-validity audit are retained. Plain prompts and full checklists also pass all final held-out contracts; no universal superiority is established.
 
-See [evaluation](../reports/release-v02.md) and [user-install validation](../reports/user-install-v02.md). Remote CI status must be checked separately before public release. The Linux/macOS × Python 3.9/3.12 workflow performs no model calls. Claude host invocation and independent human preference testing remain unverified.
+See [evaluation](../reports/release-v02.md), [user-install validation](../reports/user-install-v02.md), and the [four-job remote CI receipt](../reports/ci-v02.md). The Linux/macOS × Python 3.9/3.12 workflow has actually passed and performs no model calls. Final release notes identify the exact final candidate commit and its CI run. Claude host invocation and independent human preference testing remain unverified.
 
 ## Install
 
