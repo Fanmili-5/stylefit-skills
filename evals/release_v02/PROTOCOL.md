@@ -1,0 +1,15 @@
+# OwnVoice 0.2 release protocol
+
+Owner approved implementation and 120 additional CLI tasks on 2026-10-23. Baseline ledger 239; independent ownvoice-v02 cap 120; lifetime maximum 359. Preserve all history. Every model generation, revision, review, native-host job, failure and retry explicitly requests gpt-6-luna with medium reasoning. Never fall back. CLI tasks are the accounting unit; internal model/tool events and usage are reported separately when available.
+
+Allocation ceilings: preflight 2, development 18 (3 tasks x 3 arms x 2 turns), targeted post-development smoke 6, held-out 72 (6 tasks x 2 style sets x 3 arms x 2 turns), blinded review 9, native Codex 8, transport/necessary retries 5. Unused allocations are not a requirement to spend. No content rerolls after final scoring.
+
+Freeze cases, schemas, typed fact contracts, scoring code, baselines and runner before development. All cases are synthetic, with unrelated confirmed style samples. Public task requirements fully specify the required nested output shape and action codes. Free-form dates are not scored by literal ISO substring. A candidate-extracted ledger is never its own gold reference. Validate references and seeded faults offline first.
+
+Three arms: task only; task with an equivalent complete checklist; task with the domain skill and relevant references. No profile-building skill is concatenated into ordinary tasks. Shared schemas use Codex --output-schema. Each arm has one initial response, the same deterministic feedback and one revision, even if the first response passed. Report initial and final checks separately. Native tools are disabled for the text-only comparison, so deterministic feedback is supplied by the harness; native installation/reading/script execution are tested separately with enabled local tools.
+
+After development review, at most one evidence-grounded candidate correction plus up to six targeted smoke calls is allowed. Freeze the final candidate before the six fresh held-out task pairs. Do not inspect held-out outputs during generation or tune on them. Keep initial candidates and failure records. Blinded Luna review receives raw task/source/sample packets and anonymized final artifacts, never arm labels or intended rankings. Paired output/sample matching is distinct from human preference. Same-model review is not independent human evidence.
+
+Release gates: all 12 OwnVoice held-out artifacts pass explicit structure and core facts/finite code behavior; no unresolved material source errors; at least five of six OwnVoice output pairs match the corresponding style sets with at least one success per domain; all eight native Codex jobs pass artifact and observable skill/helper execution checks. A failed gate keeps the candidate designation. Do not weaken a gate or retune on held-out cases.
+
+Raw artifacts, maps, local review data and auth-related metadata stay under ignored .local/. Public exports contain synthetic aggregate results only. No GitHub publication without a concrete approved release candidate.

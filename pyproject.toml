@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools==80.9.0", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ownvoice-skills"
+version = "0.2.0"
+description = "Personal style skills with explicit content and behavior checks"
+requires-python = ">=3.9"
+license = "MIT"
+dependencies = ["jsonschema==4.25.1"]
+
+[project.scripts]
+ownvoice = "ownvoice.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ownvoice*"]

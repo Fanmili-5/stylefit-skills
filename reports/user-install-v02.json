@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-23",
+  "product_version": "0.2.0",
+  "installed_release_identity": "0.2.0-03d2333b393925b8",
+  "desktop_bundled_backend": "codex-cli 0.163.0-alpha.11.1",
+  "user_discovery": {
+    "skills": 4,
+    "enabled": 4,
+    "scope": "user",
+    "errors": 0,
+    "passed": true
+  },
+  "existing_user_skills_unchanged": 32,
+  "codex_config_unchanged": true,
+  "initial_integration_cases": {
+    "total": 6,
+    "mechanical_passes": 6,
+    "cases": [
+      "explicit-code",
+      "explicit-research",
+      "explicit-email",
+      "explicit-profile",
+      "implicit-research",
+      "negative"
+    ]
+  },
+  "body_review": {
+    "initial_email_wording_issues": 1,
+    "feedback_revisions": 1,
+    "unresolved_issues": 0,
+    "reviewer": "primary implementation agent; not independent human review"
+  },
+  "revision_skill_read_scope": "The revision read the installed domain verification reference and executed its installed helper; full SKILL.md read was observed in the initial task. The strict repeat-read assessment is preserved separately.",
+  "installed_verifier_controls": {
+    "correct_artifact_passed": true,
+    "wrong_field_rejected": true
+  },
+  "additional_luna_cli_jobs": 7,
+  "new_cli_tasks": 117,
+  "new_cli_task_cap": 120,
+  "lifetime_cli_tasks": 356,
+  "integration_overrides": [
+    "plugins/apps/hooks/computer_use/web disabled",
+    "Luna medium explicit",
+    "all normal user skills discoverable"
+  ],
+  "not_verified": [
+    "Desktop UI picker clicks",
+    "Claude model discovery/invocation",
+    "Independent human preferences"
+  ],
+  "remote_ci": {
+    "status": "not_run"
+  },
+  "scope": "User-installed skills, desktop-bundled backend and observed tools/artifacts. No new held-out quality study; original held-out answers/scores unchanged."
+}

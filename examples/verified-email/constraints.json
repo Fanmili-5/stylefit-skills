@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "assertions": [
+    {"op": "equal", "path": "/ledger/to", "expected": ["Alex"]},
+    {"op": "equal", "path": "/ledger/actor", "expected": "Alex"},
+    {"op": "equal", "path": "/ledger/action", "expected": "confirm_availability"},
+    {"op": "date", "path": "/ledger/reply_deadline", "expected": "2027-03-15", "formats": ["%Y-%m-%d", "%Y 年 %m 月 %d 日"]},
+    {"op": "equal", "path": "/ledger/review_deadline", "expected": null},
+    {"op": "equal", "path": "/ledger/amount", "expected": 320},
+    {"op": "equal", "path": "/ledger/currency", "expected": "CNY"},
+    {"op": "equal", "path": "/ledger/payment_date", "expected": null},
+    {"op": "contains", "path": "/artifact", "value": "NOTE-Q31"}
+  ],
+  "semantic_review": {"required": false, "status": "not_run"}
+}

@@ -1,0 +1,1026 @@
+{
+  "pilot": [
+    {
+      "id": "pilot-code-zh",
+      "domain": "code",
+      "language": "zh",
+      "mode": "rewrite",
+      "packet": "Return sum of values strictly greater than zero. Empty returns 0; no mutation.",
+      "source": "def positive_total(values):\n    # Initialize the total\n    positive_value_total = 0\n    for value in values:\n        if value > 0:\n            positive_value_total += value\n    return positive_value_total\n",
+      "function": "positive_total",
+      "parameters": [
+        "values"
+      ],
+      "tests": [
+        {
+          "args": [
+            [
+              -2,
+              0,
+              3,
+              7
+            ]
+          ],
+          "expected": 10
+        },
+        {
+          "args": [
+            []
+          ],
+          "expected": 0
+        },
+        {
+          "kwargs": {
+            "values": [
+              0
+            ]
+          },
+          "expected": 0
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "pilot-research-zh",
+      "domain": "research",
+      "language": "zh",
+      "mode": "rewrite",
+      "packet": "Synthetic pilot: sample size 25, observed gain 2 percentage points [P1]. Independent validation is necessary.",
+      "source": "In 25 samples we observed a 2-point gain [P1]. Independent validation is necessary.",
+      "protected": [
+        "25",
+        "2",
+        "[P1]"
+      ],
+      "required_any": [
+        [
+          "independent",
+          "独立"
+        ]
+      ],
+      "forbidden": [],
+      "synthetic": true
+    },
+    {
+      "id": "pilot-email-zh",
+      "domain": "email",
+      "language": "zh",
+      "mode": "generate",
+      "packet": "Synthetic pilot. Ask Dana for the agenda by 2026-11-03. Do not promise attendance.",
+      "source": null,
+      "protected": [
+        "Dana",
+        "2026-11-03"
+      ],
+      "required_any": [],
+      "forbidden": [],
+      "synthetic": true
+    },
+    {
+      "id": "pilot-code-en",
+      "domain": "code",
+      "language": "en",
+      "mode": "rewrite",
+      "packet": "Return sum of values strictly greater than zero. Empty returns 0; no mutation.",
+      "source": "def positive_total(values):\n    # Initialize the total\n    positive_value_total = 0\n    for value in values:\n        if value > 0:\n            positive_value_total += value\n    return positive_value_total\n",
+      "function": "positive_total",
+      "parameters": [
+        "values"
+      ],
+      "tests": [
+        {
+          "args": [
+            [
+              -2,
+              0,
+              3,
+              7
+            ]
+          ],
+          "expected": 10
+        },
+        {
+          "args": [
+            []
+          ],
+          "expected": 0
+        },
+        {
+          "kwargs": {
+            "values": [
+              0
+            ]
+          },
+          "expected": 0
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "pilot-research-en",
+      "domain": "research",
+      "language": "en",
+      "mode": "rewrite",
+      "packet": "Synthetic pilot: sample size 25, observed gain 2 percentage points [P1]. Independent validation is necessary.",
+      "source": "In 25 samples we observed a 2-point gain [P1]. Independent validation is necessary.",
+      "protected": [
+        "25",
+        "2",
+        "[P1]"
+      ],
+      "required_any": [
+        [
+          "independent",
+          "独立"
+        ]
+      ],
+      "forbidden": [],
+      "synthetic": true
+    },
+    {
+      "id": "pilot-email-en",
+      "domain": "email",
+      "language": "en",
+      "mode": "generate",
+      "packet": "Synthetic pilot. Ask Dana for the agenda by 2026-11-03. Do not promise attendance.",
+      "source": null,
+      "protected": [
+        "Dana",
+        "2026-11-03"
+      ],
+      "required_any": [],
+      "forbidden": [],
+      "synthetic": true
+    }
+  ],
+  "main": [
+    {
+      "id": "main-code-zh-0",
+      "domain": "code",
+      "language": "zh",
+      "mode": "rewrite",
+      "packet": "Return records whose active field equals True (not general truthiness), in original order. None returns []. Do not mutate records.",
+      "source": "def select_active(records):\n    # Initialize result\n    selected_records = []\n    if records is None:\n        return selected_records\n    for record in records:\n        if record.get(\"active\") == True:\n            selected_records.append(record)\n    return selected_records\n",
+      "function": "select_active",
+      "parameters": [
+        "records"
+      ],
+      "tests": [
+        {
+          "args": [
+            null
+          ],
+          "expected": []
+        },
+        {
+          "args": [
+            []
+          ],
+          "expected": []
+        },
+        {
+          "kwargs": {
+            "records": [
+              {
+                "active": true
+              },
+              {
+                "active": 2
+              },
+              {
+                "active": "yes"
+              },
+              {
+                "active": 1
+              },
+              {}
+            ]
+          },
+          "expected": [
+            {
+              "active": true
+            },
+            {
+              "active": 1
+            }
+          ]
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-code-zh-1",
+      "domain": "code",
+      "language": "zh",
+      "mode": "generate",
+      "packet": "Compute sum(value*weight)/sum(weights), returning float. Empty input, unequal lengths or zero total weight raise ValueError. Accept keyword arguments. Do not mutate inputs.",
+      "source": null,
+      "function": "weighted_mean",
+      "parameters": [
+        "values",
+        "weights"
+      ],
+      "tests": [
+        {
+          "args": [
+            [
+              2,
+              8
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "expected": 6.5,
+          "return_type": "float"
+        },
+        {
+          "args": [
+            [],
+            []
+          ],
+          "error": "ValueError"
+        },
+        {
+          "args": [
+            [
+              1
+            ],
+            [
+              0
+            ]
+          ],
+          "error": "ValueError"
+        },
+        {
+          "args": [
+            [
+              1,
+              2
+            ],
+            [
+              1
+            ]
+          ],
+          "error": "ValueError"
+        },
+        {
+          "kwargs": {
+            "values": [
+              0,
+              4
+            ],
+            "weights": [
+              1,
+              1
+            ]
+          },
+          "expected": 2.0,
+          "return_type": "float"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-code-zh-2",
+      "domain": "code",
+      "language": "zh",
+      "mode": "rewrite",
+      "packet": "Return a new list with each value clamped to inclusive low/high. low > high raises ValueError. Preserve input and support empty lists and keyword arguments.",
+      "source": "def clamp_values(values, low, high):\n    if low > high:\n        raise ValueError(\"invalid bounds\")\n    result_values = []\n    # Process the individual values\n    for value in values:\n        result_values.append(min(high, max(low, value)))\n    return result_values\n",
+      "function": "clamp_values",
+      "parameters": [
+        "values",
+        "low",
+        "high"
+      ],
+      "tests": [
+        {
+          "args": [
+            [
+              -2,
+              0,
+              4
+            ],
+            0,
+            3
+          ],
+          "expected": [
+            0,
+            0,
+            3
+          ]
+        },
+        {
+          "args": [
+            [],
+            0,
+            3
+          ],
+          "expected": []
+        },
+        {
+          "args": [
+            [
+              1
+            ],
+            3,
+            0
+          ],
+          "error": "ValueError"
+        },
+        {
+          "kwargs": {
+            "values": [
+              1,
+              9
+            ],
+            "low": 2,
+            "high": 2
+          },
+          "expected": [
+            2,
+            2
+          ]
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-code-zh-3",
+      "domain": "code",
+      "language": "zh",
+      "mode": "generate",
+      "packet": "Sum equally sized nonempty windows into a new list at starts i*step, adding overlaps. Empty windows list returns []. step must be positive; unequal/empty inner windows raise ValueError. No imports; do not mutate inputs.",
+      "source": null,
+      "function": "overlap_add",
+      "parameters": [
+        "windows",
+        "step"
+      ],
+      "tests": [
+        {
+          "args": [
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              [
+                4,
+                5,
+                6
+              ]
+            ],
+            2
+          ],
+          "expected": [
+            1,
+            2,
+            7,
+            5,
+            6
+          ]
+        },
+        {
+          "args": [
+            [],
+            1
+          ],
+          "expected": []
+        },
+        {
+          "args": [
+            [
+              [
+                1
+              ]
+            ],
+            0
+          ],
+          "error": "ValueError"
+        },
+        {
+          "args": [
+            [
+              [
+                1,
+                2
+              ],
+              [
+                3
+              ]
+            ],
+            1
+          ],
+          "error": "ValueError"
+        },
+        {
+          "kwargs": {
+            "windows": [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            "step": 1
+          },
+          "expected": [
+            1,
+            5,
+            4
+          ]
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-code-en-0",
+      "domain": "code",
+      "language": "en",
+      "mode": "rewrite",
+      "packet": "Return item names when enabled is exactly the boolean True (identity), preserving order. None returns []. Missing enabled is false. Do not mutate inputs.",
+      "source": "def filter_enabled(items):\n    result_names = []\n    if items is None:\n        return result_names\n    # Iterate over the supplied items\n    for item in items:\n        if item.get(\"enabled\") is True:\n            result_names.append(item[\"name\"])\n    return result_names\n",
+      "function": "filter_enabled",
+      "parameters": [
+        "items"
+      ],
+      "tests": [
+        {
+          "args": [
+            null
+          ],
+          "expected": []
+        },
+        {
+          "args": [
+            []
+          ],
+          "expected": []
+        },
+        {
+          "kwargs": {
+            "items": [
+              {
+                "name": "A",
+                "enabled": true
+              },
+              {
+                "name": "B",
+                "enabled": 1
+              },
+              {
+                "name": "C",
+                "enabled": "yes"
+              }
+            ]
+          },
+          "expected": [
+            "A"
+          ]
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-code-en-1",
+      "domain": "code",
+      "language": "en",
+      "mode": "generate",
+      "packet": "Return new float weights divided by their sum. Empty returns []. Any negative weight or nonempty zero total raises ValueError. Keep inputs unchanged.",
+      "source": null,
+      "function": "normalize_weights",
+      "parameters": [
+        "weights"
+      ],
+      "tests": [
+        {
+          "args": [
+            [
+              1,
+              3
+            ]
+          ],
+          "expected": [
+            0.25,
+            0.75
+          ]
+        },
+        {
+          "args": [
+            []
+          ],
+          "expected": []
+        },
+        {
+          "args": [
+            [
+              0,
+              0
+            ]
+          ],
+          "error": "ValueError"
+        },
+        {
+          "args": [
+            [
+              -1,
+              2
+            ]
+          ],
+          "error": "ValueError"
+        },
+        {
+          "kwargs": {
+            "weights": [
+              2
+            ]
+          },
+          "expected": [
+            1.0
+          ]
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-code-en-2",
+      "domain": "code",
+      "language": "en",
+      "mode": "rewrite",
+      "packet": "Return means for complete consecutive windows of positive integer width. Width <= 0 raises ValueError. Width larger than input returns []. Do not mutate input.",
+      "source": "def moving_average(values, width):\n    if width <= 0:\n        raise ValueError(\"width must be positive\")\n    average_results = []\n    # Compute the average for each complete window\n    for index in range(len(values) - width + 1):\n        average_results.append(sum(values[index:index+width]) / width)\n    return average_results\n",
+      "function": "moving_average",
+      "parameters": [
+        "values",
+        "width"
+      ],
+      "tests": [
+        {
+          "args": [
+            [
+              1,
+              3,
+              5
+            ],
+            2
+          ],
+          "expected": [
+            2.0,
+            4.0
+          ]
+        },
+        {
+          "args": [
+            [],
+            2
+          ],
+          "expected": []
+        },
+        {
+          "args": [
+            [
+              1
+            ],
+            2
+          ],
+          "expected": []
+        },
+        {
+          "args": [
+            [
+              1
+            ],
+            0
+          ],
+          "error": "ValueError"
+        },
+        {
+          "kwargs": {
+            "values": [
+              3,
+              7
+            ],
+            "width": 1
+          },
+          "expected": [
+            3.0,
+            7.0
+          ]
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-code-en-3",
+      "domain": "code",
+      "language": "en",
+      "mode": "generate",
+      "packet": "Return a new dictionary adding numeric counts for matching keys. Neither input is mutated. Empty dictionaries are valid. Keep zero totals as explicit keys.",
+      "source": null,
+      "function": "merge_counts",
+      "parameters": [
+        "left",
+        "right"
+      ],
+      "tests": [
+        {
+          "args": [
+            {
+              "a": 2,
+              "b": 1
+            },
+            {
+              "a": -2,
+              "c": 3
+            }
+          ],
+          "expected": {
+            "a": 0,
+            "b": 1,
+            "c": 3
+          }
+        },
+        {
+          "args": [
+            {},
+            {}
+          ],
+          "expected": {}
+        },
+        {
+          "kwargs": {
+            "left": {
+              "a": 0
+            },
+            "right": {}
+          },
+          "expected": {
+            "a": 0
+          }
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-research-zh-0",
+      "domain": "research",
+      "language": "zh",
+      "mode": "rewrite",
+      "packet": "Synthetic source packet, not a real publication: sample size = 40. Measured value = 3. Observed accuracy gain on this sample; independent validation remains necessary. Source identifier [S1]. Preserve these quantities and this scope. Do not invent a publication or additional numbers.",
+      "source": "本实验样本量为40，测量值为3。准确率在此样本上提高3个百分点，仍需独立验证。[S1]",
+      "protected": [
+        "40",
+        "3",
+        "[S1]"
+      ],
+      "required_any": [
+        [
+          "independent",
+          "独立"
+        ]
+      ],
+      "forbidden": [
+        "statistically significant",
+        "统计显著"
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-research-zh-1",
+      "domain": "research",
+      "language": "zh",
+      "mode": "generate",
+      "packet": "Synthetic source packet, not a real publication: sample size = 120. Measured value = 0.20. An observational association; no causal conclusion is justified. Source identifier [S2]. Preserve these quantities and this scope. Do not invent a publication or additional numbers.",
+      "source": null,
+      "protected": [
+        "120",
+        "0.20",
+        "[S2]"
+      ],
+      "required_any": [
+        [
+          "causal",
+          "因果"
+        ]
+      ],
+      "forbidden": [
+        "statistically significant",
+        "统计显著"
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-research-zh-2",
+      "domain": "research",
+      "language": "zh",
+      "mode": "rewrite",
+      "packet": "Synthetic source packet, not a real publication: sample size = 64. Measured value = 12. Latency decreased by 12 ms on this benchmark; it is not a deployment guarantee. Source identifier [S3]. Preserve these quantities and this scope. Do not invent a publication or additional numbers.",
+      "source": "本实验样本量为64，测量值为12。此基准延迟降低12 ms，不构成部署效果保证。[S3]",
+      "protected": [
+        "64",
+        "12",
+        "[S3]"
+      ],
+      "required_any": [
+        [
+          "guarantee",
+          "保证"
+        ]
+      ],
+      "forbidden": [
+        "statistically significant",
+        "统计显著"
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-research-zh-3",
+      "domain": "research",
+      "language": "zh",
+      "mode": "generate",
+      "packet": "Synthetic source packet, not a real publication: sample size = 80. Measured value = 0.04. The measured error changed by 0.04; the result is preliminary. Source identifier [S4]. Preserve these quantities and this scope. Do not invent a publication or additional numbers.",
+      "source": null,
+      "protected": [
+        "80",
+        "0.04",
+        "[S4]"
+      ],
+      "required_any": [
+        [
+          "preliminary",
+          "初步"
+        ]
+      ],
+      "forbidden": [
+        "statistically significant",
+        "统计显著"
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-research-en-0",
+      "domain": "research",
+      "language": "en",
+      "mode": "rewrite",
+      "packet": "Synthetic source packet, not a real publication: sample size = 40. Measured value = 3. Observed accuracy gain on this sample; independent validation remains necessary. Source identifier [S1]. Preserve these quantities and this scope. Do not invent a publication or additional numbers.",
+      "source": "The sample size was 40 and the measured value was 3. Observed accuracy gain on this sample; independent validation remains necessary. [S1]",
+      "protected": [
+        "40",
+        "3",
+        "[S1]"
+      ],
+      "required_any": [
+        [
+          "independent",
+          "独立"
+        ]
+      ],
+      "forbidden": [
+        "statistically significant",
+        "统计显著"
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-research-en-1",
+      "domain": "research",
+      "language": "en",
+      "mode": "generate",
+      "packet": "Synthetic source packet, not a real publication: sample size = 120. Measured value = 0.20. An observational association; no causal conclusion is justified. Source identifier [S2]. Preserve these quantities and this scope. Do not invent a publication or additional numbers.",
+      "source": null,
+      "protected": [
+        "120",
+        "0.20",
+        "[S2]"
+      ],
+      "required_any": [
+        [
+          "causal",
+          "因果"
+        ]
+      ],
+      "forbidden": [
+        "statistically significant",
+        "统计显著"
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-research-en-2",
+      "domain": "research",
+      "language": "en",
+      "mode": "rewrite",
+      "packet": "Synthetic source packet, not a real publication: sample size = 64. Measured value = 12. Latency decreased by 12 ms on this benchmark; it is not a deployment guarantee. Source identifier [S3]. Preserve these quantities and this scope. Do not invent a publication or additional numbers.",
+      "source": "The sample size was 64 and the measured value was 12. Latency decreased by 12 ms on this benchmark; it is not a deployment guarantee. [S3]",
+      "protected": [
+        "64",
+        "12",
+        "[S3]"
+      ],
+      "required_any": [
+        [
+          "guarantee",
+          "保证"
+        ]
+      ],
+      "forbidden": [
+        "statistically significant",
+        "统计显著"
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-research-en-3",
+      "domain": "research",
+      "language": "en",
+      "mode": "generate",
+      "packet": "Synthetic source packet, not a real publication: sample size = 80. Measured value = 0.04. The measured error changed by 0.04; the result is preliminary. Source identifier [S4]. Preserve these quantities and this scope. Do not invent a publication or additional numbers.",
+      "source": null,
+      "protected": [
+        "80",
+        "0.04",
+        "[S4]"
+      ],
+      "required_any": [
+        [
+          "preliminary",
+          "初步"
+        ]
+      ],
+      "forbidden": [
+        "statistically significant",
+        "统计显著"
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-email-zh-0",
+      "domain": "email",
+      "language": "zh",
+      "mode": "rewrite",
+      "packet": "Synthetic email scenario. Address Alex, a familiar colleague. Request comments by the firm date 2026-11-06. Do not promise delivery, acceptance, payment or a meeting. No attachment has been supplied. Preserve the name and ISO date exactly. ",
+      "source": "Alex，麻烦在2026-11-06前发来comments，谢谢。",
+      "protected": [
+        "Alex",
+        "2026-11-06"
+      ],
+      "required_any": [],
+      "forbidden": [
+        "I guarantee",
+        "我保证",
+        "attached file",
+        "附件已附"
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-email-zh-1",
+      "domain": "email",
+      "language": "zh",
+      "mode": "generate",
+      "packet": "Synthetic email scenario. Address Maya, a familiar colleague. Request invoice by the firm date 2026-11-09. Do not promise delivery, acceptance, payment or a meeting. No attachment has been supplied. Preserve the name and ISO date exactly. The invoice amount to confirm is USD 250. Do not commit to paying it.",
+      "source": null,
+      "protected": [
+        "Maya",
+        "2026-11-09",
+        "USD 250"
+      ],
+      "required_any": [],
+      "forbidden": [
+        "I guarantee",
+        "我保证",
+        "attached file",
+        "附件已附"
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-email-zh-2",
+      "domain": "email",
+      "language": "zh",
+      "mode": "rewrite",
+      "packet": "Synthetic email scenario. Address Sam, a familiar colleague. Request meeting options by the firm date 2026-11-12. Do not promise delivery, acceptance, payment or a meeting. No attachment has been supplied. Preserve the name and ISO date exactly. ",
+      "source": "Sam，麻烦在2026-11-12前发来meeting options，谢谢。",
+      "protected": [
+        "Sam",
+        "2026-11-12"
+      ],
+      "required_any": [],
+      "forbidden": [
+        "I guarantee",
+        "我保证",
+        "attached file",
+        "附件已附"
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-email-zh-3",
+      "domain": "email",
+      "language": "zh",
+      "mode": "generate",
+      "packet": "Synthetic email scenario. Address Lee, a familiar colleague. Request revised draft by the firm date 2026-11-16. Do not promise delivery, acceptance, payment or a meeting. No attachment has been supplied. Preserve the name and ISO date exactly. ",
+      "source": null,
+      "protected": [
+        "Lee",
+        "2026-11-16"
+      ],
+      "required_any": [],
+      "forbidden": [
+        "I guarantee",
+        "我保证",
+        "attached file",
+        "附件已附"
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-email-en-0",
+      "domain": "email",
+      "language": "en",
+      "mode": "rewrite",
+      "packet": "Synthetic email scenario. Address Alex, a familiar colleague. Request comments by the firm date 2026-11-06. Do not promise delivery, acceptance, payment or a meeting. No attachment has been supplied. Preserve the name and ISO date exactly. ",
+      "source": "Alex, please send comments by 2026-11-06. Thanks.",
+      "protected": [
+        "Alex",
+        "2026-11-06"
+      ],
+      "required_any": [],
+      "forbidden": [
+        "I guarantee",
+        "我保证",
+        "attached file",
+        "附件已附"
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-email-en-1",
+      "domain": "email",
+      "language": "en",
+      "mode": "generate",
+      "packet": "Synthetic email scenario. Address Maya, a familiar colleague. Request invoice by the firm date 2026-11-09. Do not promise delivery, acceptance, payment or a meeting. No attachment has been supplied. Preserve the name and ISO date exactly. The invoice amount to confirm is USD 250. Do not commit to paying it.",
+      "source": null,
+      "protected": [
+        "Maya",
+        "2026-11-09",
+        "USD 250"
+      ],
+      "required_any": [],
+      "forbidden": [
+        "I guarantee",
+        "我保证",
+        "attached file",
+        "附件已附"
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-email-en-2",
+      "domain": "email",
+      "language": "en",
+      "mode": "rewrite",
+      "packet": "Synthetic email scenario. Address Sam, a familiar colleague. Request meeting options by the firm date 2026-11-12. Do not promise delivery, acceptance, payment or a meeting. No attachment has been supplied. Preserve the name and ISO date exactly. ",
+      "source": "Sam, please send meeting options by 2026-11-12. Thanks.",
+      "protected": [
+        "Sam",
+        "2026-11-12"
+      ],
+      "required_any": [],
+      "forbidden": [
+        "I guarantee",
+        "我保证",
+        "attached file",
+        "附件已附"
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "main-email-en-3",
+      "domain": "email",
+      "language": "en",
+      "mode": "generate",
+      "packet": "Synthetic email scenario. Address Lee, a familiar colleague. Request revised draft by the firm date 2026-11-16. Do not promise delivery, acceptance, payment or a meeting. No attachment has been supplied. Preserve the name and ISO date exactly. ",
+      "source": null,
+      "protected": [
+        "Lee",
+        "2026-11-16"
+      ],
+      "required_any": [],
+      "forbidden": [
+        "I guarantee",
+        "我保证",
+        "attached file",
+        "附件已附"
+      ],
+      "synthetic": true
+    }
+  ]
+}

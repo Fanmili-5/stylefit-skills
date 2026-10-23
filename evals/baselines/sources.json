@@ -1,0 +1,20 @@
+{
+  "checked_on": "2026-10-22",
+  "baselines": [
+    {
+      "domain": "code",
+      "repo": "JOHN-REY-CARLO-A-GEMAO/code-humanizer",
+      "blob_sha": "338551a549efc797ae573d9c5dee764b1098fab4",
+      "path": "SKILL.md",
+      "local": "code.md"
+    },
+    {
+      "domain": "prose",
+      "repo": "blader/humanizer",
+      "blob_sha": "19fc634208e8cc6ae55d4ff287152583216fd244",
+      "path": "SKILL.md",
+      "local": "prose.md",
+      "license_blob_sha": "625297fb778f32eb39d3a5b97e3e3b611b7304d6"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "role-context-en",
+    "domain": "email",
+    "language": "en",
+    "mode": "generate",
+    "synthetic": true,
+    "packet": "Synthetic email task. Write to Avery, a familiar colleague, asking for review comments by the firm deadline 2026-12-04. The draft being reviewed has tracking ID NOTE-V52; mention this ID as context in the sender's draft. The recipient's only requested action is sending review comments. Do not ask the recipient to repeat or confirm the ID in a reply. No attachment, approval, acceptance or meeting has been promised.",
+    "protected": ["Avery", "2026-12-04", "NOTE-V52"],
+    "forbidden": ["include the reference", "include reference", "repeat the reference", "confirm the reference", "if convenient"]
+  },
+  {
+    "id": "role-context-zh",
+    "domain": "email",
+    "language": "zh",
+    "mode": "generate",
+    "synthetic": true,
+    "packet": "Synthetic email task. Write in Chinese to Reese, a familiar colleague. Ask only whether Reese is available to participate in a review, with a firm reply deadline of 2026-12-07. Mention CNY 360.00 only as the sender's budget background. The recipient is not being asked to confirm the amount, pay it, accept an offer or confirm a meeting. No attachment has been supplied. Preserve the recipient, amount and ISO date exactly.",
+    "protected": ["Reese", "2026-12-07", "CNY 360.00"],
+    "forbidden": ["确认金额", "支付", "付款", "如果方便", "方便的话", "附件请查收"]
+  }
+]

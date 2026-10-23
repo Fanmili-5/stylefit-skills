@@ -1,0 +1,2476 @@
+{
+  "development": [
+    {
+      "id": "dev-event-zh",
+      "domain": "code",
+      "language": "zh",
+      "synthetic": true,
+      "task": "Simplify the four-module event reducer, removing narration and redundant intermediates while matching the supplied style samples. Highest integer version wins; ties replace with the last event, first-seen key order stays, deleted is True only, every version is validated even for an obsolete event. Bool versions are invalid. Preserve all public functions, defaults, exception messages, aliases and nonmutation. Return exactly all four full files. This controlled fixture permits only functions, allowed imports, literal module constants and aliases; no classes, module docstrings or introspection. Imports may name these modules or math only. Existing public names must not change. Chinese comments for zh, English for en.",
+      "files": {
+        "rules.py": "def valid_version(value):\n    # Step 1: determine if the version is valid.\n    version_value = value\n    if isinstance(version_value, bool) or not isinstance(version_value, int):\n        raise TypeError('version must be int')\n    return version_value\n\ndef is_deleted(event):\n    deleted_value = event.get('deleted')\n    result = deleted_value is True\n    return result\n",
+        "merge.py": "from rules import valid_version, is_deleted\n\ndef latest_events(events):\n    # Step 1: create storage for each event.\n    selected_events = {}\n    for event in events:\n        event_key = event['key']\n        event_version = valid_version(event.get('version', 0))\n        previous_event = selected_events.get(event_key)\n        if previous_event is None or event_version >= previous_event[0]:\n            selected_events[event_key] = (event_version, event)\n    result_events = []\n    for event_key, version_and_event in selected_events.items():\n        event = version_and_event[1]\n        if not is_deleted(event):\n            result_events.append((event_key, event.get('value')))\n    return result_events\n",
+        "summary.py": "def summarize_pairs(pairs):\n    # Step 1: initialize the result.\n    result_items = []\n    for event_key, event_value in pairs:\n        result_items.append({'key': event_key, 'value': event_value})\n    result_count = len(result_items)\n    return {'items': result_items, 'count': result_count}\n",
+        "api.py": "from merge import latest_events\nfrom summary import summarize_pairs\n\ndef summarize_events(events, *, include_count=True):\n    event_pairs = latest_events(events)\n    result_summary = summarize_pairs(event_pairs)\n    if not include_count:\n        return result_summary['items']\n    return result_summary\n\nsummarizeEvents = summarize_events\n"
+      },
+      "public": [
+        {
+          "module": "api",
+          "function": "summarize_events"
+        },
+        {
+          "module": "api",
+          "function": "summarizeEvents"
+        },
+        {
+          "module": "merge",
+          "function": "latest_events"
+        },
+        {
+          "module": "rules",
+          "function": "valid_version"
+        },
+        {
+          "module": "rules",
+          "function": "is_deleted"
+        },
+        {
+          "module": "summary",
+          "function": "summarize_pairs"
+        }
+      ],
+      "tests": [
+        {
+          "id": "normal",
+          "module": "api",
+          "function": "summarize_events",
+          "args": [
+            [
+              {
+                "key": "b",
+                "value": 0
+              },
+              {
+                "key": "a",
+                "value": false
+              }
+            ]
+          ],
+          "kwargs": {},
+          "group": "visible"
+        },
+        {
+          "id": "versions",
+          "module": "api",
+          "function": "summarize_events",
+          "args": [
+            [
+              {
+                "key": "b",
+                "version": 2,
+                "value": 1
+              },
+              {
+                "key": "a",
+                "value": 2
+              },
+              {
+                "key": "b",
+                "version": 2,
+                "value": 3
+              }
+            ]
+          ],
+          "kwargs": {},
+          "group": "visible"
+        },
+        {
+          "id": "strict_deleted",
+          "module": "api",
+          "function": "summarize_events",
+          "args": [
+            [
+              {
+                "key": "a",
+                "deleted": 1
+              },
+              {
+                "key": "b",
+                "deleted": true
+              },
+              {
+                "key": "c",
+                "deleted": "yes"
+              }
+            ]
+          ],
+          "kwargs": {},
+          "group": "independent"
+        },
+        {
+          "id": "old_invalid",
+          "module": "api",
+          "function": "summarize_events",
+          "args": [
+            [
+              {
+                "key": "a",
+                "version": 5
+              },
+              {
+                "key": "a",
+                "version": false
+              }
+            ]
+          ],
+          "kwargs": {},
+          "group": "independent"
+        },
+        {
+          "id": "empty",
+          "module": "api",
+          "function": "summarize_events",
+          "args": [
+            []
+          ],
+          "kwargs": {},
+          "group": "independent"
+        },
+        {
+          "id": "key_missing",
+          "module": "api",
+          "function": "summarize_events",
+          "args": [
+            [
+              {
+                "value": 3
+              }
+            ]
+          ],
+          "kwargs": {},
+          "group": "independent"
+        },
+        {
+          "id": "no_count",
+          "module": "api",
+          "function": "summarize_events",
+          "args": [
+            [
+              {
+                "key": "x",
+                "value": null
+              }
+            ]
+          ],
+          "kwargs": {
+            "include_count": false
+          },
+          "group": "independent"
+        },
+        {
+          "id": "public-alias",
+          "module": "api",
+          "function": "summarizeEvents",
+          "args": [
+            [
+              {
+                "key": "b",
+                "value": 0
+              },
+              {
+                "key": "a",
+                "value": false
+              }
+            ]
+          ],
+          "kwargs": {},
+          "group": "independent"
+        }
+      ],
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "files": {
+            "type": "object",
+            "properties": {
+              "rules.py": {
+                "type": "string"
+              },
+              "merge.py": {
+                "type": "string"
+              },
+              "summary.py": {
+                "type": "string"
+              },
+              "api.py": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "rules.py",
+              "merge.py",
+              "summary.py",
+              "api.py"
+            ],
+            "additionalProperties": false
+          },
+          "style_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "files",
+          "style_evidence"
+        ],
+        "additionalProperties": false
+      },
+      "constraints": {
+        "schema_version": 1,
+        "assertions": []
+      },
+      "style_sets": [
+        [
+          "def total(xs):\n    return sum(x for x in xs if x is not None)\n",
+          "def scale(xs, factor):\n    return [x * factor for x in xs]\n",
+          "def valid(xs):\n    return [x for x in xs if x is not None]\n"
+        ],
+        [
+          "def total(values):\n    total_value = 0\n    for value in values:\n        if value is not None:\n            total_value += value\n    return total_value\n",
+          "def scale(values, factor):\n    scaled_values = []\n    for value in values:\n        scaled_values.append(value * factor)\n    return scaled_values\n",
+          "def valid(values):\n    valid_values = []\n    for value in values:\n        # 零值也属于有效观测。\n        if value is not None:\n            valid_values.append(value)\n    return valid_values\n"
+        ]
+      ]
+    },
+    {
+      "id": "dev-latency-en",
+      "domain": "research",
+      "language": "en",
+      "synthetic": true,
+      "task": "Discuss latency in milliseconds and energy per run. Round the energy percentage increase to four decimal places. One second is 1000 ms. Use only supplied sources. Corrections replace old versions of the same cohort; never pool them. Keep null unknown, distinguish a confidence interval crossing zero from a measured null effect, and preserve observational scope. Put supporting source IDs next to claims in the prose. source_map.primary names the corrected measurement, tradeoff the resource/risk record, unknowns the unmeasured-status record. Match style samples without copying their facts.",
+      "sources": [
+        {
+          "id": "D1",
+          "status": "superseded",
+          "cohort": "dev",
+          "n": 110,
+          "before_seconds": 0.58,
+          "after_seconds": 0.47
+        },
+        {
+          "id": "D2",
+          "status": "correction_of_D1",
+          "cohort": "dev",
+          "n": 92,
+          "before_seconds": 0.58,
+          "after_seconds": 0.55,
+          "ci95_reduction_ms": [
+            -8,
+            68
+          ],
+          "design": "single-device observational comparison"
+        },
+        {
+          "id": "D3",
+          "energy_before_J_per_run": 27,
+          "energy_after_J_per_run": 30,
+          "scope": "same engineering run, not an independent sample"
+        },
+        {
+          "id": "D4",
+          "independent_n": null,
+          "deployment_effect": null,
+          "status": "not tested"
+        },
+        {
+          "id": "D5",
+          "status": "unrelated simulation",
+          "n": 800,
+          "note": "not observations from this cohort"
+        }
+      ],
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "artifact": {
+            "type": "string"
+          },
+          "facts": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer"
+              },
+              "before_ms": {
+                "type": "number"
+              },
+              "after_ms": {
+                "type": "number"
+              },
+              "reduction_ms": {
+                "type": "number"
+              },
+              "ci95_reduction_ms": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "energy_delta_J": {
+                "type": "number"
+              },
+              "energy_increase_percent": {
+                "type": "number"
+              },
+              "independent_n": {
+                "type": "null"
+              },
+              "deployment_effect": {
+                "type": "null"
+              },
+              "significant_95": {
+                "type": "boolean"
+              },
+              "causal_supported": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "n",
+              "before_ms",
+              "after_ms",
+              "reduction_ms",
+              "ci95_reduction_ms",
+              "energy_delta_J",
+              "energy_increase_percent",
+              "independent_n",
+              "deployment_effect",
+              "significant_95",
+              "causal_supported"
+            ],
+            "additionalProperties": false
+          },
+          "source_map": {
+            "type": "object",
+            "properties": {
+              "primary": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "tradeoff": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "unknowns": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "primary",
+              "tradeoff",
+              "unknowns"
+            ],
+            "additionalProperties": false
+          },
+          "style_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "artifact",
+          "facts",
+          "source_map",
+          "style_evidence"
+        ],
+        "additionalProperties": false
+      },
+      "constraints": {
+        "schema_version": 1,
+        "assertions": [
+          {
+            "op": "equal",
+            "path": "/facts/n",
+            "expected": 92,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/before_ms",
+            "expected": 580.0,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/after_ms",
+            "expected": 550.0,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/reduction_ms",
+            "expected": 30.0,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/ci95_reduction_ms",
+            "expected": [
+              -8,
+              68
+            ],
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/energy_delta_J",
+            "expected": 3.0,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/energy_increase_percent",
+            "expected": 11.1111,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/independent_n",
+            "expected": null,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/deployment_effect",
+            "expected": null,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/significant_95",
+            "expected": false,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/causal_supported",
+            "expected": false,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/source_map/primary",
+            "expected": [
+              "D2"
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/source_map/tradeoff",
+            "expected": [
+              "D3"
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/source_map/unknowns",
+            "expected": [
+              "D4"
+            ]
+          },
+          {
+            "op": "contains",
+            "path": "/artifact",
+            "value": "D4"
+          },
+          {
+            "op": "contains",
+            "path": "/artifact",
+            "value": "D3"
+          },
+          {
+            "op": "contains",
+            "path": "/artifact",
+            "value": "D2"
+          },
+          {
+            "op": "not_contains",
+            "path": "/artifact",
+            "value": "Cedar"
+          },
+          {
+            "op": "not_contains",
+            "path": "/artifact",
+            "value": "Robin"
+          }
+        ]
+      },
+      "style_sets": [
+        [
+          "Error was lower on Cedar, but the result does not establish transfer. The comparison covered one site; independent validation is pending.",
+          "The observed change supports another test, not a deployment guarantee. Tail latency increased.",
+          "This is a sample-specific observation. We used one device. Other devices remain untested."
+        ],
+        [
+          "Setup: We fixed the Cedar input queue before comparing configurations.\nObservation: Error fell while tail latency increased.\nLimit: A single-site comparison cannot establish transfer.",
+          "Setup: We measured one device.\nObservation: Median runtime was lower.\nLimit: Independent-device validation is pending.",
+          "Setup: We used the same sample for both configurations.\nObservation: The metrics showed a tradeoff.\nLimit: The design does not establish causation."
+        ]
+      ]
+    },
+    {
+      "id": "dev-availability-en",
+      "domain": "email",
+      "language": "en",
+      "synthetic": true,
+      "task": "Draft the email from the authoritative current brief. Mention the document ID and amount/currency as background, not a payment or confirmation request. Current recipient_actions replace quoted history; preserve their exact machine action codes in the ledger. Replying about availability is not performing a review by that date. All deadlines are firm. Only the listed actors have actions; CC creates no action. Preserve unconfirmed/not-approved status and unknown payment_date. In the structured ledger, dates must be ISO and slots_local must use YYYY-MM-DD HH:MM +08:00; free prose may use natural dates. Keep document and currency ISO tokens exact in prose. Never send. Match expression only from the samples.",
+      "current_brief": {
+        "sender": "Terry",
+        "to": [
+          "Milan"
+        ],
+        "cc": [],
+        "recipient_actions": [
+          {
+            "actor": "Milan",
+            "action": "confirm_availability",
+            "recipient": "Terry",
+            "deadline": "2026-12-03"
+          }
+        ],
+        "context": {
+          "document_id": "NOTE-J82",
+          "amount": 460,
+          "currency": "EUR",
+          "role": "context"
+        },
+        "meeting_status": "unconfirmed",
+        "approval_status": "not_approved",
+        "payment_date": null
+      },
+      "quoted_history": [
+        "The old message requested a completed review by 2026-12-03. That has been superseded.",
+        "Current request: reply whether available by the date; it is not a deadline to do the review. Payment has not been approved."
+      ],
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "artifact": {
+            "type": "string"
+          },
+          "ledger": {
+            "type": "object",
+            "properties": {
+              "to": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "cc": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "recipient_actions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "actor": {
+                      "type": "string"
+                    },
+                    "action": {
+                      "type": "string"
+                    },
+                    "recipient": {
+                      "type": "string"
+                    },
+                    "deadline": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "actor",
+                    "action",
+                    "recipient",
+                    "deadline"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "context_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "amounts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "integer"
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency",
+                    "role"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "commitments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "meeting_status": {
+                "type": "string"
+              },
+              "approval_status": {
+                "type": "string"
+              },
+              "payment_date": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "to",
+              "cc",
+              "recipient_actions",
+              "context_refs",
+              "amounts",
+              "commitments",
+              "meeting_status",
+              "approval_status",
+              "payment_date"
+            ],
+            "additionalProperties": false
+          },
+          "style_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "artifact",
+          "ledger",
+          "style_evidence"
+        ],
+        "additionalProperties": false
+      },
+      "constraints": {
+        "schema_version": 1,
+        "assertions": [
+          {
+            "op": "equal",
+            "path": "/ledger/to",
+            "expected": [
+              "Milan"
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/cc",
+            "expected": []
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/recipient_actions",
+            "expected": [
+              {
+                "actor": "Milan",
+                "action": "confirm_availability",
+                "recipient": "Terry",
+                "deadline": "2026-12-03"
+              }
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/context_refs",
+            "expected": [
+              "NOTE-J82"
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/amounts",
+            "expected": [
+              {
+                "amount": 460,
+                "currency": "EUR",
+                "role": "context"
+              }
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/commitments",
+            "expected": []
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/meeting_status",
+            "expected": "unconfirmed"
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/approval_status",
+            "expected": "not_approved"
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/payment_date",
+            "expected": null
+          },
+          {
+            "op": "contains",
+            "path": "/artifact",
+            "value": "NOTE-J82"
+          },
+          {
+            "op": "contains",
+            "path": "/artifact",
+            "value": "EUR"
+          },
+          {
+            "op": "not_contains",
+            "path": "/artifact",
+            "value": "Cedar"
+          },
+          {
+            "op": "not_contains",
+            "path": "/artifact",
+            "value": "Robin"
+          }
+        ]
+      },
+      "style_sets": [
+        [
+          "Robin, please send comments on Cedar by Thursday. Thanks.",
+          "Lee, please send the available times by tomorrow afternoon. Thanks.",
+          "Sam, please send the annotated draft by Friday. Thanks."
+        ],
+        [
+          "Hi Robin,\n\nI would appreciate your help reviewing Cedar. Please send:\n- Your comments;\n- Any unresolved issues.\nPlease reply by Thursday.\n\nThank you for your help.",
+          "Hi Lee,\n\nCould you help confirm next week’s arrangements? Please include:\n- Available times;\n- Their timezones.\nPlease reply by tomorrow afternoon.\n\nThank you.",
+          "Hi Sam,\n\nI would appreciate your help preparing the material. Please send:\n- The annotated draft;\n- The points requiring discussion.\nPlease send these by Friday.\n\nThank you for your help."
+        ]
+      ]
+    }
+  ],
+  "holdout": [
+    {
+      "id": "hold-window-zh",
+      "domain": "code",
+      "language": "zh",
+      "synthetic": true,
+      "task": "Simplify the four-module rolling report and match the provided samples. Trailing partial windows are used. Only None and float NaN are missing; 0/False and infinities remain observations, numeric strings are converted. Validate width and min_count even for empty input. Return fill unchanged for insufficient observations. Preserve every public function, keyword default, alias, dictionary key order, exceptions and input nonmutation. Return exactly all four full files. This controlled fixture permits only functions, allowed imports, literal module constants and aliases; no classes, module docstrings or introspection. Imports may name these modules or math only. Existing public names must not change. Chinese comments for zh, English for en.",
+      "files": {
+        "numbers.py": "import math\n\ndef present(value):\n    is_present = value is not None and not (isinstance(value, float) and math.isnan(value))\n    return is_present\n\ndef numeric_values(values):\n    result_values = []\n    for value in values:\n        if present(value):\n            result_values.append(float(value))\n    return result_values\n",
+        "windows.py": "from numbers import numeric_values\n\ndef trailing_mean(values, width, *, min_count=1, fill=None):\n    # Step 1: check the arguments before proceeding.\n    if isinstance(width, bool) or not isinstance(width, int) or width < 1:\n        raise ValueError('invalid width')\n    if isinstance(min_count, bool) or not isinstance(min_count, int) or min_count < 1:\n        raise ValueError('invalid min_count')\n    result_values = []\n    for index in range(len(values)):\n        start_index = max(0, index - width + 1)\n        current_values = numeric_values(values[start_index:index + 1])\n        current_count = len(current_values)\n        if current_count >= min_count:\n            current_mean = sum(current_values) / current_count\n            result_values.append(current_mean)\n        else:\n            result_values.append(fill)\n    return result_values\n",
+        "summary.py": "from numbers import numeric_values\n\ndef describe(values):\n    # Step 1: gather valid measurements.\n    measured_values = numeric_values(values)\n    count_value = len(measured_values)\n    minimum_value = min(measured_values) if measured_values else None\n    maximum_value = max(measured_values) if measured_values else None\n    return {'count': count_value, 'minimum': minimum_value, 'maximum': maximum_value}\n",
+        "api.py": "from windows import trailing_mean\nfrom summary import describe\n\ndef moving_report(values, width=3, *, min_count=1, fill=None):\n    copied_values = list(values)\n    mean_values = trailing_mean(copied_values, width, min_count=min_count, fill=fill)\n    summary_values = describe(copied_values)\n    return {'means': mean_values, 'summary': summary_values}\n\nmovingReport = moving_report\n"
+      },
+      "public": [
+        {
+          "module": "api",
+          "function": "moving_report"
+        },
+        {
+          "module": "api",
+          "function": "movingReport"
+        },
+        {
+          "module": "windows",
+          "function": "trailing_mean"
+        },
+        {
+          "module": "numbers",
+          "function": "present"
+        },
+        {
+          "module": "numbers",
+          "function": "numeric_values"
+        },
+        {
+          "module": "summary",
+          "function": "describe"
+        }
+      ],
+      "tests": [
+        {
+          "id": "normal",
+          "module": "api",
+          "function": "moving_report",
+          "args": [
+            [
+              1,
+              2,
+              3
+            ]
+          ],
+          "kwargs": {},
+          "group": "visible"
+        },
+        {
+          "id": "partial",
+          "module": "api",
+          "function": "moving_report",
+          "args": [
+            [
+              0,
+              false,
+              null,
+              4
+            ]
+          ],
+          "kwargs": {
+            "width": 2
+          },
+          "group": "visible"
+        },
+        {
+          "id": "missing",
+          "module": "api",
+          "function": "moving_report",
+          "args": [
+            [
+              null,
+              {
+                "$float": "nan"
+              },
+              0,
+              false,
+              "5"
+            ]
+          ],
+          "kwargs": {
+            "width": 3,
+            "min_count": 2
+          },
+          "group": "independent"
+        },
+        {
+          "id": "infinite",
+          "module": "api",
+          "function": "moving_report",
+          "args": [
+            [
+              {
+                "$float": "inf"
+              },
+              1,
+              {
+                "$float": "-inf"
+              }
+            ]
+          ],
+          "kwargs": {
+            "width": 2
+          },
+          "group": "independent"
+        },
+        {
+          "id": "fill",
+          "module": "api",
+          "function": "moving_report",
+          "args": [
+            [
+              null,
+              null,
+              3
+            ]
+          ],
+          "kwargs": {
+            "fill": "missing",
+            "min_count": 2
+          },
+          "group": "independent"
+        },
+        {
+          "id": "empty_bad",
+          "module": "api",
+          "function": "moving_report",
+          "args": [
+            []
+          ],
+          "kwargs": {
+            "width": false
+          },
+          "group": "independent"
+        },
+        {
+          "id": "min_bad",
+          "module": "api",
+          "function": "moving_report",
+          "args": [
+            []
+          ],
+          "kwargs": {
+            "min_count": 0
+          },
+          "group": "independent"
+        },
+        {
+          "id": "large",
+          "module": "api",
+          "function": "moving_report",
+          "args": [
+            [
+              1,
+              2
+            ]
+          ],
+          "kwargs": {
+            "width": 9
+          },
+          "group": "independent"
+        },
+        {
+          "id": "empty",
+          "module": "api",
+          "function": "moving_report",
+          "args": [
+            []
+          ],
+          "kwargs": {},
+          "group": "independent"
+        },
+        {
+          "id": "public-alias",
+          "module": "api",
+          "function": "movingReport",
+          "args": [
+            [
+              1,
+              2,
+              3
+            ]
+          ],
+          "kwargs": {},
+          "group": "independent"
+        }
+      ],
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "files": {
+            "type": "object",
+            "properties": {
+              "numbers.py": {
+                "type": "string"
+              },
+              "windows.py": {
+                "type": "string"
+              },
+              "summary.py": {
+                "type": "string"
+              },
+              "api.py": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "numbers.py",
+              "windows.py",
+              "summary.py",
+              "api.py"
+            ],
+            "additionalProperties": false
+          },
+          "style_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "files",
+          "style_evidence"
+        ],
+        "additionalProperties": false
+      },
+      "constraints": {
+        "schema_version": 1,
+        "assertions": []
+      },
+      "style_sets": [
+        [
+          "def total(xs):\n    return sum(x for x in xs if x is not None)\n",
+          "def scale(xs, factor):\n    return [x * factor for x in xs]\n",
+          "def valid(xs):\n    return [x for x in xs if x is not None]\n"
+        ],
+        [
+          "def total(values):\n    total_value = 0\n    for value in values:\n        if value is not None:\n            total_value += value\n    return total_value\n",
+          "def scale(values, factor):\n    scaled_values = []\n    for value in values:\n        scaled_values.append(value * factor)\n    return scaled_values\n",
+          "def valid(values):\n    valid_values = []\n    for value in values:\n        # 零值也属于有效观测。\n        if value is not None:\n            valid_values.append(value)\n    return valid_values\n"
+        ]
+      ]
+    },
+    {
+      "id": "hold-weight-en",
+      "domain": "code",
+      "language": "en",
+      "synthetic": true,
+      "task": "Simplify the four-module versioned weighted report and match the supplied samples. Convert and validate all weights before reading any events, including empty inputs. Highest integer version wins, equal versions replace last, first-seen key order stays, and only deleted is True removes a row. Bool versions are invalid. Skip only None/float NaN observations and their matching weights; retain zeros, False and negative weights. Return empty_value uncast for a zero denominator. Preserve public functions/defaults/aliases, validation order, exceptions, key order and nonmutation. Return exactly all four full files. This controlled fixture permits only functions, allowed imports, literal module constants and aliases; no classes, module docstrings or introspection. Imports may name these modules or math only. Existing public names must not change. Chinese comments for zh, English for en.",
+      "files": {
+        "weights.py": "import math\n\ndef checked_weights(weights):\n    converted_weights = [float(value) for value in weights]\n    for weight in converted_weights:\n        if not math.isfinite(weight):\n            raise ValueError('weights must be finite')\n    return converted_weights\n",
+        "selection.py": "def select_rows(events):\n    selected_events = {}\n    for event in events:\n        event_key = event['key']\n        version_value = event.get('version', 0)\n        if isinstance(version_value, bool) or not isinstance(version_value, int):\n            raise TypeError('version must be int')\n        if event_key not in selected_events or version_value >= selected_events[event_key][0]:\n            selected_events[event_key] = (version_value, event)\n    result_rows = []\n    for event_key, version_and_event in selected_events.items():\n        selected_event = version_and_event[1]\n        if selected_event.get('deleted') is not True:\n            result_rows.append((event_key, selected_event['values']))\n    return result_rows\n",
+        "means.py": "import math\n\ndef weighted_mean(values, weights, *, empty_value=None):\n    if len(values) != len(weights):\n        raise ValueError('length mismatch')\n    numerator_value = 0.0\n    denominator_value = 0.0\n    for value, weight in zip(values, weights):\n        if value is None or (isinstance(value, float) and math.isnan(value)):\n            continue\n        numerator_value += float(value) * weight\n        denominator_value += weight\n    if denominator_value == 0:\n        return empty_value\n    return numerator_value / denominator_value\n",
+        "api.py": "from weights import checked_weights\nfrom selection import select_rows\nfrom means import weighted_mean\n\ndef weighted_summary(events, weights, *, empty_value=None):\n    converted_weights = checked_weights(weights)\n    selected_rows = select_rows(events)\n    keys_result = []\n    means_result = []\n    for event_key, row_values in selected_rows:\n        keys_result.append(event_key)\n        mean_value = weighted_mean(row_values, converted_weights, empty_value=empty_value)\n        means_result.append(mean_value)\n    return {'keys': keys_result, 'means': means_result, 'count': len(keys_result)}\n\nweightedSummary = weighted_summary\n"
+      },
+      "public": [
+        {
+          "module": "api",
+          "function": "weighted_summary"
+        },
+        {
+          "module": "api",
+          "function": "weightedSummary"
+        },
+        {
+          "module": "weights",
+          "function": "checked_weights"
+        },
+        {
+          "module": "selection",
+          "function": "select_rows"
+        },
+        {
+          "module": "means",
+          "function": "weighted_mean"
+        }
+      ],
+      "tests": [
+        {
+          "id": "normal",
+          "module": "api",
+          "function": "weighted_summary",
+          "args": [
+            [
+              {
+                "key": "b",
+                "values": [
+                  0,
+                  false,
+                  4
+                ]
+              },
+              {
+                "key": "a",
+                "values": [
+                  1,
+                  2,
+                  3
+                ]
+              }
+            ],
+            [
+              1,
+              1,
+              2
+            ]
+          ],
+          "kwargs": {},
+          "group": "visible"
+        },
+        {
+          "id": "missing",
+          "module": "api",
+          "function": "weighted_summary",
+          "args": [
+            [
+              {
+                "key": "a",
+                "values": [
+                  null,
+                  {
+                    "$float": "nan"
+                  },
+                  0
+                ]
+              }
+            ],
+            [
+              5,
+              4,
+              2
+            ]
+          ],
+          "kwargs": {},
+          "group": "visible"
+        },
+        {
+          "id": "zero_weight",
+          "module": "api",
+          "function": "weighted_summary",
+          "args": [
+            [
+              {
+                "key": "a",
+                "values": [
+                  3,
+                  3
+                ]
+              }
+            ],
+            [
+              1,
+              -1
+            ]
+          ],
+          "kwargs": {
+            "empty_value": "empty"
+          },
+          "group": "independent"
+        },
+        {
+          "id": "version",
+          "module": "api",
+          "function": "weighted_summary",
+          "args": [
+            [
+              {
+                "key": "b",
+                "values": [
+                  2
+                ]
+              },
+              {
+                "key": "a",
+                "values": [
+                  1
+                ]
+              },
+              {
+                "key": "b",
+                "version": 1,
+                "values": [
+                  9
+                ]
+              }
+            ],
+            [
+              1
+            ]
+          ],
+          "kwargs": {},
+          "group": "independent"
+        },
+        {
+          "id": "strict_delete",
+          "module": "api",
+          "function": "weighted_summary",
+          "args": [
+            [
+              {
+                "key": "x",
+                "deleted": 1,
+                "values": [
+                  0
+                ]
+              },
+              {
+                "key": "y",
+                "deleted": true,
+                "values": [
+                  9
+                ]
+              }
+            ],
+            [
+              1
+            ]
+          ],
+          "kwargs": {},
+          "group": "independent"
+        },
+        {
+          "id": "shape",
+          "module": "api",
+          "function": "weighted_summary",
+          "args": [
+            [
+              {
+                "key": "a",
+                "values": [
+                  1
+                ]
+              }
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "kwargs": {},
+          "group": "independent"
+        },
+        {
+          "id": "bad_empty",
+          "module": "api",
+          "function": "weighted_summary",
+          "args": [
+            [],
+            [
+              {
+                "$float": "nan"
+              }
+            ]
+          ],
+          "kwargs": {},
+          "group": "independent"
+        },
+        {
+          "id": "empty",
+          "module": "api",
+          "function": "weighted_summary",
+          "args": [
+            [],
+            [
+              1
+            ]
+          ],
+          "kwargs": {},
+          "group": "independent"
+        },
+        {
+          "id": "version_bool",
+          "module": "api",
+          "function": "weighted_summary",
+          "args": [
+            [
+              {
+                "key": "a",
+                "version": true,
+                "values": [
+                  0
+                ]
+              }
+            ],
+            [
+              1
+            ]
+          ],
+          "kwargs": {},
+          "group": "independent"
+        },
+        {
+          "id": "public-alias",
+          "module": "api",
+          "function": "weightedSummary",
+          "args": [
+            [
+              {
+                "key": "b",
+                "values": [
+                  0,
+                  false,
+                  4
+                ]
+              },
+              {
+                "key": "a",
+                "values": [
+                  1,
+                  2,
+                  3
+                ]
+              }
+            ],
+            [
+              1,
+              1,
+              2
+            ]
+          ],
+          "kwargs": {},
+          "group": "independent"
+        }
+      ],
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "files": {
+            "type": "object",
+            "properties": {
+              "weights.py": {
+                "type": "string"
+              },
+              "selection.py": {
+                "type": "string"
+              },
+              "means.py": {
+                "type": "string"
+              },
+              "api.py": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "weights.py",
+              "selection.py",
+              "means.py",
+              "api.py"
+            ],
+            "additionalProperties": false
+          },
+          "style_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "files",
+          "style_evidence"
+        ],
+        "additionalProperties": false
+      },
+      "constraints": {
+        "schema_version": 1,
+        "assertions": []
+      },
+      "style_sets": [
+        [
+          "def scale(xs, k):\n    return [x * k for x in xs]\n",
+          "def total(xs):\n    return sum(x for x in xs if x is not None)\n",
+          "def count(xs):\n    return sum(x is not None for x in xs)\n"
+        ],
+        [
+          "def scale(values, factor):\n    scaled_values = []\n    for value in values:\n        scaled_values.append(value * factor)\n    return scaled_values\n",
+          "def total(values):\n    total_value = 0\n    for value in values:\n        if value is not None:\n            total_value += value\n    return total_value\n",
+          "def count(values):\n    valid_count = 0\n    for value in values:\n        # Keep measured zeros.\n        if value is not None:\n            valid_count += 1\n    return valid_count\n"
+        ]
+      ]
+    },
+    {
+      "id": "hold-accuracy-zh",
+      "domain": "research",
+      "language": "zh",
+      "synthetic": true,
+      "task": "Discuss the accuracy and false-positive tradeoff in Chinese. Rate differences multiplied by 100 are percentage points, not relative percentage increases. Use only supplied sources. Corrections replace old versions of the same cohort; never pool them. Keep null unknown, distinguish a confidence interval crossing zero from a measured null effect, and preserve observational scope. Put supporting source IDs next to claims in the prose. source_map.primary names the corrected measurement, tradeoff the resource/risk record, unknowns the unmeasured-status record. Match style samples without copying their facts.",
+      "sources": [
+        {
+          "id": "N1",
+          "status": "superseded",
+          "cohort": "north",
+          "n": 158,
+          "accuracy_before": 0.83,
+          "accuracy_after": 0.9
+        },
+        {
+          "id": "N2",
+          "status": "correction_of_N1",
+          "cohort": "north",
+          "n": 132,
+          "accuracy_before": 0.83,
+          "accuracy_after": 0.86,
+          "ci95_gain_pp": [
+            -0.5,
+            6.5
+          ],
+          "design": "one observational comparison; no causal identification"
+        },
+        {
+          "id": "N3",
+          "false_positive_before": 0.07,
+          "false_positive_after": 0.09,
+          "metric_direction": "higher is worse",
+          "scope": "same cohort"
+        },
+        {
+          "id": "N4",
+          "independent_n": null,
+          "peak_memory_MB": null,
+          "status": "not measured"
+        },
+        {
+          "id": "N5",
+          "status": "different population",
+          "n": 640,
+          "note": "not this study or independent validation"
+        }
+      ],
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "artifact": {
+            "type": "string"
+          },
+          "facts": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer"
+              },
+              "accuracy_before": {
+                "type": "number"
+              },
+              "accuracy_after": {
+                "type": "number"
+              },
+              "gain_pp": {
+                "type": "number"
+              },
+              "ci95_gain_pp": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "false_positive_delta_pp": {
+                "type": "number"
+              },
+              "independent_n": {
+                "type": "null"
+              },
+              "peak_memory_MB": {
+                "type": "null"
+              },
+              "significant_95": {
+                "type": "boolean"
+              },
+              "causal_supported": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "n",
+              "accuracy_before",
+              "accuracy_after",
+              "gain_pp",
+              "ci95_gain_pp",
+              "false_positive_delta_pp",
+              "independent_n",
+              "peak_memory_MB",
+              "significant_95",
+              "causal_supported"
+            ],
+            "additionalProperties": false
+          },
+          "source_map": {
+            "type": "object",
+            "properties": {
+              "primary": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "tradeoff": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "unknowns": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "primary",
+              "tradeoff",
+              "unknowns"
+            ],
+            "additionalProperties": false
+          },
+          "style_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "artifact",
+          "facts",
+          "source_map",
+          "style_evidence"
+        ],
+        "additionalProperties": false
+      },
+      "constraints": {
+        "schema_version": 1,
+        "assertions": [
+          {
+            "op": "equal",
+            "path": "/facts/n",
+            "expected": 132,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/accuracy_before",
+            "expected": 0.83,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/accuracy_after",
+            "expected": 0.86,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/gain_pp",
+            "expected": 3.0,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/ci95_gain_pp",
+            "expected": [
+              -0.5,
+              6.5
+            ],
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/false_positive_delta_pp",
+            "expected": 2.0,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/independent_n",
+            "expected": null,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/peak_memory_MB",
+            "expected": null,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/significant_95",
+            "expected": false,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/causal_supported",
+            "expected": false,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/source_map/primary",
+            "expected": [
+              "N2"
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/source_map/tradeoff",
+            "expected": [
+              "N3"
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/source_map/unknowns",
+            "expected": [
+              "N4"
+            ]
+          },
+          {
+            "op": "contains",
+            "path": "/artifact",
+            "value": "N3"
+          },
+          {
+            "op": "contains",
+            "path": "/artifact",
+            "value": "N2"
+          },
+          {
+            "op": "contains",
+            "path": "/artifact",
+            "value": "N4"
+          },
+          {
+            "op": "not_contains",
+            "path": "/artifact",
+            "value": "Cedar"
+          },
+          {
+            "op": "not_contains",
+            "path": "/artifact",
+            "value": "Robin"
+          }
+        ]
+      },
+      "style_sets": [
+        [
+          "Cedar 样本的误差有所下降，但证据尚不足以支持外部推广。比较仅覆盖一个站点，独立验证仍待开展。",
+          "这次观察提示了改进方向，但不能据此推断因果。尾部耗时仍有回退。",
+          "目前只能确认本次样本中的变化。样本来自同一设备，其他设备上的结果未知。"
+        ],
+        [
+          "实验设置：我们先固定 Cedar 的输入队列，再比较两种配置。\n观测结果：误差下降，尾部耗时仍有回退。\n解释边界：同一站点的观察不能代替独立验证。",
+          "实验设置：这次测量只覆盖一台设备。\n观测结果：中位耗时较低。\n解释边界：结果不能推及其他设备。",
+          "实验设置：我们使用固定样本进行比较。\n观测结果：两项指标呈现权衡。\n解释边界：当前设计不支持因果推断。"
+        ]
+      ]
+    },
+    {
+      "id": "hold-energy-en",
+      "domain": "research",
+      "language": "en",
+      "synthetic": true,
+      "task": "Discuss mean energy versus peak power in English. Include the absolute and relative energy reduction. 1 kWh = 3600 kJ. Do not infer price or cost savings. Use only supplied sources. Corrections replace old versions of the same cohort; never pool them. Keep null unknown, distinguish a confidence interval crossing zero from a measured null effect, and preserve observational scope. Put supporting source IDs next to claims in the prose. source_map.primary names the corrected measurement, tradeoff the resource/risk record, unknowns the unmeasured-status record. Match style samples without copying their facts.",
+      "sources": [
+        {
+          "id": "W1",
+          "status": "superseded",
+          "cohort": "west",
+          "n": 90,
+          "mean_energy_before_kWh": 0.48,
+          "mean_energy_after_kWh": 0.39
+        },
+        {
+          "id": "W2",
+          "status": "correction_of_W1",
+          "cohort": "west",
+          "n": 74,
+          "mean_energy_before_kWh": 0.48,
+          "mean_energy_after_kWh": 0.45,
+          "ci95_reduction_kWh": [
+            -0.01,
+            0.07
+          ],
+          "design": "one observational run; no causal identification"
+        },
+        {
+          "id": "W3",
+          "peak_before_kW": 1.8,
+          "peak_after_kW": 2.1,
+          "scope": "same run, not an independent energy sample"
+        },
+        {
+          "id": "W4",
+          "independent_n": null,
+          "cost_savings": null,
+          "note": "independent test not run; price information absent"
+        },
+        {
+          "id": "W5",
+          "status": "unrelated engineering projection",
+          "n": 2000,
+          "note": "not measured data from this cohort"
+        }
+      ],
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "artifact": {
+            "type": "string"
+          },
+          "facts": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer"
+              },
+              "reduction_kWh": {
+                "type": "number"
+              },
+              "reduction_kJ": {
+                "type": "number"
+              },
+              "relative_reduction_percent": {
+                "type": "number"
+              },
+              "ci95_reduction_kWh": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "peak_delta_kW": {
+                "type": "number"
+              },
+              "independent_n": {
+                "type": "null"
+              },
+              "cost_savings": {
+                "type": "null"
+              },
+              "significant_95": {
+                "type": "boolean"
+              },
+              "causal_supported": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "n",
+              "reduction_kWh",
+              "reduction_kJ",
+              "relative_reduction_percent",
+              "ci95_reduction_kWh",
+              "peak_delta_kW",
+              "independent_n",
+              "cost_savings",
+              "significant_95",
+              "causal_supported"
+            ],
+            "additionalProperties": false
+          },
+          "source_map": {
+            "type": "object",
+            "properties": {
+              "primary": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "tradeoff": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "unknowns": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "primary",
+              "tradeoff",
+              "unknowns"
+            ],
+            "additionalProperties": false
+          },
+          "style_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "artifact",
+          "facts",
+          "source_map",
+          "style_evidence"
+        ],
+        "additionalProperties": false
+      },
+      "constraints": {
+        "schema_version": 1,
+        "assertions": [
+          {
+            "op": "equal",
+            "path": "/facts/n",
+            "expected": 74,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/reduction_kWh",
+            "expected": 0.03,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/reduction_kJ",
+            "expected": 108.0,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/relative_reduction_percent",
+            "expected": 6.25,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/ci95_reduction_kWh",
+            "expected": [
+              -0.01,
+              0.07
+            ],
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/peak_delta_kW",
+            "expected": 0.3,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/independent_n",
+            "expected": null,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/cost_savings",
+            "expected": null,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/significant_95",
+            "expected": false,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/facts/causal_supported",
+            "expected": false,
+            "tolerance": 1e-08
+          },
+          {
+            "op": "equal",
+            "path": "/source_map/primary",
+            "expected": [
+              "W2"
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/source_map/tradeoff",
+            "expected": [
+              "W3"
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/source_map/unknowns",
+            "expected": [
+              "W4"
+            ]
+          },
+          {
+            "op": "contains",
+            "path": "/artifact",
+            "value": "W2"
+          },
+          {
+            "op": "contains",
+            "path": "/artifact",
+            "value": "W4"
+          },
+          {
+            "op": "contains",
+            "path": "/artifact",
+            "value": "W3"
+          },
+          {
+            "op": "not_contains",
+            "path": "/artifact",
+            "value": "Cedar"
+          },
+          {
+            "op": "not_contains",
+            "path": "/artifact",
+            "value": "Robin"
+          }
+        ]
+      },
+      "style_sets": [
+        [
+          "Error was lower on Cedar, but the result does not establish transfer. The comparison covered one site; independent validation is pending.",
+          "The observed change supports another test, not a deployment guarantee. Tail latency increased.",
+          "This is a sample-specific observation. We used one device. Other devices remain untested."
+        ],
+        [
+          "Setup: We fixed the Cedar input queue before comparing configurations.\nObservation: Error fell while tail latency increased.\nLimit: A single-site comparison cannot establish transfer.",
+          "Setup: We measured one device.\nObservation: Median runtime was lower.\nLimit: Independent-device validation is pending.",
+          "Setup: We used the same sample for both configurations.\nObservation: The metrics showed a tradeoff.\nLimit: The design does not establish causation."
+        ]
+      ]
+    },
+    {
+      "id": "hold-availability-zh",
+      "domain": "email",
+      "language": "zh",
+      "synthetic": true,
+      "task": "Draft the email from the authoritative current brief. Mention the document ID and amount/currency as background, not a payment or confirmation request. Current recipient_actions replace quoted history; preserve their exact machine action codes in the ledger. Replying about availability is not performing a review by that date. All deadlines are firm. Only the listed actors have actions; CC creates no action. Preserve unconfirmed/not-approved status and unknown payment_date. In the structured ledger, dates must be ISO and slots_local must use YYYY-MM-DD HH:MM +08:00; free prose may use natural dates. Keep document and currency ISO tokens exact in prose. Never send. Match expression only from the samples.",
+      "current_brief": {
+        "sender": "Ning",
+        "to": [
+          "Kai"
+        ],
+        "cc": [
+          "Morgan"
+        ],
+        "recipient_actions": [
+          {
+            "actor": "Kai",
+            "action": "confirm_availability",
+            "recipient": "Ning",
+            "deadline": "2027-01-14"
+          }
+        ],
+        "context": {
+          "document_id": "DRAFT-V47",
+          "amount": 1120,
+          "currency": "CNY",
+          "role": "context"
+        },
+        "meeting_status": "unconfirmed",
+        "approval_status": "not_approved",
+        "payment_date": null
+      },
+      "quoted_history": [
+        "An older message asked Morgan to finish the review on 2027-01-14.",
+        "Correction: Kai only needs to reply whether available by 2027-01-14. Morgan is CC only. No review completion date is set; no payment is approved."
+      ],
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "artifact": {
+            "type": "string"
+          },
+          "ledger": {
+            "type": "object",
+            "properties": {
+              "to": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "cc": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "recipient_actions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "actor": {
+                      "type": "string"
+                    },
+                    "action": {
+                      "type": "string"
+                    },
+                    "recipient": {
+                      "type": "string"
+                    },
+                    "deadline": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "actor",
+                    "action",
+                    "recipient",
+                    "deadline"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "context_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "amounts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "integer"
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency",
+                    "role"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "commitments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "meeting_status": {
+                "type": "string"
+              },
+              "approval_status": {
+                "type": "string"
+              },
+              "payment_date": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "to",
+              "cc",
+              "recipient_actions",
+              "context_refs",
+              "amounts",
+              "commitments",
+              "meeting_status",
+              "approval_status",
+              "payment_date"
+            ],
+            "additionalProperties": false
+          },
+          "style_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "artifact",
+          "ledger",
+          "style_evidence"
+        ],
+        "additionalProperties": false
+      },
+      "constraints": {
+        "schema_version": 1,
+        "assertions": [
+          {
+            "op": "equal",
+            "path": "/ledger/to",
+            "expected": [
+              "Kai"
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/cc",
+            "expected": [
+              "Morgan"
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/recipient_actions",
+            "expected": [
+              {
+                "actor": "Kai",
+                "action": "confirm_availability",
+                "recipient": "Ning",
+                "deadline": "2027-01-14"
+              }
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/context_refs",
+            "expected": [
+              "DRAFT-V47"
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/amounts",
+            "expected": [
+              {
+                "amount": 1120,
+                "currency": "CNY",
+                "role": "context"
+              }
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/commitments",
+            "expected": []
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/meeting_status",
+            "expected": "unconfirmed"
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/approval_status",
+            "expected": "not_approved"
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/payment_date",
+            "expected": null
+          },
+          {
+            "op": "contains",
+            "path": "/artifact",
+            "value": "DRAFT-V47"
+          },
+          {
+            "op": "contains",
+            "path": "/artifact",
+            "value": "CNY"
+          },
+          {
+            "op": "not_contains",
+            "path": "/artifact",
+            "value": "Cedar"
+          },
+          {
+            "op": "not_contains",
+            "path": "/artifact",
+            "value": "Robin"
+          }
+        ]
+      },
+      "style_sets": [
+        [
+          "Robin，请在周四前回复 Cedar 的修改意见。谢谢。",
+          "Lee，请在明天下午前发来可选时间。谢谢。",
+          "Sam，请在周五前把标注版发给我。谢谢。"
+        ],
+        [
+          "Robin，你好！\n\n想请你帮忙看一下 Cedar 的说明。需要你回复的内容是：\n- 修改意见；\n- 尚未解决的问题。\n请在周四前发给我。\n\n谢谢你的帮助！",
+          "Lee，你好！\n\n想和你确认下周的安排：\n- 请列出可选时间；\n- 请说明时区。\n请在明天下午前回复。\n\n谢谢！",
+          "Sam，你好！\n\n麻烦你整理材料：\n- 发来标注版；\n- 列出需要讨论的地方。\n请在周五前发给我。\n\n谢谢你的帮助！"
+        ]
+      ]
+    },
+    {
+      "id": "hold-calendar-en",
+      "domain": "email",
+      "language": "en",
+      "synthetic": true,
+      "task": "Draft the email from the authoritative current brief. Mention the document ID and amount/currency as background, not a payment or confirmation request. Current recipient_actions replace quoted history; preserve their exact machine action codes in the ledger. Replying about availability is not performing a review by that date. All deadlines are firm. Only the listed actors have actions; CC creates no action. Preserve unconfirmed/not-approved status and unknown payment_date. In the structured ledger, dates must be ISO and slots_local must use YYYY-MM-DD HH:MM +08:00; free prose may use natural dates. Keep document and currency ISO tokens exact in prose. Never send. Match expression only from the samples.",
+      "current_brief": {
+        "sender": "Taylor",
+        "to": [
+          "Quinn",
+          "Eden"
+        ],
+        "cc": [
+          "Sage"
+        ],
+        "recipient_actions": [
+          {
+            "actor": "Quinn",
+            "action": "select_slot",
+            "recipient": "Taylor",
+            "deadline": "2027-01-20"
+          },
+          {
+            "actor": "Eden",
+            "action": "send_annotation_template",
+            "recipient": "Taylor",
+            "deadline": "2027-01-21"
+          }
+        ],
+        "context": {
+          "document_id": "CAL-R95",
+          "amount": 680,
+          "currency": "USD",
+          "role": "context"
+        },
+        "meeting_status": "unconfirmed",
+        "approval_status": "not_approved",
+        "payment_date": null,
+        "slots_UTC": [
+          "2027-01-24 19:00",
+          "2027-01-25 02:00"
+        ],
+        "timezone_conversion": "Add eight hours; retain the resulting calendar dates. Display Hong Kong time UTC+08:00."
+      },
+      "quoted_history": [
+        "An old thread confirmed the first meeting and said Finance had approved payment.",
+        "Correction: neither meeting nor payment is approved. Ask Quinn to choose; Eden only sends the annotation template. Sage is CC, with no action."
+      ],
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "artifact": {
+            "type": "string"
+          },
+          "ledger": {
+            "type": "object",
+            "properties": {
+              "to": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "cc": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "recipient_actions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "actor": {
+                      "type": "string"
+                    },
+                    "action": {
+                      "type": "string"
+                    },
+                    "recipient": {
+                      "type": "string"
+                    },
+                    "deadline": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "actor",
+                    "action",
+                    "recipient",
+                    "deadline"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "context_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "amounts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "integer"
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency",
+                    "role"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "commitments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "meeting_status": {
+                "type": "string"
+              },
+              "approval_status": {
+                "type": "string"
+              },
+              "payment_date": {
+                "type": "null"
+              },
+              "slots_local": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "to",
+              "cc",
+              "recipient_actions",
+              "context_refs",
+              "amounts",
+              "commitments",
+              "meeting_status",
+              "approval_status",
+              "payment_date",
+              "slots_local"
+            ],
+            "additionalProperties": false
+          },
+          "style_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "artifact",
+          "ledger",
+          "style_evidence"
+        ],
+        "additionalProperties": false
+      },
+      "constraints": {
+        "schema_version": 1,
+        "assertions": [
+          {
+            "op": "equal",
+            "path": "/ledger/to",
+            "expected": [
+              "Quinn",
+              "Eden"
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/cc",
+            "expected": [
+              "Sage"
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/recipient_actions",
+            "expected": [
+              {
+                "actor": "Quinn",
+                "action": "select_slot",
+                "recipient": "Taylor",
+                "deadline": "2027-01-20"
+              },
+              {
+                "actor": "Eden",
+                "action": "send_annotation_template",
+                "recipient": "Taylor",
+                "deadline": "2027-01-21"
+              }
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/context_refs",
+            "expected": [
+              "CAL-R95"
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/amounts",
+            "expected": [
+              {
+                "amount": 680,
+                "currency": "USD",
+                "role": "context"
+              }
+            ]
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/commitments",
+            "expected": []
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/meeting_status",
+            "expected": "unconfirmed"
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/approval_status",
+            "expected": "not_approved"
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/payment_date",
+            "expected": null
+          },
+          {
+            "op": "equal",
+            "path": "/ledger/slots_local",
+            "expected": [
+              "2027-01-25 03:00 +08:00",
+              "2027-01-25 10:00 +08:00"
+            ]
+          },
+          {
+            "op": "contains",
+            "path": "/artifact",
+            "value": "CAL-R95"
+          },
+          {
+            "op": "contains",
+            "path": "/artifact",
+            "value": "USD"
+          },
+          {
+            "op": "not_contains",
+            "path": "/artifact",
+            "value": "Cedar"
+          },
+          {
+            "op": "not_contains",
+            "path": "/artifact",
+            "value": "Robin"
+          }
+        ]
+      },
+      "style_sets": [
+        [
+          "Robin, please send comments on Cedar by Thursday. Thanks.",
+          "Lee, please send the available times by tomorrow afternoon. Thanks.",
+          "Sam, please send the annotated draft by Friday. Thanks."
+        ],
+        [
+          "Hi Robin,\n\nI would appreciate your help reviewing Cedar. Please send:\n- Your comments;\n- Any unresolved issues.\nPlease reply by Thursday.\n\nThank you for your help.",
+          "Hi Lee,\n\nCould you help confirm next week’s arrangements? Please include:\n- Available times;\n- Their timezones.\nPlease reply by tomorrow afternoon.\n\nThank you.",
+          "Hi Sam,\n\nI would appreciate your help preparing the material. Please send:\n- The annotated draft;\n- The points requiring discussion.\nPlease send these by Friday.\n\nThank you for your help."
+        ]
+      ]
+    }
+  ]
+}

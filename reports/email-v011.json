@@ -1,0 +1,23 @@
+{
+  "candidate": "email-0.1.1",
+  "new_generation_tasks": 2,
+  "results": [
+    {
+      "case_id": "role-context-en",
+      "automatic_checks_passed": true,
+      "internal_role_review": "supported_by_explicit_packet",
+      "reported_models": []
+    },
+    {
+      "case_id": "role-context-zh",
+      "automatic_checks_passed": true,
+      "internal_role_review": "supported_by_explicit_packet",
+      "reported_models": []
+    }
+  ],
+  "scope": "Exploratory post-v1 two-case smoke with explicitly stated roles; no baseline, no independent improvement claim.",
+  "reviewer": "implementing assistant; not independent or blinded",
+  "ledger_final": 180,
+  "ledger_cap": 180,
+  "allocation_amendment": "Two unused retry slots reassigned after all v1 launches succeeded; v1 scores and outputs unchanged."
+}

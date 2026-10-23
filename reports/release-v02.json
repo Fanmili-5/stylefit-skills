@@ -1,0 +1,1421 @@
+{
+  "schema_version": 1,
+  "release_gates_passed": true,
+  "gates": {
+    "frozen_candidate_matches": true,
+    "heldout_contracts": true,
+    "heldout_reviews_complete": true,
+    "no_unresolved_material_ownvoice_errors": true,
+    "paired_style": true,
+    "native_host": true
+  },
+  "new_cli_tasks": 117,
+  "cap": 120,
+  "lifetime_cli_tasks": 356,
+  "stage_counts": {
+    "ownvoice-v02-development": 18,
+    "ownvoice-v02-holdout": 72,
+    "ownvoice-v02-judge": 9,
+    "ownvoice-v02-native": 8,
+    "ownvoice-v02-preflight": 2,
+    "ownvoice-v02-retry": 2,
+    "ownvoice-v02-smoke": 6
+  },
+  "requested_models": {
+    "gpt-6-luna": 117
+  },
+  "response_model_unreported_tasks": 117,
+  "runtime_failures": [],
+  "phases": [
+    {
+      "phase": "development",
+      "cells": [
+        {
+          "task_id": "dev-event-zh",
+          "domain": "code",
+          "language": "zh",
+          "style": 0,
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": true
+        },
+        {
+          "task_id": "dev-event-zh",
+          "domain": "code",
+          "language": "zh",
+          "style": 0,
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": true
+        },
+        {
+          "task_id": "dev-event-zh",
+          "domain": "code",
+          "language": "zh",
+          "style": 0,
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": true
+        },
+        {
+          "task_id": "dev-latency-en",
+          "domain": "research",
+          "language": "en",
+          "style": 0,
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "dev-latency-en",
+          "domain": "research",
+          "language": "en",
+          "style": 0,
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "dev-latency-en",
+          "domain": "research",
+          "language": "en",
+          "style": 0,
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "dev-availability-en",
+          "domain": "email",
+          "language": "en",
+          "style": 0,
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "dev-availability-en",
+          "domain": "email",
+          "language": "en",
+          "style": 0,
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "dev-availability-en",
+          "domain": "email",
+          "language": "en",
+          "style": 0,
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        }
+      ],
+      "aggregates": {
+        "plain": {
+          "expected": 3,
+          "initial_passes": 3,
+          "final_passes": 3,
+          "style_pairs_matched": 0,
+          "style_pairs_total": 0,
+          "material_error_flags": 0,
+          "fidelity_mean": 4,
+          "clarity_mean": 4,
+          "prompt_characters": 31359,
+          "reported_usage": {
+            "input_tokens": 118903,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1884,
+            "reasoning_output_tokens": 308
+          },
+          "unresolved_material_flags": 0
+        },
+        "checklist": {
+          "expected": 3,
+          "initial_passes": 3,
+          "final_passes": 3,
+          "style_pairs_matched": 0,
+          "style_pairs_total": 0,
+          "material_error_flags": 0,
+          "fidelity_mean": 4,
+          "clarity_mean": 4,
+          "prompt_characters": 33760,
+          "reported_usage": {
+            "input_tokens": 119278,
+            "cached_input_tokens": 17536,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1942,
+            "reasoning_output_tokens": 378
+          },
+          "unresolved_material_flags": 0
+        },
+        "ownvoice": {
+          "expected": 3,
+          "initial_passes": 3,
+          "final_passes": 3,
+          "style_pairs_matched": 0,
+          "style_pairs_total": 0,
+          "material_error_flags": 0,
+          "fidelity_mean": 4,
+          "clarity_mean": 4,
+          "prompt_characters": 56545,
+          "reported_usage": {
+            "input_tokens": 123468,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1996,
+            "reasoning_output_tokens": 257
+          },
+          "unresolved_material_flags": 0
+        }
+      }
+    },
+    {
+      "phase": "holdout",
+      "cells": [
+        {
+          "task_id": "hold-window-zh",
+          "domain": "code",
+          "language": "zh",
+          "style": 0,
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": true
+        },
+        {
+          "task_id": "hold-window-zh",
+          "domain": "code",
+          "language": "zh",
+          "style": 0,
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": true
+        },
+        {
+          "task_id": "hold-window-zh",
+          "domain": "code",
+          "language": "zh",
+          "style": 0,
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": true
+        },
+        {
+          "task_id": "hold-window-zh",
+          "domain": "code",
+          "language": "zh",
+          "style": 1,
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": true
+        },
+        {
+          "task_id": "hold-window-zh",
+          "domain": "code",
+          "language": "zh",
+          "style": 1,
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": true
+        },
+        {
+          "task_id": "hold-window-zh",
+          "domain": "code",
+          "language": "zh",
+          "style": 1,
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": true
+        },
+        {
+          "task_id": "hold-weight-en",
+          "domain": "code",
+          "language": "en",
+          "style": 0,
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": true
+        },
+        {
+          "task_id": "hold-weight-en",
+          "domain": "code",
+          "language": "en",
+          "style": 0,
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": true
+        },
+        {
+          "task_id": "hold-weight-en",
+          "domain": "code",
+          "language": "en",
+          "style": 0,
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": true
+        },
+        {
+          "task_id": "hold-weight-en",
+          "domain": "code",
+          "language": "en",
+          "style": 1,
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": true
+        },
+        {
+          "task_id": "hold-weight-en",
+          "domain": "code",
+          "language": "en",
+          "style": 1,
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": true
+        },
+        {
+          "task_id": "hold-weight-en",
+          "domain": "code",
+          "language": "en",
+          "style": 1,
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": true
+        },
+        {
+          "task_id": "hold-accuracy-zh",
+          "domain": "research",
+          "language": "zh",
+          "style": 0,
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-accuracy-zh",
+          "domain": "research",
+          "language": "zh",
+          "style": 0,
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-accuracy-zh",
+          "domain": "research",
+          "language": "zh",
+          "style": 0,
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-accuracy-zh",
+          "domain": "research",
+          "language": "zh",
+          "style": 1,
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-accuracy-zh",
+          "domain": "research",
+          "language": "zh",
+          "style": 1,
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-accuracy-zh",
+          "domain": "research",
+          "language": "zh",
+          "style": 1,
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-energy-en",
+          "domain": "research",
+          "language": "en",
+          "style": 0,
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-energy-en",
+          "domain": "research",
+          "language": "en",
+          "style": 0,
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-energy-en",
+          "domain": "research",
+          "language": "en",
+          "style": 0,
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-energy-en",
+          "domain": "research",
+          "language": "en",
+          "style": 1,
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-energy-en",
+          "domain": "research",
+          "language": "en",
+          "style": 1,
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-energy-en",
+          "domain": "research",
+          "language": "en",
+          "style": 1,
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-availability-zh",
+          "domain": "email",
+          "language": "zh",
+          "style": 0,
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-availability-zh",
+          "domain": "email",
+          "language": "zh",
+          "style": 0,
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-availability-zh",
+          "domain": "email",
+          "language": "zh",
+          "style": 0,
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-availability-zh",
+          "domain": "email",
+          "language": "zh",
+          "style": 1,
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-availability-zh",
+          "domain": "email",
+          "language": "zh",
+          "style": 1,
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-availability-zh",
+          "domain": "email",
+          "language": "zh",
+          "style": 1,
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-calendar-en",
+          "domain": "email",
+          "language": "en",
+          "style": 0,
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-calendar-en",
+          "domain": "email",
+          "language": "en",
+          "style": 0,
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-calendar-en",
+          "domain": "email",
+          "language": "en",
+          "style": 0,
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-calendar-en",
+          "domain": "email",
+          "language": "en",
+          "style": 1,
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-calendar-en",
+          "domain": "email",
+          "language": "en",
+          "style": 1,
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        },
+        {
+          "task_id": "hold-calendar-en",
+          "domain": "email",
+          "language": "en",
+          "style": 1,
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "blocking_issues": [],
+          "behavior_passed": null
+        }
+      ],
+      "aggregates": {
+        "plain": {
+          "expected": 12,
+          "initial_passes": 12,
+          "final_passes": 12,
+          "style_pairs_matched": 4,
+          "style_pairs_total": 6,
+          "material_error_flags": 2,
+          "fidelity_mean": 3.8333333333333335,
+          "clarity_mean": 3.8333333333333335,
+          "prompt_characters": 135644,
+          "reported_usage": {
+            "input_tokens": 478460,
+            "cached_input_tokens": 80768,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 9895,
+            "reasoning_output_tokens": 1208
+          },
+          "unresolved_material_flags": 2
+        },
+        "checklist": {
+          "expected": 12,
+          "initial_passes": 11,
+          "final_passes": 12,
+          "style_pairs_matched": 3,
+          "style_pairs_total": 6,
+          "material_error_flags": 1,
+          "fidelity_mean": 3.9166666666666665,
+          "clarity_mean": 4,
+          "prompt_characters": 144578,
+          "reported_usage": {
+            "input_tokens": 480070,
+            "cached_input_tokens": 157440,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 9783,
+            "reasoning_output_tokens": 1318
+          },
+          "unresolved_material_flags": 0
+        },
+        "ownvoice": {
+          "expected": 12,
+          "initial_passes": 12,
+          "final_passes": 12,
+          "style_pairs_matched": 5,
+          "style_pairs_total": 6,
+          "material_error_flags": 4,
+          "fidelity_mean": 3.75,
+          "clarity_mean": 4,
+          "prompt_characters": 234539,
+          "reported_usage": {
+            "input_tokens": 497178,
+            "cached_input_tokens": 105088,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 9549,
+            "reasoning_output_tokens": 632
+          },
+          "unresolved_material_flags": 0
+        }
+      }
+    }
+  ],
+  "judgments": [
+    {
+      "job": "ownvoice-v02-judge-dev-availability-en",
+      "case_id": "dev-availability-en",
+      "valid": true,
+      "issues": [],
+      "reviews": [
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Preserves the availability-confirmation action and firm 2026-12-03 deadline; keeps NOTE-J82 and EUR 460 as context. Ledger matches the brief, including the exact action code and unconfirmed, not-approved, and unknown payment-date statuses.",
+          "arm": "ownvoice",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Uses an allowed natural-language date in prose and retains the exact NOTE-J82 and EUR tokens. Clearly frames EUR 460 as context; the ledger matches the current action, deadline, actors, and statuses.",
+          "arm": "checklist",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Clearly asks Milan to confirm availability by the firm deadline, without turning it into a review task or payment request. Preserves the document and currency tokens; ledger matches the brief and keeps payment_date null.",
+          "arm": "plain",
+          "style": 0
+        }
+      ],
+      "pairs": []
+    },
+    {
+      "job": "ownvoice-v02-judge-dev-event-zh",
+      "case_id": "dev-event-zh",
+      "valid": true,
+      "issues": [],
+      "reviews": [
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "All four files preserve the specified behavior: each version is validated before selection, booleans are rejected, >= makes the last event win ties, dictionary insertion order retains first-seen keys, and deletion requires `is True`. Public functions, defaults, exception text, alias, imports, and return shapes are retained; intermediate variables and narration are removed.",
+          "arm": "ownvoice",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "All four files preserve the specified behavior: each version is validated before selection, booleans are rejected, >= makes the last event win ties, dictionary insertion order retains first-seen keys, and deletion requires `is True`. Public functions, defaults, exception text, alias, imports, and return shapes are retained; intermediate variables and narration are removed.",
+          "arm": "plain",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "All four files preserve the specified behavior: each version is validated before selection, booleans are rejected, >= makes the last event win ties, dictionary insertion order retains first-seen keys, and deletion requires `is True`. Public functions, defaults, exception text, alias, imports, and return shapes are retained; intermediate variables and narration are removed.",
+          "arm": "checklist",
+          "style": 0
+        }
+      ],
+      "pairs": []
+    },
+    {
+      "job": "ownvoice-v02-judge-dev-latency-en",
+      "case_id": "dev-latency-en",
+      "valid": true,
+      "issues": [],
+      "reviews": [
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Uses corrected D2 cohort (n=92), converts 0.58/0.55 seconds to 580/550 ms, reports the 30 ms reduction and the −8 to 68 ms CI as crossing zero without treating it as a null effect. Preserves single-device observational limits, reports D3's 3 J and 11.1111% increase, and retains D4 unknowns. Source IDs are adjacent to claims.",
+          "arm": "ownvoice",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Uses corrected D2 (n=92), correct millisecond values and reduction, and correctly describes the CI as crossing zero rather than a measured null effect. Reports D3 energy increase as 3 J and 11.1111%, preserves observational and single-device limits, and leaves D4 outcomes unknown. Source IDs support the claims.",
+          "arm": "plain",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Uses corrected D2 values and cohort, accurately states the CI crosses zero without implying a measured null, and reports D3's 3 J per-run increase and 11.1111% percentage. Preserves observational scope and D4's untested outcomes, with supporting IDs next to claims.",
+          "arm": "checklist",
+          "style": 0
+        }
+      ],
+      "pairs": []
+    },
+    {
+      "job": "ownvoice-v02-judge-hold-accuracy-zh",
+      "case_id": "hold-accuracy-zh",
+      "valid": true,
+      "issues": [],
+      "reviews": [
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "N2 supports n=132, 83%→86% (+3 pp), CI [−0.5, 6.5] pp, observational scope, and no causal inference. N3 supports the same-cohort false-positive increase of 2 pp and its adverse direction. N4 leaves independent n and peak memory unmeasured; N5 is correctly excluded from this study and independent validation. Source IDs are present next to the relevant prose claims.",
+          "arm": "ownvoice",
+          "style": 1
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Corrected N2 values and limits are preserved, including that the CI crossing zero does not mean a measured zero effect. N3's 2 pp adverse false-positive change and N4's unknowns are correctly reported; N1 is explicitly not pooled with its correction, and N5 is not treated as validation. Claims have adjacent source IDs.",
+          "arm": "ownvoice",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "N2 and N3 values, percentage-point units, uncertainty, and observational/no-causal limits are accurate. N4 unknowns remain unknown. Although N5 is not mentioned, the artifact does not make a claim that would require it; source IDs accompany the cited claims.",
+          "arm": "plain",
+          "style": 1
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "N2's corrected cohort, values, CI crossing zero, and observational limitation are accurate; it explicitly distinguishes this from a measured zero effect. N3's same-cohort +2 pp adverse change and N4 unknowns are preserved. N5 is correctly characterized as a different population, not independent validation.",
+          "arm": "plain",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Accurately reports N2's corrected accuracy values, +3 pp gain, CI and observational scope; correctly states that N3's same-cohort false-positive rate rises by 2 pp and higher is worse. N4 values remain unmeasured, while N5's different-population 640 cases are not misrepresented as this study or validation.",
+          "arm": "checklist",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "N2's cohort size, accuracy values, gain, CI and observational/no-causal limits are accurate. N3's same-cohort +2 pp false-positive change and adverse direction are correctly stated. N4's unmeasured quantities remain unknown; source IDs are supplied next to the claims.",
+          "arm": "checklist",
+          "style": 1
+        }
+      ],
+      "pairs": [
+        {
+          "arm": "ownvoice",
+          "matched": true,
+          "evidence": "c1 uses the explicit three-part “实验设置 / 观测结果 / 解释边界” layout seen in set_2. c2 is a continuous prose paragraph, closer to set_1’s unheaded prose. The topics are not used for matching."
+        },
+        {
+          "arm": "plain",
+          "matched": true,
+          "evidence": "c3 uses set_2’s labeled three-part layout. c4 presents a continuous prose discussion, matching set_1’s unheaded sentence style."
+        },
+        {
+          "arm": "checklist",
+          "matched": true,
+          "evidence": "c5 is continuous prose, matching set_1’s unheaded style. c6 uses the three labeled sections characteristic of set_2."
+        }
+      ]
+    },
+    {
+      "job": "ownvoice-v02-judge-hold-availability-zh",
+      "case_id": "hold-availability-zh",
+      "valid": true,
+      "issues": [],
+      "reviews": [
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Matches the current brief: Kai alone is asked to reply about availability by 2027-01-14; DRAFT-V47 and 1120 CNY are background context. Ledger preserves the exact action code, actors, firm deadline, unconfirmed/not-approved status, and unknown payment_date. ISO tokens are exact in prose.",
+          "arm": "ownvoice",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Asks Kai to reply about availability by the firm 2027-01-14 deadline and marks DRAFT-V47 (1120 CNY) as background information. Ledger matches the brief, including statuses and null payment_date. Document and currency tokens are exact.",
+          "arm": "ownvoice",
+          "style": 1
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Asks Kai whether available by 2027-01-14, and labels DRAFT-V47 and 1120 CNY as reference context. Ledger preserves the exact current action, deadline, recipients, statuses, and null payment_date. ISO tokens are exact.",
+          "arm": "plain",
+          "style": 1
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "The email asks Kai to reply about availability by 2027-01-14 and presents DRAFT-V47 and CNY 1120 as background. Ledger matches current actors, action code, deadline, statuses, and unknown payment_date; ISO tokens remain exact.",
+          "arm": "plain",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Asks Kai to reply about availability by the firm 2027-01-14 deadline and says the document and amount are for reference. Ledger preserves all required action and status fields, including null payment_date; ISO document and currency tokens are exact.",
+          "arm": "checklist",
+          "style": 1
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Asks Kai to reply to Ning about availability by 2027-01-14; the document and amount are identified as background. Ledger matches the brief, including exact action code, statuses, and null payment_date. ISO tokens are exact.",
+          "arm": "checklist",
+          "style": 0
+        }
+      ],
+      "pairs": [
+        {
+          "arm": "ownvoice",
+          "matched": true,
+          "evidence": "c1 uses a compact, single-paragraph direct request and brief thanks, like set_1. c2 uses a greeting, separated explanatory paragraphs, and a closing, like set_2."
+        },
+        {
+          "arm": "plain",
+          "matched": false,
+          "evidence": "c3 uses a greeting, spaced paragraphs, a bulleted request, and a closing, matching set_2. c4 is concise but includes a subject line, formal greeting, and signature; those conventions do not clearly distinguish either sample set."
+        },
+        {
+          "arm": "checklist",
+          "matched": false,
+          "evidence": "c5 has a greeting and separated explanatory paragraphs with a closing, aligning with set_2, though it lacks that set's bullets. c6 is a compact single-paragraph request like set_1, but its inclusion of a background line and thanks overlaps set_2 conventions, so the match is ambiguous."
+        }
+      ]
+    },
+    {
+      "job": "ownvoice-v02-judge-hold-calendar-en",
+      "case_id": "hold-calendar-en",
+      "valid": true,
+      "issues": [],
+      "reviews": [
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Matches the brief’s actors, actions, firm deadlines, unconfirmed meeting status, not-approved status, context-only CAL-R95 and 680 USD, and both correctly converted Hong Kong slots. The ledger preserves the exact action codes, ISO deadlines, and null payment_date.",
+          "arm": "plain",
+          "style": 1
+        },
+        {
+          "fidelity": 2,
+          "clarity": 3,
+          "material_errors": [
+            "Omits the available meeting slots from the email, despite the brief providing them for Quinn’s selection.",
+            "Omits the required not-approved status and the unknown payment date from the email; the ledger records not_approved and null correctly."
+          ],
+          "evidence": "The brief gives 2027-01-24 19:00 and 2027-01-25 02:00 UTC, which convert to 2027-01-25 03:00 and 10:00 Hong Kong time. The ledger has those slots and the approval/payment fields, but the email leaves out the slots and payment status.",
+          "arm": "plain",
+          "style": 0
+        },
+        {
+          "fidelity": 3,
+          "clarity": 4,
+          "material_errors": [
+            "Omits that the payment date is unknown from the email; the ledger correctly records null."
+          ],
+          "evidence": "The email preserves both actions, their deadlines, the meeting’s unconfirmed status, the not-approved payment status, context-only CAL-R95 and USD 680, and both correctly converted slots. Its natural-date prose omits the year, while the ledger has ISO dates.",
+          "arm": "checklist",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Matches the current actors and actions, firm deadlines, unconfirmed/not-approved status, context-only document and amount, and both correctly converted Hong Kong slots. It explicitly says the payment date is unknown; the ledger has exact action codes, ISO deadlines, and null payment_date.",
+          "arm": "checklist",
+          "style": 1
+        },
+        {
+          "fidelity": 3,
+          "clarity": 4,
+          "material_errors": [
+            "Omits the unknown payment date from the email; the ledger correctly records null.",
+            "Does not state in the email that Eden sends the template to Taylor, as specified in the brief; the ledger has the correct recipient."
+          ],
+          "evidence": "The email preserves the meeting status, not-approved payment status, contextual document and amount, deadlines, and correctly converted slots. The brief specifies Eden sends the annotation template to Taylor, while the prose names no recipient for that action.",
+          "arm": "ownvoice",
+          "style": 1
+        },
+        {
+          "fidelity": 3,
+          "clarity": 4,
+          "material_errors": [
+            "Omits the unknown payment date from the email; the ledger correctly records null.",
+            "Does not state in the email that Eden sends the template to Taylor, as specified in the brief; the ledger has the correct recipient."
+          ],
+          "evidence": "The email preserves the meeting and approval statuses, both deadlines, the context reference, and correctly converted slots. The brief binds Eden’s template action to Taylor, which appears in the ledger but not the email.",
+          "arm": "ownvoice",
+          "style": 0
+        }
+      ],
+      "pairs": [
+        {
+          "arm": "plain",
+          "matched": true,
+          "evidence": "c1 uses a greeting, multiple bullet requests, and a fuller closing, matching set_2’s expanded format. c2 is compact, directly names the requested actions, and ends with “Thanks,” matching set_1’s concise convention."
+        },
+        {
+          "arm": "checklist",
+          "matched": false,
+          "evidence": "Both outputs use expanded messages with multiple details and a fuller thank-you closing, closer to set_2. c3 has several paragraphs and contextual details; c4 has a greeting, bullets, and a fuller closing."
+        },
+        {
+          "arm": "ownvoice",
+          "matched": true,
+          "evidence": "c5 uses a greeting, bullet requests, and a fuller closing, matching set_2. c6 is more compact and ends with “Thanks,” matching set_1’s concise convention, despite including a subject line and signature."
+        }
+      ]
+    },
+    {
+      "job": "ownvoice-v02-judge-hold-energy-en",
+      "case_id": "hold-energy-en",
+      "valid": true,
+      "issues": [],
+      "reviews": [
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Reports the corrected W2 reduction, conversion, relative reduction, interval crossing zero without treating it as a measured null, and observational limitation. W3 supports the peak increase and same-run scope; W4 supports unknown independent testing and absent price information.",
+          "arm": "checklist",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Accurately reports W2's corrected cohort, before value, reduction, conversion, relative reduction, confidence interval, and observational limit. W3 supports the peak increase; W4 supports unknown independent testing and cost savings. Explicitly distinguishes an interval crossing zero from a measured null effect.",
+          "arm": "checklist",
+          "style": 1
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "All reported energy values and the confidence interval match W2. W3 supports the peak values and clarifies that it is not an independent energy sample. The causal, validation, and cost limits are supported by W2 and W4.",
+          "arm": "ownvoice",
+          "style": 0
+        },
+        {
+          "fidelity": 3,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "The values, units, source mapping, and observational limitation are accurate. It says the confidence interval crosses zero but does not explicitly state that the reduction is not statistically significant or distinguish that from a measured null effect, as the brief requests.",
+          "arm": "ownvoice",
+          "style": 1
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Accurately reports the corrected W2 reduction, conversion, relative reduction, and interval interpretation, including that uncertainty does not mean the measured effect was zero. W3 supports the same-run peak increase; W2 and W4 support the observational, validation, and price limits.",
+          "arm": "plain",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Reports accurate W2 energy values and interval, and accurately links the same-run peak increase to W2 and W3. It preserves observational scope and the W4 limits on validation and cost savings.",
+          "arm": "plain",
+          "style": 1
+        }
+      ],
+      "pairs": [
+        {
+          "arm": "checklist",
+          "matched": true,
+          "evidence": "c1 uses compact continuous prose with a sample-specific observation and limit, matching set_1. c2 uses explicit Setup, Observation, and Limit labels, matching set_2."
+        },
+        {
+          "arm": "ownvoice",
+          "matched": true,
+          "evidence": "c3 presents the observation and limits in continuous prose, matching set_1. c4 uses labeled Setup, Observation, and Limit sections, matching set_2."
+        },
+        {
+          "arm": "plain",
+          "matched": true,
+          "evidence": "c5 uses continuous prose to state the sample-specific result and limits, matching set_1. c6 uses explicit Setup, Observation, and Limit labels, matching set_2."
+        }
+      ]
+    },
+    {
+      "job": "ownvoice-v02-judge-hold-weight-en",
+      "case_id": "hold-weight-en",
+      "valid": true,
+      "issues": [],
+      "reviews": [
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Matches the brief and raw modules: converts and validates weights before event iteration, keeps the version and deletion rules, skips only None/float NaN observations with their weights, and preserves the public API and aliases. No material behavior or constraint changes.",
+          "arm": "checklist",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Matches the brief and raw modules. Weight conversion and finite checks precede event iteration; selection, missing-value handling, zero-denominator return, and public names are preserved.",
+          "arm": "checklist",
+          "style": 1
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Matches the brief and raw modules, including conversion-before-events, highest-version selection with last replacement on ties, strict deleted-is-True removal, and the specified mean behavior. No material errors.",
+          "arm": "plain",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Matches the brief and raw modules, preserving validation order, exceptions, selection semantics, mean behavior, public functions/defaults, and alias. No material errors.",
+          "arm": "plain",
+          "style": 1
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Local variable renaming and whitespace changes do not alter the raw modules' behavior. Conversion and validation still precede event reads; selection, filtering, means, and public API are preserved.",
+          "arm": "ownvoice",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Matches the brief and raw modules. The explicit conversion loop preserves conversion order and still finishes before event iteration; all selection, missing-value, zero-denominator, API, and alias requirements remain intact.",
+          "arm": "ownvoice",
+          "style": 1
+        }
+      ],
+      "pairs": [
+        {
+          "arm": "checklist",
+          "matched": true,
+          "evidence": "c1 uses short local names and compact structure, resembling set_1; c2 uses descriptive names and more spaced-out structure, resembling set_2."
+        },
+        {
+          "arm": "plain",
+          "matched": false,
+          "evidence": "c3 and c4 are effectively indistinguishable in naming and expression conventions, aside from blank-line spacing, so the pair cannot be reliably assigned."
+        },
+        {
+          "arm": "ownvoice",
+          "matched": true,
+          "evidence": "c5 uses abbreviated local names and compact loops, resembling set_1; c6 retains descriptive names and explicit conversion-loop structure, resembling set_2."
+        }
+      ]
+    },
+    {
+      "job": "ownvoice-v02-judge-hold-window-zh",
+      "case_id": "hold-window-zh",
+      "valid": true,
+      "issues": [],
+      "reviews": [
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Matches the brief’s behavior and public interface: missing-value handling, numeric conversion, validation before processing, trailing windows, fill handling, summary key order, alias, and input copy are preserved. The loop-based implementation is clear.",
+          "arm": "ownvoice",
+          "style": 1
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Preserves the required behavior, signatures, exception messages, summary key order, alias, and input nonmutation. The comprehensions are equivalent to the source loops.",
+          "arm": "ownvoice",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Preserves validation, trailing-window semantics, missing-value handling, numeric conversion, return shapes, alias, and input nonmutation. The Chinese comment is consistent with the zh task.",
+          "arm": "plain",
+          "style": 1
+        },
+        {
+          "fidelity": 4,
+          "clarity": 3,
+          "material_errors": [],
+          "evidence": "Preserves the required behavior and public interface. The walrus expression in the window comprehension is valid but makes the core calculation denser and harder to scan.",
+          "arm": "plain",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Preserves all specified semantics, names, defaults, key order, and input nonmutation. Its renamed local variables do not change public names or behavior.",
+          "arm": "checklist",
+          "style": 0
+        },
+        {
+          "fidelity": 4,
+          "clarity": 4,
+          "material_errors": [],
+          "evidence": "Matches the source behavior and interface, including validation, fill behavior, summary key order, alias, and copying the input before processing.",
+          "arm": "checklist",
+          "style": 1
+        }
+      ],
+      "pairs": [
+        {
+          "arm": "ownvoice",
+          "matched": false,
+          "evidence": "c1 uses explicit conditionals and loops throughout, like set_2. c2 uses a comprehension for numeric conversion but loops for window processing, so its expression conventions mix the two sample styles."
+        },
+        {
+          "arm": "plain",
+          "matched": true,
+          "evidence": "c3 uses explicit loops and named intermediate values; c4 compresses the window operation into a comprehension, matching the concise convention of set_1."
+        },
+        {
+          "arm": "checklist",
+          "matched": false,
+          "evidence": "c5 combines a conversion comprehension with explicit window iteration, making its conventions mixed. c6 uses explicit loops and named intermediate values throughout, like set_2."
+        }
+      ]
+    }
+  ],
+  "flag_validity_audit": {
+    "valid": true,
+    "flags": [
+      {
+        "decision": "unsupported",
+        "source_evidence": "Original task: “Preserve unconfirmed/not-approved status and unknown payment_date.” The structured ledger requires `payment_date` and defines it as null; item3 sets it to null.",
+        "reason": "The required unknown payment date is preserved in the ledger. The task does not separately require stating it in the email body.",
+        "arm": "ownvoice",
+        "style": 1,
+        "claim": "Omits the unknown payment date from the email; the ledger correctly records null."
+      },
+      {
+        "decision": "unsupported",
+        "source_evidence": "The brief assigns Eden `send_annotation_template` with recipient Taylor; item3’s email says “Eden, please send the annotation template,” and its ledger records recipient Taylor. The task says to preserve exact machine action codes “in the ledger.”",
+        "reason": "The action and recipient are represented in the ledger, and the body’s request is consistent with an email from Taylor to Eden. A separate body mention of Taylor as recipient is not explicitly required.",
+        "arm": "ownvoice",
+        "style": 1,
+        "claim": "Does not state in the email that Eden sends the template to Taylor, as specified in the brief; the ledger has the correct recipient."
+      },
+      {
+        "decision": "unclear",
+        "source_evidence": "The brief supplies two slots, while the task explicitly requires `slots_local` in the structured ledger with the specified format. Item4’s ledger contains both slots; its email body does not.",
+        "reason": "The original task does not expressly require repeating the slots in the email body. Their omission could make Quinn’s requested selection harder from the email alone, but treating that as a required body action is not settled by the wording.",
+        "arm": "plain",
+        "style": 0,
+        "claim": "Omits the available meeting slots from the email, despite the brief providing them for Quinn’s selection."
+      },
+      {
+        "decision": "supported",
+        "source_evidence": "Original task: “Preserve unconfirmed/not-approved status.” Item4’s email says “The meeting remains unconfirmed” but does not state approval status; its ledger records `approval_status: not_approved`.",
+        "reason": "The required not-approved status is absent from the email body. Recording it only in the ledger does not cure the body’s omission under the instruction to preserve the status. The payment-date part of the flag is unsupported: item4’s ledger correctly records null, and the task does not require stating the unknown date in the body.",
+        "arm": "plain",
+        "style": 0,
+        "claim": "Omits the required not-approved status and the unknown payment date from the email; the ledger records not_approved and null correctly."
+      },
+      {
+        "decision": "unsupported",
+        "source_evidence": "Item5’s ledger has `payment_date: null`, as required by the task’s instruction to preserve the unknown payment date.",
+        "reason": "The original task requires the unknown value to be preserved, and the structured ledger does so. It does not require mentioning the unknown date in the body.",
+        "arm": "checklist",
+        "style": 0,
+        "claim": "Omits that the payment date is unknown from the email; the ledger correctly records null."
+      },
+      {
+        "decision": "unsupported",
+        "source_evidence": "Item6’s ledger has `payment_date: null`, as required by the task’s instruction to preserve the unknown payment date.",
+        "reason": "The original task requires the unknown value to be preserved, and the structured ledger does so. It does not require mentioning the unknown date in the body.",
+        "arm": "ownvoice",
+        "style": 0,
+        "claim": "Omits the unknown payment date from the email; the ledger correctly records null."
+      },
+      {
+        "decision": "unsupported",
+        "source_evidence": "The brief assigns Eden `send_annotation_template` with recipient Taylor; item6’s email asks Eden to send the template, and its ledger records recipient Taylor. The task specifies that exact machine action codes belong “in the ledger.”",
+        "reason": "The action and recipient are represented in the ledger, and the email is from Taylor to Eden. A separate body mention of Taylor as recipient is not explicitly required.",
+        "arm": "ownvoice",
+        "style": 0,
+        "claim": "Does not state in the email that Eden sends the template to Taylor, as specified in the brief; the ledger has the correct recipient."
+      }
+    ],
+    "additional_errors": [],
+    "issues": [],
+    "scope": "One post-hoc blinded flag-validity audit; original scores/outputs unchanged. Empty additional_errors means none reported, not exhaustive independent re-review."
+  },
+  "native_tests": [
+    {
+      "case_id": "explicit-code",
+      "passed": true,
+      "issues": [],
+      "skill_read_observed": true,
+      "helper_execution_observed": true,
+      "tool_events": 5
+    },
+    {
+      "case_id": "explicit-research",
+      "passed": true,
+      "issues": [],
+      "skill_read_observed": true,
+      "helper_execution_observed": true,
+      "tool_events": 5
+    },
+    {
+      "case_id": "explicit-email",
+      "passed": true,
+      "issues": [],
+      "skill_read_observed": true,
+      "helper_execution_observed": true,
+      "tool_events": 6
+    },
+    {
+      "case_id": "implicit-code",
+      "passed": true,
+      "issues": [],
+      "skill_read_observed": true,
+      "helper_execution_observed": true,
+      "tool_events": 6
+    },
+    {
+      "case_id": "implicit-research",
+      "passed": true,
+      "issues": [],
+      "skill_read_observed": true,
+      "helper_execution_observed": true,
+      "tool_events": 5
+    },
+    {
+      "case_id": "implicit-email",
+      "passed": true,
+      "issues": [],
+      "skill_read_observed": true,
+      "helper_execution_observed": true,
+      "tool_events": 4
+    },
+    {
+      "case_id": "explicit-profile",
+      "passed": true,
+      "issues": [],
+      "skill_read_observed": true,
+      "helper_execution_observed": true,
+      "tool_events": 6
+    },
+    {
+      "case_id": "negative",
+      "passed": true,
+      "issues": [
+        "missing_assessment"
+      ],
+      "skill_read_observed": null,
+      "helper_execution_observed": null,
+      "tool_events": 0
+    }
+  ],
+  "ownvoice_style_matches_by_domain": {
+    "code": 1,
+    "research": 2,
+    "email": 2
+  },
+  "product_hashes": {
+    "ownvoice/__init__.py": "dc30b77a71898be50dd499c0fe9ea42dff09cc814260def1115143863d5ac8c4",
+    "ownvoice/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "ownvoice/checks.py": "bcd9160922077eba7c5f26e5a50bbbd02210495cc9f842b9ae827bf0e1abc0bc",
+    "ownvoice/cli.py": "5c9addae20918c30ebef49c931732ad3e2291728389f3429acbd50b521377299",
+    "ownvoice/installation.py": "70fe08e9406ed142803f76241419b036778405feea5112773f26441e93da2a21",
+    "ownvoice/profile.py": "c38dc781b3876f4895e04b5f85b0772a8bbad524afc0cef2c8f6cdffe6c45070",
+    "ownvoice/verification.py": "586d662d1bd59ccedab1d13496984f5c69baea8b86a8c8c8b512076badfcbdcd",
+    "pyproject.toml": "377cdd5ad2bb796642787118d1fb062d3c45e6db0eb3f3c98a970edbd1e0515e",
+    "requirements-runtime.lock": "753d97623ce87348e30b5f8bd62e95a45cbe07b00f40716425f344a5cf65ef9d",
+    "scripts/install.py": "e0c4431523961e49ef265bac71e04885ab5a418b7a29b5887501d6ed1e9345f6",
+    "skills/ownvoice-code/SKILL.md": "ceb95bd306186e82104d746ad7acba680e3c639b9d2dfc1a99d4753c5e61aa5f",
+    "skills/ownvoice-code/agents/openai.yaml": "8f8ad1159960016244b734e07320153caab6699d9cb6f1e0105c31b564785e52",
+    "skills/ownvoice-code/references/contracts.md": "712bdd8be868df599ea7508670d2adfa352a5496cdb02fab421f283578208329",
+    "skills/ownvoice-code/references/verification.md": "18a489d35bf2cb6367ec67c523019cd55ae97fb277d85dcdb16bb304b6085f59",
+    "skills/ownvoice-code/scripts/check_python_pair.py": "2dec765334863ce6c06dd306bf841e0088297866ac3ede004ae654b517e4f954",
+    "skills/ownvoice-code/scripts/verify.py": "4b3d275f5a5f827b804815b6ada6bb7d422c11c3efa1e53918d6eb8ad0e3698d",
+    "skills/ownvoice-email/SKILL.md": "7afcf61cd695830a555fffdf7039a7aab478300eb10c9bc69d447d98dade41b1",
+    "skills/ownvoice-email/agents/openai.yaml": "645352d41002ffcd3e80af272ab55b2911d8126d6fbfee2a72486162edd59bf2",
+    "skills/ownvoice-email/references/verification.md": "18a489d35bf2cb6367ec67c523019cd55ae97fb277d85dcdb16bb304b6085f59",
+    "skills/ownvoice-email/scripts/verify.py": "4b3d275f5a5f827b804815b6ada6bb7d422c11c3efa1e53918d6eb8ad0e3698d",
+    "skills/ownvoice-profile/SKILL.md": "f6aaafb637ddcfd7e3733de4a9959d58dfa30066019fe6fe8bd18b8eb203a4b6",
+    "skills/ownvoice-profile/agents/openai.yaml": "51cbb996c8b62bc121797dc9f2849e8ad0944c5afec95a795e95b8a9d81aff8d",
+    "skills/ownvoice-profile/scripts/verify.py": "4b3d275f5a5f827b804815b6ada6bb7d422c11c3efa1e53918d6eb8ad0e3698d",
+    "skills/ownvoice-research/SKILL.md": "ce0fb644b320e53f16c11895374945731952e9ee0e47ba4c9adc4b5b26c97605",
+    "skills/ownvoice-research/agents/openai.yaml": "8a06df11f8b997684933de588ab18caa4799394796d56bc3131be3225bfabaa3",
+    "skills/ownvoice-research/references/claims.md": "2b65a5cf3f0cb07f8832042c0315b2a1dd997cca97b277aed0bade07d7759649",
+    "skills/ownvoice-research/references/verification.md": "18a489d35bf2cb6367ec67c523019cd55ae97fb277d85dcdb16bb304b6085f59",
+    "skills/ownvoice-research/scripts/verify.py": "4b3d275f5a5f827b804815b6ada6bb7d422c11c3efa1e53918d6eb8ad0e3698d"
+  },
+  "limits": [
+    "Synthetic small sample; same-model review is not independent human preference.",
+    "CLI job accounting is not an exact count of provider requests inside native tool loops.",
+    "Finite code cases do not prove general behavioral equivalence."
+  ]
+}

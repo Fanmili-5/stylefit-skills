@@ -1,0 +1,1233 @@
+{
+  "scope": "Synthetic small diagnostic; hard checks and same-family Luna ratings are separate.",
+  "measurement_audit": "luna-v2-measurement-audit.md; frozen strict text pass counts are not semantic accuracy",
+  "new_tasks_started": 59,
+  "new_cap": 60,
+  "lifetime_tasks_started": 239,
+  "lifetime_cap": 240,
+  "requested_models": {
+    "gpt-6-luna": 59
+  },
+  "response_model_unreported_tasks": 59,
+  "reported_usage_all_tasks": {
+    "input_tokens": 1156172,
+    "cached_input_tokens": 849792,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 17662,
+    "reasoning_output_tokens": 541
+  },
+  "runtime_failures": [],
+  "phases": [
+    {
+      "phase": "development",
+      "cells": [
+        {
+          "task_id": "dev-code-zh",
+          "domain": "code",
+          "language": "zh",
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "valid_json": true,
+          "required_artifact_present": null,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [],
+          "finite_cases_passed": 9,
+          "finite_cases_total": 9
+        },
+        {
+          "task_id": "dev-code-zh",
+          "domain": "code",
+          "language": "zh",
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "valid_json": true,
+          "required_artifact_present": null,
+          "research_fact_fields_passed": null,
+          "selected_checks": [
+            "api_contract",
+            "edge_cases"
+          ],
+          "strict_issues": [],
+          "finite_cases_passed": 9,
+          "finite_cases_total": 9
+        },
+        {
+          "task_id": "dev-code-zh",
+          "domain": "code",
+          "language": "zh",
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "valid_json": true,
+          "required_artifact_present": null,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [],
+          "finite_cases_passed": 9,
+          "finite_cases_total": 9
+        },
+        {
+          "task_id": "dev-code-en",
+          "domain": "code",
+          "language": "en",
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "valid_json": true,
+          "required_artifact_present": null,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [],
+          "finite_cases_passed": 8,
+          "finite_cases_total": 8
+        },
+        {
+          "task_id": "dev-code-en",
+          "domain": "code",
+          "language": "en",
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "valid_json": true,
+          "required_artifact_present": null,
+          "research_fact_fields_passed": null,
+          "selected_checks": [
+            "api_contract",
+            "edge_cases"
+          ],
+          "strict_issues": [],
+          "finite_cases_passed": 8,
+          "finite_cases_total": 8
+        },
+        {
+          "task_id": "dev-code-en",
+          "domain": "code",
+          "language": "en",
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "valid_json": true,
+          "required_artifact_present": null,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [],
+          "finite_cases_passed": 8,
+          "finite_cases_total": 8
+        },
+        {
+          "task_id": "dev-research-zh",
+          "domain": "research",
+          "language": "zh",
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": true,
+          "selected_checks": [],
+          "strict_issues": [
+            "uncited_R2",
+            "uncited_R4",
+            "uncited_R3"
+          ]
+        },
+        {
+          "task_id": "dev-research-zh",
+          "domain": "research",
+          "language": "zh",
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": true,
+          "selected_checks": [],
+          "strict_issues": [
+            "uncited_R2",
+            "uncited_R4",
+            "incorrect_source_independent_status",
+            "uncited_R3"
+          ]
+        },
+        {
+          "task_id": "dev-research-zh",
+          "domain": "research",
+          "language": "zh",
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": true,
+          "selected_checks": [],
+          "strict_issues": []
+        },
+        {
+          "task_id": "dev-research-en",
+          "domain": "research",
+          "language": "en",
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": true,
+          "selected_checks": [],
+          "strict_issues": [
+            "uncited_S2",
+            "uncited_S3",
+            "uncited_S4"
+          ]
+        },
+        {
+          "task_id": "dev-research-en",
+          "domain": "research",
+          "language": "en",
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": true,
+          "selected_checks": [],
+          "strict_issues": [
+            "uncited_S2",
+            "uncited_S3",
+            "uncited_S4"
+          ]
+        },
+        {
+          "task_id": "dev-research-en",
+          "domain": "research",
+          "language": "en",
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": false,
+          "required_artifact_present": false,
+          "research_fact_fields_passed": false,
+          "selected_checks": [],
+          "strict_issues": [
+            "invalid_json_output"
+          ]
+        },
+        {
+          "task_id": "dev-email-zh",
+          "domain": "email",
+          "language": "zh",
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [
+            "incorrect_amounts"
+          ]
+        },
+        {
+          "task_id": "dev-email-zh",
+          "domain": "email",
+          "language": "zh",
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [
+            "incorrect_amounts",
+            "missing_current_deadline"
+          ]
+        },
+        {
+          "task_id": "dev-email-zh",
+          "domain": "email",
+          "language": "zh",
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [
+            "incorrect_amounts",
+            "missing_current_deadline"
+          ]
+        },
+        {
+          "task_id": "dev-email-en",
+          "domain": "email",
+          "language": "en",
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [
+            "incorrect_recipient_actions",
+            "incorrect_slots_local",
+            "incorrect_amounts",
+            "missing_current_deadline"
+          ]
+        },
+        {
+          "task_id": "dev-email-en",
+          "domain": "email",
+          "language": "en",
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [
+            "incorrect_slots_local",
+            "incorrect_amounts",
+            "missing_current_deadline"
+          ]
+        },
+        {
+          "task_id": "dev-email-en",
+          "domain": "email",
+          "language": "en",
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": false,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [
+            "missing_artifact",
+            "incorrect_slots_local",
+            "incorrect_amounts",
+            "missing_context_reference",
+            "missing_current_deadline",
+            "missing_addressee"
+          ]
+        }
+      ],
+      "aggregates": {
+        "plain": {
+          "expected_cells": 6,
+          "completed_cells": 6,
+          "frozen_strict_passes": 2,
+          "invalid_json_cells": 0,
+          "missing_required_artifact_cells": 0,
+          "research_fact_fields_passes": 2,
+          "initial_code_passes": 2,
+          "final_code_passes": 2,
+          "code_cells": 2,
+          "rated_cells": 6,
+          "preferred_cells": 1,
+          "rating_means": {
+            "fidelity": 3.8333333333333335,
+            "style_fit": 4,
+            "clarity": 4
+          },
+          "critical_error_flags": 1,
+          "generation_cli_tasks": 8,
+          "reported_usage": {
+            "input_tokens": 153179,
+            "cached_input_tokens": 112128,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2345,
+            "reasoning_output_tokens": 0
+          },
+          "prompt_characters": 29365,
+          "artifact_characters": 8187,
+          "serial_seconds_sum": 67.94753241600002
+        },
+        "checklist": {
+          "expected_cells": 6,
+          "completed_cells": 6,
+          "frozen_strict_passes": 2,
+          "invalid_json_cells": 0,
+          "missing_required_artifact_cells": 0,
+          "research_fact_fields_passes": 2,
+          "initial_code_passes": 2,
+          "final_code_passes": 2,
+          "code_cells": 2,
+          "rated_cells": 6,
+          "preferred_cells": 0,
+          "rating_means": {
+            "fidelity": 4,
+            "style_fit": 3.8333333333333335,
+            "clarity": 3.8333333333333335
+          },
+          "critical_error_flags": 0,
+          "generation_cli_tasks": 8,
+          "reported_usage": {
+            "input_tokens": 156542,
+            "cached_input_tokens": 105600,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2507,
+            "reasoning_output_tokens": 0
+          },
+          "prompt_characters": 42687,
+          "artifact_characters": 8510,
+          "serial_seconds_sum": 71.12582650000002
+        },
+        "ownvoice": {
+          "expected_cells": 6,
+          "completed_cells": 6,
+          "frozen_strict_passes": 3,
+          "invalid_json_cells": 1,
+          "missing_required_artifact_cells": 2,
+          "research_fact_fields_passes": 1,
+          "initial_code_passes": 2,
+          "final_code_passes": 2,
+          "code_cells": 2,
+          "rated_cells": 6,
+          "preferred_cells": 0,
+          "rating_means": {
+            "fidelity": 3.8333333333333335,
+            "style_fit": 4,
+            "clarity": 3.6666666666666665
+          },
+          "critical_error_flags": 1,
+          "generation_cli_tasks": 8,
+          "reported_usage": {
+            "input_tokens": 159204,
+            "cached_input_tokens": 105600,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2588,
+            "reasoning_output_tokens": 150
+          },
+          "prompt_characters": 62361,
+          "artifact_characters": 8756,
+          "serial_seconds_sum": 63.968489208000015
+        }
+      },
+      "judgments": [
+        {
+          "valid": true,
+          "issues": [],
+          "cases": [
+            {
+              "task_id": "dev-research-zh",
+              "ratings": [
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "plain"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "checklist"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "ownvoice"
+                }
+              ],
+              "preferred_arm": "tie"
+            }
+          ]
+        },
+        {
+          "valid": true,
+          "issues": [],
+          "cases": [
+            {
+              "task_id": "dev-research-en",
+              "ratings": [
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "plain"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "checklist"
+                },
+                {
+                  "fidelity": 3,
+                  "style_fit": 4,
+                  "clarity": 2,
+                  "critical_errors": [
+                    "Output is wrapped in an invalid_output string rather than supplied as the requested JSON object, so the artifact and structured facts are not directly available in the required format."
+                  ],
+                  "arm": "ownvoice"
+                }
+              ],
+              "preferred_arm": "tie"
+            }
+          ]
+        },
+        {
+          "valid": true,
+          "issues": [],
+          "cases": [
+            {
+              "task_id": "dev-email-zh",
+              "ratings": [
+                {
+                  "fidelity": 3,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [
+                    "Ledger assigns payment status `not_approved` to the amount, although the brief specifies that status for payment, not the invoice amount; this is a field-binding error."
+                  ],
+                  "arm": "plain"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "checklist"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "ownvoice"
+                }
+              ],
+              "preferred_arm": "tie"
+            }
+          ]
+        },
+        {
+          "valid": true,
+          "issues": [],
+          "cases": [
+            {
+              "task_id": "dev-email-en",
+              "ratings": [
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "plain"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "checklist"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "ownvoice"
+                }
+              ],
+              "preferred_arm": "tie"
+            }
+          ]
+        },
+        {
+          "valid": true,
+          "issues": [],
+          "cases": [
+            {
+              "task_id": "dev-code-zh",
+              "ratings": [
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "plain"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 3,
+                  "clarity": 3,
+                  "critical_errors": [],
+                  "arm": "checklist"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "ownvoice"
+                }
+              ],
+              "preferred_arm": "plain"
+            },
+            {
+              "task_id": "dev-code-en",
+              "ratings": [
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "plain"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "checklist"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "ownvoice"
+                }
+              ],
+              "preferred_arm": "tie"
+            }
+          ]
+        }
+      ],
+      "judge_ties": 5
+    },
+    {
+      "phase": "holdout",
+      "cells": [
+        {
+          "task_id": "holdout-code-zh",
+          "domain": "code",
+          "language": "zh",
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": true,
+          "valid_json": true,
+          "required_artifact_present": null,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [],
+          "finite_cases_passed": 8,
+          "finite_cases_total": 8
+        },
+        {
+          "task_id": "holdout-code-zh",
+          "domain": "code",
+          "language": "zh",
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "valid_json": true,
+          "required_artifact_present": null,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [],
+          "finite_cases_passed": 8,
+          "finite_cases_total": 8
+        },
+        {
+          "task_id": "holdout-code-zh",
+          "domain": "code",
+          "language": "zh",
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "valid_json": true,
+          "required_artifact_present": null,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [],
+          "finite_cases_passed": 8,
+          "finite_cases_total": 8
+        },
+        {
+          "task_id": "holdout-code-en",
+          "domain": "code",
+          "language": "en",
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "valid_json": true,
+          "required_artifact_present": null,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [],
+          "finite_cases_passed": 9,
+          "finite_cases_total": 9
+        },
+        {
+          "task_id": "holdout-code-en",
+          "domain": "code",
+          "language": "en",
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "valid_json": true,
+          "required_artifact_present": null,
+          "research_fact_fields_passed": null,
+          "selected_checks": [
+            "api_contract",
+            "edge_cases"
+          ],
+          "strict_issues": [],
+          "finite_cases_passed": 9,
+          "finite_cases_total": 9
+        },
+        {
+          "task_id": "holdout-code-en",
+          "domain": "code",
+          "language": "en",
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": true,
+          "final_passed": true,
+          "valid_json": true,
+          "required_artifact_present": null,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [],
+          "finite_cases_passed": 9,
+          "finite_cases_total": 9
+        },
+        {
+          "task_id": "holdout-research-zh",
+          "domain": "research",
+          "language": "zh",
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": true,
+          "selected_checks": [],
+          "strict_issues": [
+            "uncited_T2",
+            "uncited_T3",
+            "uncited_T4"
+          ]
+        },
+        {
+          "task_id": "holdout-research-zh",
+          "domain": "research",
+          "language": "zh",
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": true,
+          "selected_checks": [],
+          "strict_issues": [
+            "uncited_T2",
+            "uncited_T3",
+            "uncited_T4"
+          ]
+        },
+        {
+          "task_id": "holdout-research-zh",
+          "domain": "research",
+          "language": "zh",
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": true,
+          "selected_checks": [],
+          "strict_issues": [
+            "uncited_T2",
+            "uncited_T3",
+            "uncited_T4"
+          ]
+        },
+        {
+          "task_id": "holdout-research-en",
+          "domain": "research",
+          "language": "en",
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": true,
+          "selected_checks": [],
+          "strict_issues": [
+            "uncited_U2",
+            "uncited_U3",
+            "uncited_U4"
+          ]
+        },
+        {
+          "task_id": "holdout-research-en",
+          "domain": "research",
+          "language": "en",
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": true,
+          "selected_checks": [],
+          "strict_issues": [
+            "uncited_U2",
+            "uncited_U3",
+            "uncited_U4"
+          ]
+        },
+        {
+          "task_id": "holdout-research-en",
+          "domain": "research",
+          "language": "en",
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": false,
+          "required_artifact_present": false,
+          "research_fact_fields_passed": false,
+          "selected_checks": [],
+          "strict_issues": [
+            "invalid_json_output"
+          ]
+        },
+        {
+          "task_id": "holdout-email-zh",
+          "domain": "email",
+          "language": "zh",
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [
+            "incorrect_amounts"
+          ]
+        },
+        {
+          "task_id": "holdout-email-zh",
+          "domain": "email",
+          "language": "zh",
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [
+            "incorrect_amounts"
+          ]
+        },
+        {
+          "task_id": "holdout-email-zh",
+          "domain": "email",
+          "language": "zh",
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [
+            "incorrect_amounts"
+          ]
+        },
+        {
+          "task_id": "holdout-email-en",
+          "domain": "email",
+          "language": "en",
+          "arm": "plain",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [
+            "incorrect_amounts",
+            "missing_current_deadline"
+          ]
+        },
+        {
+          "task_id": "holdout-email-en",
+          "domain": "email",
+          "language": "en",
+          "arm": "checklist",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [
+            "incorrect_amounts"
+          ]
+        },
+        {
+          "task_id": "holdout-email-en",
+          "domain": "email",
+          "language": "en",
+          "arm": "ownvoice",
+          "status": "completed",
+          "initial_passed": false,
+          "final_passed": false,
+          "valid_json": true,
+          "required_artifact_present": true,
+          "research_fact_fields_passed": null,
+          "selected_checks": [],
+          "strict_issues": [
+            "incorrect_to",
+            "incorrect_amounts",
+            "missing_current_deadline"
+          ]
+        }
+      ],
+      "aggregates": {
+        "plain": {
+          "expected_cells": 6,
+          "completed_cells": 6,
+          "frozen_strict_passes": 2,
+          "invalid_json_cells": 0,
+          "missing_required_artifact_cells": 0,
+          "research_fact_fields_passes": 2,
+          "initial_code_passes": 1,
+          "final_code_passes": 2,
+          "code_cells": 2,
+          "rated_cells": 6,
+          "preferred_cells": 1,
+          "rating_means": {
+            "fidelity": 3.5,
+            "style_fit": 3.8333333333333335,
+            "clarity": 3.8333333333333335
+          },
+          "critical_error_flags": 2,
+          "generation_cli_tasks": 8,
+          "reported_usage": {
+            "input_tokens": 152851,
+            "cached_input_tokens": 125184,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2072,
+            "reasoning_output_tokens": 0
+          },
+          "prompt_characters": 28506,
+          "artifact_characters": 7628,
+          "serial_seconds_sum": 62.647105708
+        },
+        "checklist": {
+          "expected_cells": 6,
+          "completed_cells": 6,
+          "frozen_strict_passes": 2,
+          "invalid_json_cells": 0,
+          "missing_required_artifact_cells": 0,
+          "research_fact_fields_passes": 2,
+          "initial_code_passes": 2,
+          "final_code_passes": 2,
+          "code_cells": 2,
+          "rated_cells": 6,
+          "preferred_cells": 3,
+          "rating_means": {
+            "fidelity": 3.8333333333333335,
+            "style_fit": 3.5,
+            "clarity": 4
+          },
+          "critical_error_flags": 0,
+          "generation_cli_tasks": 8,
+          "reported_usage": {
+            "input_tokens": 155026,
+            "cached_input_tokens": 131712,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2679,
+            "reasoning_output_tokens": 391
+          },
+          "prompt_characters": 38228,
+          "artifact_characters": 8150,
+          "serial_seconds_sum": 67.68257212399998
+        },
+        "ownvoice": {
+          "expected_cells": 6,
+          "completed_cells": 6,
+          "frozen_strict_passes": 2,
+          "invalid_json_cells": 1,
+          "missing_required_artifact_cells": 1,
+          "research_fact_fields_passes": 1,
+          "initial_code_passes": 2,
+          "final_code_passes": 2,
+          "code_cells": 2,
+          "rated_cells": 6,
+          "preferred_cells": 0,
+          "rating_means": {
+            "fidelity": 3.6666666666666665,
+            "style_fit": 3.5,
+            "clarity": 3.6666666666666665
+          },
+          "critical_error_flags": 1,
+          "generation_cli_tasks": 8,
+          "reported_usage": {
+            "input_tokens": 159398,
+            "cached_input_tokens": 118656,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2165,
+            "reasoning_output_tokens": 0
+          },
+          "prompt_characters": 64196,
+          "artifact_characters": 7996,
+          "serial_seconds_sum": 55.95223183300001
+        }
+      },
+      "judgments": [
+        {
+          "valid": true,
+          "issues": [],
+          "cases": [
+            {
+              "task_id": "holdout-research-zh",
+              "ratings": [
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "plain"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "checklist"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "ownvoice"
+                }
+              ],
+              "preferred_arm": "tie"
+            }
+          ]
+        },
+        {
+          "valid": true,
+          "issues": [],
+          "cases": [
+            {
+              "task_id": "holdout-research-en",
+              "ratings": [
+                {
+                  "fidelity": 3,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [
+                    "Calls the 56 observations a mean-energy record; the sources give before/after energy values but do not identify them as means."
+                  ],
+                  "arm": "plain"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 3,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "checklist"
+                },
+                {
+                  "fidelity": 3,
+                  "style_fit": 3,
+                  "clarity": 2,
+                  "critical_errors": [
+                    "The output is wrapped in `invalid_output` as a JSON string rather than providing the requested JSON structure directly."
+                  ],
+                  "arm": "ownvoice"
+                }
+              ],
+              "preferred_arm": "checklist"
+            }
+          ]
+        },
+        {
+          "valid": true,
+          "issues": [],
+          "cases": [
+            {
+              "task_id": "holdout-email-zh",
+              "ratings": [
+                {
+                  "fidelity": 2,
+                  "style_fit": 4,
+                  "clarity": 3,
+                  "critical_errors": [
+                    "The draft asks Reese to view the document by the deadline, changing the requested action from confirming availability to performing the review by that date."
+                  ],
+                  "arm": "plain"
+                },
+                {
+                  "fidelity": 3,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "checklist"
+                },
+                {
+                  "fidelity": 3,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "ownvoice"
+                }
+              ],
+              "preferred_arm": "checklist"
+            }
+          ]
+        },
+        {
+          "valid": true,
+          "issues": [],
+          "cases": [
+            {
+              "task_id": "holdout-email-en",
+              "ratings": [
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "plain"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 3,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "checklist"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "ownvoice"
+                }
+              ],
+              "preferred_arm": "tie"
+            }
+          ]
+        },
+        {
+          "valid": true,
+          "issues": [],
+          "cases": [
+            {
+              "task_id": "holdout-code-zh",
+              "ratings": [
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "plain"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 3,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "checklist"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 3,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "ownvoice"
+                }
+              ],
+              "preferred_arm": "plain"
+            },
+            {
+              "task_id": "holdout-code-en",
+              "ratings": [
+                {
+                  "fidelity": 4,
+                  "style_fit": 3,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "plain"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 4,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "checklist"
+                },
+                {
+                  "fidelity": 4,
+                  "style_fit": 3,
+                  "clarity": 4,
+                  "critical_errors": [],
+                  "arm": "ownvoice"
+                }
+              ],
+              "preferred_arm": "checklist"
+            }
+          ]
+        }
+      ],
+      "judge_ties": 2
+    }
+  ]
+}

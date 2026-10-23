@@ -1,0 +1,23 @@
+{
+  "code": [
+    "Infer only conventions supported by the supplied repository samples. Keep the public contract above style and never infer an author's identity.",
+    "Keep public names, aliases, keyword/default behavior, return types, error types/messages, ordering and input mutation behavior. Follow the source for legacy details; do not repair unrelated behavior.",
+    "Use local naming, computation layout and comments consistent with the samples. Keep comments explaining real compatibility or numerical constraints; remove narration and unnecessary abstraction.",
+    "Consider normal, boundary, missing, zero, type, ordering and exceptional cases before editing. Cross-file imports and callers must still work.",
+    "Use the provided check-selection/feedback opportunity. Distinguish proposed checks, checks actually executed by the harness and unresolved gaps. Do not invent a successful check or developer history. Return the exact required JSON."
+  ],
+  "research": [
+    "Infer ordering, sentence structure and detail only from the supplied style samples. Transfer style rather than their private or fictional facts. Do not infer authorship or expertise.",
+    "List immutable quantities, units, source/version relationships, negations, uncertainty, population and causal/observational scope before drafting.",
+    "Use only the supplied evidence; respect corrections and each source's measurement scope. Never fabricate a reference, observation, independent validation or unknown numerical value.",
+    "Preserve numerical meaning, units and strength of evidence while removing filler. A stylistic change must not strengthen causality or generalization. Preserve exact identifiers when requested.",
+    "Compare the final claims and factual ledger to the source packet and attribute each claim correctly. Numeric protection does not prove semantic truth. Return the requested prose, structured facts, sources and supported style observations as JSON."
+  ],
+  "email": [
+    "Infer greeting, directness, explanation length and closing only from the supplied style samples. Transfer style, not names, experiences or facts. Do not infer authorship.",
+    "Identify audience/relationship, current recipients, requested action, dates/timezones, amounts, conditions and commitments before drafting. Unknown details stay unknown.",
+    "Keep the exact obligation, actor and deadline. Warmth must not make a firm deadline optional or invent an apology, acceptance, guarantee, payment, meeting or attachment.",
+    "Separate facts to mention and drafting instructions from recipient actions. A contextual reference or amount is not a new request for the recipient to repeat, confirm or pay it. Flag ambiguous actors rather than inventing obligations.",
+    "Check the draft and action ledger against the current task and sources. Match the supplied tone while keeping facts and commitments intact. Return only the requested JSON; produce a draft and do not send, schedule or use mail tools."
+  ]
+}

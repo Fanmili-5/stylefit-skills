@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["artifact", "ledger"],
+  "additionalProperties": false,
+  "properties": {
+    "artifact": {"type": "string"},
+    "ledger": {
+      "type": "object",
+      "required": ["to", "actor", "action", "reply_deadline", "review_deadline", "amount", "currency", "payment_date"],
+      "additionalProperties": false,
+      "properties": {
+        "to": {"type": "array", "items": {"type": "string"}},
+        "actor": {"type": "string"},
+        "action": {"type": "string"},
+        "reply_deadline": {"type": "string"},
+        "review_deadline": {"type": "null"},
+        "amount": {"type": "number"},
+        "currency": {"type": "string"},
+        "payment_date": {"type": "null"}
+      }
+    }
+  }
+}

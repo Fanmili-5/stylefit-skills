@@ -1,0 +1,11 @@
+{
+  "original_pilot_source_inputs_verified_using_two_saved_historical_files": true,
+  "general_v1_case_checker_runner_and_skill_snapshots_verified": true,
+  "historical_runtime_config_fingerprints_identical_across_pilot_general_and_smoke": true,
+  "current_runtime_config_matches_saved_fingerprint": false,
+  "current_config_mtime_after_all_generations": true,
+  "runtime_scope": "The current config changed after generation according to its mtime. Original config bytes were not archived; saved fingerprints and per-job freeze checks are retained. No configuration was restored or re-frozen.",
+  "running_generations": 0,
+  "local_unittest_count": 29,
+  "official_skill_validations_passed": 4
+}

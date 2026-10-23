@@ -1,0 +1,13 @@
+{
+  "artifact": "Alex，你好！请在 2027 年 3 月 15 日前回复是否有空查看 NOTE-Q31。预算 CNY 320 仅供参考。谢谢！",
+  "ledger": {
+    "to": ["Alex"],
+    "actor": "Alex",
+    "action": "confirm_availability",
+    "reply_deadline": "2027-03-15",
+    "review_deadline": null,
+    "amount": 320,
+    "currency": "CNY",
+    "payment_date": null
+  }
+}

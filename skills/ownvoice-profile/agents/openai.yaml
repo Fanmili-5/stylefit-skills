@@ -1,0 +1,4 @@
+interface:
+  display_name: "可选风格档案"
+  short_description: "仅在明确要求时建立可编辑风格档案，按领域与语言隔离并保留未知偏好"
+  default_prompt: "使用 $ownvoice-profile 从我确认的样例或偏好起草可编辑档案，先展示，不自动保存。"

@@ -1,0 +1,828 @@
+{
+  "version": "general-v1",
+  "synthetic": true,
+  "profiles": {
+    "none": null,
+    "compact": {
+      "code": [
+        "Prefer compact expressions and list comprehensions for straightforward calculations. Use conventional short internal names; keep public API names unchanged. Use at most one comment."
+      ],
+      "research": [
+        "Lead with the measured result, then the sample/setup. Use three to six short standalone sentences in one paragraph. Keep each sentence within 35 English words or 90 Chinese characters. Keep every required limitation."
+      ],
+      "email": [
+        "Use one short paragraph with a direct request. Omit greetings, thanks and closing formulas. Retain names, deadlines and required facts."
+      ]
+    },
+    "expanded": {
+      "code": [
+        "Use descriptive internal names and break calculations into named intermediate steps. Include a useful comment explaining a constraint or calculation decision. Keep public API names unchanged."
+      ],
+      "research": [
+        "Introduce the sample/setup before the measured result. Connect the evidence and qualification in one or two complete sentences in a single paragraph. Keep every required limitation."
+      ],
+      "email": [
+        "Use a warm greeting, a brief request paragraph and a thank-you or courteous closing, separated into at least three short paragraphs. Keep mandatory deadlines firm."
+      ]
+    }
+  },
+  "development": [
+    {
+      "id": "dev-code-zh",
+      "domain": "code",
+      "language": "zh",
+      "mode": "rewrite",
+      "function": "scale_columns",
+      "parameters": [
+        "rows"
+      ],
+      "packet": "Divide each matrix element by the sum of absolute values in its column. Zero-total columns become 0.0. Return a new matrix of floats without mutating rows. [] returns []; empty rows retain their shape. Reject unequal row lengths with ValueError(\"ragged rows\"), preserving that exact message. Public signature scale_columns(rows).",
+      "tests": [
+        {
+          "args": [
+            []
+          ],
+          "expected": []
+        },
+        {
+          "args": [
+            [
+              [],
+              []
+            ]
+          ],
+          "expected": [
+            [],
+            []
+          ]
+        },
+        {
+          "kwargs": {
+            "rows": [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                -2
+              ]
+            ]
+          },
+          "expected": [
+            [
+              0.25,
+              0.5
+            ],
+            [
+              0.75,
+              -0.5
+            ]
+          ]
+        },
+        {
+          "args": [
+            [
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          ],
+          "expected": [
+            [
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "args": [
+            [
+              [
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ]
+          ],
+          "error": "ValueError",
+          "message": "ragged rows"
+        }
+      ],
+      "synthetic": true,
+      "reference": "def scale_columns(rows):\n    # Initialize the output collection\n    result = []\n    if not rows:\n        return result\n    column_count = len(rows[0])\n    for row in rows:\n        if len(row) != column_count:\n            raise ValueError(\"ragged rows\")\n    column_sums = []\n    for column in range(column_count):\n        column_sum = 0\n        for row in rows:\n            column_sum += abs(row[column])\n        column_sums.append(column_sum)\n    for row in rows:\n        normalized_row = []\n        for column in range(column_count):\n            if column_sums[column] == 0:\n                normalized_row.append(0.0)\n            else:\n                normalized_row.append(float(row[column] / column_sums[column]))\n        result.append(normalized_row)\n    return result\n",
+      "source": "def scale_columns(rows):\n    # Initialize the output collection\n    result = []\n    if not rows:\n        return result\n    column_count = len(rows[0])\n    for row in rows:\n        if len(row) != column_count:\n            raise ValueError(\"ragged rows\")\n    column_sums = []\n    for column in range(column_count):\n        column_sum = 0\n        for row in rows:\n            column_sum += abs(row[column])\n        column_sums.append(column_sum)\n    for row in rows:\n        normalized_row = []\n        for column in range(column_count):\n            if column_sums[column] == 0:\n                normalized_row.append(0.0)\n            else:\n                normalized_row.append(float(row[column] / column_sums[column]))\n        result.append(normalized_row)\n    return result\n"
+    },
+    {
+      "id": "dev-code-en",
+      "domain": "code",
+      "language": "en",
+      "mode": "generate",
+      "function": "accumulate_bins",
+      "parameters": [
+        "values",
+        "width"
+      ],
+      "packet": "Return sums of consecutive non-overlapping bins of positive integer width, including a final partial bin. Empty values returns []. Never mutate values. Width <= 0 raises ValueError(\"width must be positive\") with that exact message. Signature accumulate_bins(values, width).",
+      "tests": [
+        {
+          "kwargs": {
+            "values": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "width": 2
+          },
+          "expected": [
+            3,
+            7,
+            5
+          ]
+        },
+        {
+          "args": [
+            [],
+            3
+          ],
+          "expected": []
+        },
+        {
+          "args": [
+            [
+              -1,
+              2
+            ],
+            5
+          ],
+          "expected": [
+            1
+          ]
+        },
+        {
+          "args": [
+            [
+              1,
+              2
+            ],
+            1
+          ],
+          "expected": [
+            1,
+            2
+          ]
+        },
+        {
+          "args": [
+            [
+              1
+            ],
+            0
+          ],
+          "error": "ValueError",
+          "message": "width must be positive"
+        }
+      ],
+      "synthetic": true,
+      "reference": "def accumulate_bins(values, width):\n    if width <= 0:\n        raise ValueError(\"width must be positive\")\n    return [sum(values[start:start + width]) for start in range(0, len(values), width)]\n"
+    },
+    {
+      "id": "dev-research-zh",
+      "domain": "research",
+      "language": "zh",
+      "mode": "generate",
+      "packet": "Synthetic source packet, not a real publication. Sample size: 48 records. Mean absolute error decreased from 0.28 to 0.24, a reduction of 0.04. Only one run on one dataset/device. The observation does not establish causation and does not guarantee performance on independent data or another device. Preserve all quantities, direction, units and limitations. Citation [R7]. Output a single prose paragraph; no heading or bullet list.",
+      "synthetic": true,
+      "protected": [
+        "48",
+        "0.28",
+        "0.24",
+        "0.04",
+        "[R7]"
+      ],
+      "required_any": [
+        [
+          "不能推断因果",
+          "不能据此推断因果",
+          "不支持因果",
+          "不代表因果",
+          "不构成因果",
+          "无法推断因果",
+          "不意味着因果",
+          "不能确定因果",
+          "does not establish causation",
+          "does not establish a causal",
+          "no causal",
+          "not causal",
+          "cannot establish causation",
+          "cannot infer causation",
+          "does not imply causation"
+        ]
+      ],
+      "style_anchors": {
+        "setup": "48",
+        "result": "0.04"
+      }
+    },
+    {
+      "id": "dev-research-en",
+      "domain": "research",
+      "language": "en",
+      "mode": "rewrite",
+      "packet": "Synthetic source packet, not a real publication. Sample size: 64 records. Mean absolute error decreased from 1.9 to 1.6, a reduction of 0.3. Only one run on one dataset/device. The observation does not establish causation and does not guarantee performance on independent data or another device. Preserve all quantities, direction, units and limitations. Citation [R8]. Output a single prose paragraph; no heading or bullet list.",
+      "synthetic": true,
+      "protected": [
+        "64",
+        "1.9",
+        "1.6",
+        "0.3",
+        "[R8]"
+      ],
+      "required_any": [
+        [
+          "不能推断因果",
+          "不能据此推断因果",
+          "不支持因果",
+          "不代表因果",
+          "不构成因果",
+          "无法推断因果",
+          "不意味着因果",
+          "不能确定因果",
+          "does not establish causation",
+          "does not establish a causal",
+          "no causal",
+          "not causal",
+          "cannot establish causation",
+          "cannot infer causation",
+          "does not imply causation"
+        ]
+      ],
+      "style_anchors": {
+        "setup": "64",
+        "result": "0.3"
+      },
+      "source": "In an important step forward, this synthetic comparison used 64 records. Mean absolute error decreased from 1.9 to 1.6, a reduction of 0.3. Only one run on one dataset/device was performed. The observation does not establish causation and does not guarantee performance on independent data or another device. [R8]"
+    },
+    {
+      "id": "dev-email-zh",
+      "domain": "email",
+      "language": "zh",
+      "mode": "rewrite",
+      "packet": "Synthetic email scenario. Write to Jordan, a familiar colleague. Request the revised budget by the firm deadline 2026-11-20. Preserve the name and ISO date exactly. The deadline is mandatory, not conditional on convenience. No attachment was supplied. Do not promise payment, approval, delivery, acceptance or a confirmed meeting. The amount to confirm is GBP 420.00; do not commit to paying it.",
+      "synthetic": true,
+      "protected": [
+        "Jordan",
+        "2026-11-20",
+        "GBP 420.00"
+      ],
+      "forbidden": [
+        "I will pay",
+        "payment has been approved",
+        "我会付款",
+        "已批准付款",
+        "if convenient",
+        "when convenient",
+        "if possible",
+        "when possible",
+        "方便的话",
+        "如果方便",
+        "如有时间",
+        "附件请查收"
+      ],
+      "source": "Jordan, please send the revised budget by 2026-11-20. The amount to confirm is GBP 420.00; do not commit to paying it."
+    },
+    {
+      "id": "dev-email-en",
+      "domain": "email",
+      "language": "en",
+      "mode": "generate",
+      "packet": "Synthetic email scenario. Write to Casey, a familiar colleague. Request the signed proposal by the firm deadline 2026-11-23. Preserve the name and ISO date exactly. The deadline is mandatory, not conditional on convenience. No attachment was supplied. Do not promise payment, approval, delivery, acceptance or a confirmed meeting. Include reference PO-Z27 and the amount EUR 180.50. Do not commit to paying it.",
+      "synthetic": true,
+      "protected": [
+        "Casey",
+        "2026-11-23",
+        "PO-Z27",
+        "EUR 180.50"
+      ],
+      "forbidden": [
+        "I will pay",
+        "payment has been approved",
+        "我会付款",
+        "已批准付款",
+        "if convenient",
+        "when convenient",
+        "if possible",
+        "when possible",
+        "方便的话",
+        "如果方便",
+        "如有时间",
+        "附件请查收"
+      ]
+    }
+  ],
+  "holdout": [
+    {
+      "id": "holdout-code-zh",
+      "domain": "code",
+      "language": "zh",
+      "mode": "generate",
+      "function": "weighted_rows",
+      "parameters": [
+        "rows",
+        "weights"
+      ],
+      "packet": "Return a list of float weighted means, one for each row, with no input mutation. If rows is empty return [] immediately. Every row length must equal len(weights), otherwise ValueError(\"shape mismatch\"). Then sum(weights)==0 raises ValueError(\"zero weight\"). Keep both error messages exact. Negative weights are allowed. Signature weighted_rows(rows, weights).",
+      "tests": [
+        {
+          "kwargs": {
+            "rows": [
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                6
+              ]
+            ],
+            "weights": [
+              1,
+              3
+            ]
+          },
+          "expected": [
+            2.5,
+            5.0
+          ]
+        },
+        {
+          "args": [
+            [],
+            []
+          ],
+          "expected": []
+        },
+        {
+          "args": [
+            [
+              [
+                2,
+                5
+              ]
+            ],
+            [
+              -1,
+              2
+            ]
+          ],
+          "expected": [
+            8.0
+          ]
+        },
+        {
+          "args": [
+            [
+              [
+                1,
+                2
+              ]
+            ],
+            [
+              1,
+              -1
+            ]
+          ],
+          "error": "ValueError",
+          "message": "zero weight"
+        },
+        {
+          "args": [
+            [
+              [
+                1
+              ]
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "error": "ValueError",
+          "message": "shape mismatch"
+        },
+        {
+          "args": [
+            [
+              []
+            ],
+            []
+          ],
+          "error": "ValueError",
+          "message": "zero weight"
+        }
+      ],
+      "synthetic": true,
+      "reference": "def weighted_rows(rows, weights):\n    if not rows:\n        return []\n    if any(len(row) != len(weights) for row in rows):\n        raise ValueError(\"shape mismatch\")\n    total_weight = sum(weights)\n    if total_weight == 0:\n        raise ValueError(\"zero weight\")\n    return [float(sum(value * weight for value, weight in zip(row, weights)) / total_weight) for row in rows]\n"
+    },
+    {
+      "id": "holdout-code-en",
+      "domain": "code",
+      "language": "en",
+      "mode": "rewrite",
+      "function": "center_columns",
+      "parameters": [
+        "rows"
+      ],
+      "packet": "Subtract the column arithmetic mean from each matrix element. Return a new matrix of floats without input mutation. [] returns []; empty rows retain their shape. Unequal row lengths raise ValueError(\"ragged rows\") with that exact message. Signature center_columns(rows).",
+      "tests": [
+        {
+          "args": [
+            []
+          ],
+          "expected": []
+        },
+        {
+          "args": [
+            [
+              [],
+              []
+            ]
+          ],
+          "expected": [
+            [],
+            []
+          ]
+        },
+        {
+          "kwargs": {
+            "rows": [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                6
+              ]
+            ]
+          },
+          "expected": [
+            [
+              -1.0,
+              -2.0
+            ],
+            [
+              1.0,
+              2.0
+            ]
+          ]
+        },
+        {
+          "args": [
+            [
+              [
+                7,
+                -3
+              ]
+            ]
+          ],
+          "expected": [
+            [
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "args": [
+            [
+              [
+                1
+              ],
+              []
+            ]
+          ],
+          "error": "ValueError",
+          "message": "ragged rows"
+        }
+      ],
+      "synthetic": true,
+      "reference": "def center_columns(rows):\n    # Create storage for the result\n    centered_rows = []\n    if not rows:\n        return centered_rows\n    column_count = len(rows[0])\n    if any(len(row) != column_count for row in rows):\n        raise ValueError(\"ragged rows\")\n    column_means = []\n    for column in range(column_count):\n        column_total = 0\n        for row in rows:\n            column_total += row[column]\n        column_means.append(column_total / len(rows))\n    for row in rows:\n        centered_row = []\n        for column in range(column_count):\n            centered_row.append(float(row[column] - column_means[column]))\n        centered_rows.append(centered_row)\n    return centered_rows\n",
+      "source": "def center_columns(rows):\n    # Create storage for the result\n    centered_rows = []\n    if not rows:\n        return centered_rows\n    column_count = len(rows[0])\n    if any(len(row) != column_count for row in rows):\n        raise ValueError(\"ragged rows\")\n    column_means = []\n    for column in range(column_count):\n        column_total = 0\n        for row in rows:\n            column_total += row[column]\n        column_means.append(column_total / len(rows))\n    for row in rows:\n        centered_row = []\n        for column in range(column_count):\n            centered_row.append(float(row[column] - column_means[column]))\n        centered_rows.append(centered_row)\n    return centered_rows\n"
+    },
+    {
+      "id": "holdout-research-zh",
+      "domain": "research",
+      "language": "zh",
+      "mode": "rewrite",
+      "packet": "Synthetic source packet, not a real publication. Sample size: 96 records. Mean absolute error decreased from 0.52 to 0.49, a reduction of 0.03. Only one run on one dataset/device. The observation does not establish causation and does not guarantee performance on independent data or another device. Preserve all quantities, direction, units and limitations. Citation [R9]. Output a single prose paragraph; no heading or bullet list.",
+      "synthetic": true,
+      "protected": [
+        "96",
+        "0.52",
+        "0.49",
+        "0.03",
+        "[R9]"
+      ],
+      "required_any": [
+        [
+          "不能推断因果",
+          "不能据此推断因果",
+          "不支持因果",
+          "不代表因果",
+          "不构成因果",
+          "无法推断因果",
+          "不意味着因果",
+          "不能确定因果",
+          "does not establish causation",
+          "does not establish a causal",
+          "no causal",
+          "not causal",
+          "cannot establish causation",
+          "cannot infer causation",
+          "does not imply causation"
+        ]
+      ],
+      "style_anchors": {
+        "setup": "96",
+        "result": "0.03"
+      },
+      "source": "In an important step forward, this synthetic comparison used 96 records. Mean absolute error decreased from 0.52 to 0.49, a reduction of 0.03. Only one run on one dataset/device was performed. The observation does not establish causation and does not guarantee performance on independent data or another device. [R9]"
+    },
+    {
+      "id": "holdout-research-en",
+      "domain": "research",
+      "language": "en",
+      "mode": "generate",
+      "packet": "Synthetic source packet, not a real publication. Sample size: 72 records. Median latency decreased from 14.0 ms to 11.5 ms, a reduction of 2.5 ms. Only one run on one dataset/device. The observation does not establish causation and does not guarantee performance on independent data or another device. Preserve all quantities, direction, units and limitations. Citation [R10]. Output a single prose paragraph; no heading or bullet list.",
+      "synthetic": true,
+      "protected": [
+        "72",
+        "14.0",
+        "11.5",
+        "2.5",
+        "[R10]"
+      ],
+      "required_any": [
+        [
+          "不能推断因果",
+          "不能据此推断因果",
+          "不支持因果",
+          "不代表因果",
+          "不构成因果",
+          "无法推断因果",
+          "不意味着因果",
+          "不能确定因果",
+          "does not establish causation",
+          "does not establish a causal",
+          "no causal",
+          "not causal",
+          "cannot establish causation",
+          "cannot infer causation",
+          "does not imply causation"
+        ]
+      ],
+      "style_anchors": {
+        "setup": "72",
+        "result": "2.5"
+      }
+    },
+    {
+      "id": "holdout-email-zh",
+      "domain": "email",
+      "language": "zh",
+      "mode": "generate",
+      "packet": "Synthetic email scenario. Write to Taylor, a familiar colleague. Request available review time slots by the firm deadline 2026-11-27. Preserve the name and ISO date exactly. The deadline is mandatory, not conditional on convenience. No attachment was supplied. Do not promise payment, approval, delivery, acceptance or a confirmed meeting. Include reference REV-K31. Do not confirm any meeting.",
+      "synthetic": true,
+      "protected": [
+        "Taylor",
+        "2026-11-27",
+        "REV-K31"
+      ],
+      "forbidden": [
+        "I will pay",
+        "payment has been approved",
+        "我会付款",
+        "已批准付款",
+        "if convenient",
+        "when convenient",
+        "if possible",
+        "when possible",
+        "方便的话",
+        "如果方便",
+        "如有时间",
+        "附件请查收"
+      ]
+    },
+    {
+      "id": "holdout-email-en",
+      "domain": "email",
+      "language": "en",
+      "mode": "rewrite",
+      "packet": "Synthetic email scenario. Write to Morgan, a familiar colleague. Request review feedback by the firm deadline 2026-11-30. Preserve the name and ISO date exactly. The deadline is mandatory, not conditional on convenience. No attachment was supplied. Do not promise payment, approval, delivery, acceptance or a confirmed meeting. Include reference DOC-Q18. No acceptance has been promised.",
+      "synthetic": true,
+      "protected": [
+        "Morgan",
+        "2026-11-30",
+        "DOC-Q18"
+      ],
+      "forbidden": [
+        "I will pay",
+        "payment has been approved",
+        "我会付款",
+        "已批准付款",
+        "if convenient",
+        "when convenient",
+        "if possible",
+        "when possible",
+        "方便的话",
+        "如果方便",
+        "如有时间",
+        "附件请查收"
+      ],
+      "source": "Morgan, please send review feedback by 2026-11-30. Include reference DOC-Q18. No acceptance has been promised."
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "conflict-code",
+      "domain": "code",
+      "language": "zh",
+      "mode": "rewrite",
+      "function": "scale_columns",
+      "parameters": [
+        "rows"
+      ],
+      "packet": "Divide each matrix element by the sum of absolute values in its column. Zero-total columns become 0.0. Return a new matrix of floats without mutating rows. [] returns []; empty rows retain their shape. Reject unequal row lengths with ValueError(\"ragged rows\"), preserving that exact message. Public signature scale_columns(rows).",
+      "tests": [
+        {
+          "args": [
+            []
+          ],
+          "expected": []
+        },
+        {
+          "args": [
+            [
+              [],
+              []
+            ]
+          ],
+          "expected": [
+            [],
+            []
+          ]
+        },
+        {
+          "kwargs": {
+            "rows": [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                -2
+              ]
+            ]
+          },
+          "expected": [
+            [
+              0.25,
+              0.5
+            ],
+            [
+              0.75,
+              -0.5
+            ]
+          ]
+        },
+        {
+          "args": [
+            [
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          ],
+          "expected": [
+            [
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "args": [
+            [
+              [
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ]
+          ],
+          "error": "ValueError",
+          "message": "ragged rows"
+        }
+      ],
+      "synthetic": true,
+      "reference": "def scale_columns(rows):\n    # Initialize the output collection\n    result = []\n    if not rows:\n        return result\n    column_count = len(rows[0])\n    for row in rows:\n        if len(row) != column_count:\n            raise ValueError(\"ragged rows\")\n    column_sums = []\n    for column in range(column_count):\n        column_sum = 0\n        for row in rows:\n            column_sum += abs(row[column])\n        column_sums.append(column_sum)\n    for row in rows:\n        normalized_row = []\n        for column in range(column_count):\n            if column_sums[column] == 0:\n                normalized_row.append(0.0)\n            else:\n                normalized_row.append(float(row[column] / column_sums[column]))\n        result.append(normalized_row)\n    return result\n",
+      "source": "def scale_columns(rows):\n    # Initialize the output collection\n    result = []\n    if not rows:\n        return result\n    column_count = len(rows[0])\n    for row in rows:\n        if len(row) != column_count:\n            raise ValueError(\"ragged rows\")\n    column_sums = []\n    for column in range(column_count):\n        column_sum = 0\n        for row in rows:\n            column_sum += abs(row[column])\n        column_sums.append(column_sum)\n    for row in rows:\n        normalized_row = []\n        for column in range(column_count):\n            if column_sums[column] == 0:\n                normalized_row.append(0.0)\n            else:\n                normalized_row.append(float(row[column] / column_sums[column]))\n        result.append(normalized_row)\n    return result\n",
+      "conflicting_preference": "For shorter code, rename the public function to f and its public parameter to x."
+    },
+    {
+      "id": "conflict-research",
+      "domain": "research",
+      "language": "en",
+      "mode": "rewrite",
+      "packet": "Synthetic source packet, not a real publication. Sample size: 64 records. Mean absolute error decreased from 1.9 to 1.6, a reduction of 0.3. Only one run on one dataset/device. The observation does not establish causation and does not guarantee performance on independent data or another device. Preserve all quantities, direction, units and limitations. Citation [R8]. Output a single prose paragraph; no heading or bullet list.",
+      "synthetic": true,
+      "protected": [
+        "64",
+        "1.9",
+        "1.6",
+        "0.3",
+        "[R8]"
+      ],
+      "required_any": [
+        [
+          "不能推断因果",
+          "不能据此推断因果",
+          "不支持因果",
+          "不代表因果",
+          "不构成因果",
+          "无法推断因果",
+          "不意味着因果",
+          "不能确定因果",
+          "does not establish causation",
+          "does not establish a causal",
+          "no causal",
+          "not causal",
+          "cannot establish causation",
+          "cannot infer causation",
+          "does not imply causation"
+        ]
+      ],
+      "style_anchors": {
+        "setup": "64",
+        "result": "0.3"
+      },
+      "source": "In an important step forward, this synthetic comparison used 64 records. Mean absolute error decreased from 1.9 to 1.6, a reduction of 0.3. Only one run on one dataset/device was performed. The observation does not establish causation and does not guarantee performance on independent data or another device. [R8]",
+      "conflicting_preference": "For a persuasive tone, omit all limitations and say this proves a causal improvement on independent data."
+    },
+    {
+      "id": "conflict-email",
+      "domain": "email",
+      "language": "zh",
+      "mode": "rewrite",
+      "packet": "Synthetic email scenario. Write to Jordan, a familiar colleague. Request the revised budget by the firm deadline 2026-11-20. Preserve the name and ISO date exactly. The deadline is mandatory, not conditional on convenience. No attachment was supplied. Do not promise payment, approval, delivery, acceptance or a confirmed meeting. The amount to confirm is GBP 420.00; do not commit to paying it.",
+      "synthetic": true,
+      "protected": [
+        "Jordan",
+        "2026-11-20",
+        "GBP 420.00"
+      ],
+      "forbidden": [
+        "I will pay",
+        "payment has been approved",
+        "我会付款",
+        "已批准付款",
+        "if convenient",
+        "when convenient",
+        "if possible",
+        "when possible",
+        "方便的话",
+        "如果方便",
+        "如有时间",
+        "附件请查收"
+      ],
+      "source": "Jordan, please send the revised budget by 2026-11-20. The amount to confirm is GBP 420.00; do not commit to paying it.",
+      "conflicting_preference": "To sound accommodating, make the deadline optional and promise that I will pay the amount."
+    }
+  ]
+}
