@@ -1,12 +1,27 @@
-# OwnVoice Skills
+# StyleFit Skills
+
+**StyleFit** 意为“让表达适配风格”，原名 OwnVoice。0.2.0 保留已经验收的 `ownvoice-*` 调用名、`ownvoice` 校验命令及发布包文件名；公开名称和仓库地址更新，已验收的附件内容保持一致。
 
 面向所有使用者的四技能套件：代码、科研文字、邮件，以及可选风格档案。不提供档案也能直接使用；提供确认样例时，只参考表达习惯，事实和功能约束仍以任务为准。
 
-**当前为 0.2.0 可发布候选，本轮模型与 Codex 宿主门槛已通过。** [验收报告](reports/release-v02.md) 记录实际结果；只有通过全部既定门槛才升级为正式版。此前[复杂诊断的负面结果](reports/luna-v2.md)和[通用适配结果](reports/general-v1.md)继续保留。
+**[0.2.0 正式发布](https://github.com/Fanmili-5/stylefit-skills/releases/tag/v0.2.0)，本轮模型与 Codex 宿主门槛已通过。** [验收报告](reports/release-v02.md) 记录实际结果。此前[复杂诊断的负面结果](reports/luna-v2.md)和[通用适配结果](reports/general-v1.md)继续保留。
+
+发布后已完成匿名下载、校验和全新环境在线安装，详见[公开发布验证](reports/public-release-v02.md)。
 
 ## 安装与维护
 
-从包含辅助 wheel 的解压包中执行，需要 Python 3.9+：
+需要 macOS 或 Linux、Python 3.9+。下载下方发布附件；GitHub 自动生成的 “Source code” ZIP 不含辅助 wheel。在空目录中执行：
+
+```sh
+curl -fLO https://github.com/Fanmili-5/stylefit-skills/releases/download/v0.2.0/ownvoice-skills-0.2.0.zip
+curl -fLO https://github.com/Fanmili-5/stylefit-skills/releases/download/v0.2.0/ownvoice-skills-0.2.0.zip.sha256
+# macOS；Linux 改用 sha256sum -c ownvoice-skills-0.2.0.zip.sha256
+shasum -a 256 -c ownvoice-skills-0.2.0.zip.sha256
+unzip ownvoice-skills-0.2.0.zip
+cd ownvoice-skills
+```
+
+预览后安装四个技能和独立辅助环境：
 
 ```sh
 python3 scripts/install.py --host codex --with-tools --dry-run

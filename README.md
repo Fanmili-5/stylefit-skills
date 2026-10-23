@@ -1,14 +1,29 @@
-# OwnVoice Skills
+# StyleFit Skills
+
+StyleFit adapts code, research prose and email to the style required by each task, with explicit content and behavior checks. Formerly **OwnVoice**. Version 0.2.0 keeps the tested `ownvoice-*` skill names, `ownvoice` helper, package filenames and archive contents for compatibility. The public name and repository have changed; the accepted release bytes have not.
 
 The actual user installation and desktop-bundled backend checks are recorded separately in the [installation acceptance report](reports/user-install-v02.md). See the [0.2.0 release notes](docs/RELEASE_0.2.0.md) for scope and remaining validation.
 
 Four skills for code, research writing, email and optional style profiles. Work directly without a profile, or adapt expression from confirmed samples. Keep task content and interfaces separate from style.
 
-**0.2.0 publish-ready candidate.** The declared model and native Codex gates passed; actual results are recorded in [the 0.2 report](reports/release-v02.md). A candidate is promoted only when every declared gate passes. Historical negative results remain available: [0.1 complex diagnostic](reports/luna-v2.md), [general-use diagnostic](reports/general-v1.md).
+**[0.2.0 release](https://github.com/Fanmili-5/stylefit-skills/releases/tag/v0.2.0).** The declared model and native Codex gates passed; actual results are recorded in [the 0.2 report](reports/release-v02.md). Historical negative results remain available: [0.1 complex diagnostic](reports/luna-v2.md), [general-use diagnostic](reports/general-v1.md).
+
+Anonymous downloads and a fresh online install were verified after publication; see the [public release verification](reports/public-release-v02.md).
 
 ## Install
 
-Python 3.9+ is required for executable checks. From an extracted candidate containing the helper wheel:
+Use Python 3.9+ on macOS or Linux. Download the **release asset** below; GitHub's automatic “Source code” ZIP does not include the helper wheel. Run these commands in an empty directory:
+
+```sh
+curl -fLO https://github.com/Fanmili-5/stylefit-skills/releases/download/v0.2.0/ownvoice-skills-0.2.0.zip
+curl -fLO https://github.com/Fanmili-5/stylefit-skills/releases/download/v0.2.0/ownvoice-skills-0.2.0.zip.sha256
+# macOS; on Linux use: sha256sum -c ownvoice-skills-0.2.0.zip.sha256
+shasum -a 256 -c ownvoice-skills-0.2.0.zip.sha256
+unzip ownvoice-skills-0.2.0.zip
+cd ownvoice-skills
+```
+
+Preview and install all four skills plus the isolated helper:
 
 ```sh
 python3 scripts/install.py --host codex --with-tools --dry-run

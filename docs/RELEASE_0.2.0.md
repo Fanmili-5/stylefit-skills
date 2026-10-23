@@ -1,4 +1,6 @@
-# OwnVoice 0.2.0 release candidate
+# StyleFit 0.2.0
+
+Published as **StyleFit Skills**, formerly OwnVoice. The v0.2.0 tag and release assets retain the exact accepted commit `5a9a5db25364ccdd1d6980be03f8d7cfe7760211` and original filenames. Current repository documentation explains the new name; compatibility identifiers remain `ownvoice-*` / `ownvoice`.
 
 OwnVoice provides four Codex skills for Python code, Chinese/English research prose, email drafts, and optional style profiles. Ordinary tasks need no profile. Samples inform expression; supplied facts, interfaces and responsibilities remain the contract.
 

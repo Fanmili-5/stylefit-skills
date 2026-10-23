@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "repository_url": "https://github.com/Fanmili-5/stylefit-skills",
+  "repository_public": true,
+  "release_url": "https://github.com/Fanmili-5/stylefit-skills/releases/tag/v0.2.0",
+  "release_published_at": "2026-10-23T11:52:22Z",
+  "source_commit": "5a9a5db25364ccdd1d6980be03f8d7cfe7760211",
+  "anonymous_requests": true,
+  "github_credentials_used": false,
+  "assets": [
+    {
+      "name": "ownvoice-skills-0.2.0-manifest.json",
+      "bytes": 1830,
+      "sha256": "22259908fd33c75b4f0b5718aeb9f02438ff0540dc1d69d55af3cc70ea104d02",
+      "anonymous_download_passed": true
+    },
+    {
+      "name": "ownvoice-skills-0.2.0-source.bundle",
+      "bytes": 254789,
+      "sha256": "a34bb52fb520904f408075005e2b19798acbfef0281874c89065e32d93ea3eb5",
+      "anonymous_download_passed": true
+    },
+    {
+      "name": "ownvoice-skills-0.2.0.zip",
+      "bytes": 289758,
+      "sha256": "2c0abf855f50641d194df78e0b372bfd43ee6a2e5d93a81fc3472d89d180bac0",
+      "anonymous_download_passed": true
+    },
+    {
+      "name": "ownvoice-skills-0.2.0.zip.sha256",
+      "bytes": 92,
+      "sha256": "60550c779f54e2fe0802406a2c2e5aa684e4fb269d7e3bd4fa73919dfbe97e95",
+      "anonymous_download_passed": true
+    },
+    {
+      "name": "ownvoice_skills-0.2.0-py3-none-any.whl",
+      "bytes": 13053,
+      "sha256": "4519fd3efdc6494e1945a782cfe49407492bd7394e1126fc334679f965175a78",
+      "anonymous_download_passed": true
+    },
+    {
+      "name": "SHA256SUMS",
+      "bytes": 500,
+      "sha256": "7f760bcf498488777ca8748afdb8e845b165ff63e58c23b561c07c58c1db8942",
+      "anonymous_download_passed": true
+    }
+  ],
+  "sha256sums_passed": true,
+  "archive_manifest_files": 130,
+  "fresh_online_install": true,
+  "dependency_source": "https://pypi.org/simple; pip config disabled, cache disabled, no local wheelhouse",
+  "installed_versions": {
+    "ownvoice-skills": "0.2.0",
+    "jsonschema": "4.25.1",
+    "attrs": "26.1.0",
+    "jsonschema-specifications": "2025.9.1",
+    "referencing": "0.36.2",
+    "rpds-py": "0.27.1",
+    "typing-extensions": "4.16.0"
+  },
+  "four_skill_payloads_match": true,
+  "positive_verifier_passed": true,
+  "negative_verifier_rejected": true,
+  "uninstall_passed": true,
+  "distribution_checks_passed": 11,
+  "software_tests_passed": 54,
+  "model_calls_added": 0,
+  "limits": [
+    "Single local macOS host for this anonymous path; prior Linux/macOS CI is reported separately.",
+    "No independent external-user session or Claude host invocation was tested."
+  ],
+  "checked_at": "2026-10-23T11:55:48.799448+00:00",
+  "compatibility": {
+    "public_name": "StyleFit Skills",
+    "previous_name": "OwnVoice",
+    "identifiers": "ownvoice-* skills and ownvoice helper retained",
+    "release_assets_unchanged": true,
+    "documentation_only_followup": true
+  }
+}
